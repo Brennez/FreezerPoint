@@ -1,0 +1,97 @@
+[
+  {
+    "autor": "J.K Howlling",
+    "categoria": "Livro",
+    "edicao": "2002",
+    "genero": "Ficção",
+    "nome": "Harry Potter",
+    "sinopse": "É um livro de bruxo"
+  },
+
+  {
+    "autor": "John Green",
+    "categoria": "Livro",
+    "edicao": "2005",
+    "genero": "Romance",
+    "nome": "Quem É Você?",
+    "sinopse": "À procura de um Grande Talvez..."
+  },
+
+  {
+    "autor": " Dan Brown",
+    "categoria": "Livro",
+    "edicao": "2003",
+    "genero": "Suspense",
+    "nome": "O Código",
+    "sinopse": "Um assassinato no museu do Louvre em Paris e pistas enigmáticas em alguns dos quadros mais famosos de Leonardo DaVinci levam à descoberta de um mistério religioso. "
+  },
+
+  {
+    "autor": "  Alves Calado",
+    "categoria": "Livro",
+    "edicao": "2006",
+    "genero": "Crônicas",
+    "nome": "O senhor dos anéis",
+    "sinopse": "Após anos lutando para recuperar a fortaleza que era sua por direito, Uhtred retornou à Nortúmbria e a tomou de seu tio traiçoeiro. Agora, com seus guerreiros leais e uma nova companheira, a fortaleza de Bebbanburg parece em segurança."
+  },
+
+  {
+    "autor": "  Alves Falante",
+    "categoria": "Livro",
+    "edicao": "2006",
+    "genero": "Crônicas",
+    "nome": "Anéis",
+    "sinopse": "Após anos lutando para recuperar a fortaleza que era sua  Nortúmbria e a tomou de seu tio traiçoeiro."
+  },
+
+  {
+    "autor": "E.L James",
+    "categoria": "Livro",
+    "edicao": "2012",
+    "genero": "Romance",
+    "nome": "Cinquenta",
+    "sinopse": "Quando Anastasia Steele entrevista o jovem empresário Christian Grey, descobre nele um homem atraente, brilhante e profundamente dominador."
+  },
+
+  {
+    "autor": "Markus Zusak ",
+    "categoria": "Livro",
+    "edicao": "2007",
+    "genero": "Romance",
+    "nome": "O gatuno",
+    "sinopse": "A trajetória de Liesel Meminger é contada por uma narradora mórbida, surpreendentemente simpática. Ao perceber que a pequena ladra de livros lhe escapa, a Morte afeiçoa-se à menina e rastreia suas pegadas de 1939 a 1943."
+  },
+
+  {
+    "autor": " Mauricio de Sousa",
+    "categoria": "Revista",
+    "edicao": "2021",
+    "genero": "Comedia",
+    "nome": "Turma da Mônica",
+    "sinopse": "As aventuras de Mônica e sua turma!"
+  },
+  {
+    "autor": " Mauricio de Sousa",
+    "categoria": "Revista",
+    "edicao": "2021",
+    "genero": "Comedia",
+    "nome": "Turma da Mônica",
+    "sinopse": "As aventuras de Mônica e sua turma!"
+  },
+  {
+    "autor": " Mauricio de Sousa",
+    "categoria": "Revista",
+    "edicao": "2021",
+    "genero": "Comedia",
+    "nome": "Turma da Mônica",
+    "sinopse": "As aventuras de Mônica e sua turma!"
+  },
+  {
+    "autor": " Mauricio de Sousa",
+    "categoria": "Revista",
+    "edicao": "2021",
+    "genero": "Comedia",
+    "nome": "Turma da Mônica",
+    "sinopse": "As aventuras de Mônica e sua turma!"
+  }
+]
