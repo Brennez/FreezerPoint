@@ -1,6 +1,6 @@
 # FreezerPoint
 
-Projeto criado na matéria de programação III - Bloco 4 - Ciência da Computação
+Projeto criado na matéria de programação III e continuado na discpiplina de Engenharia de software- Bloco 4 - Ciência da Computação
 
 #Projeto
 
