@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from 'react'
 import {
   Header,
   Body,
@@ -6,45 +6,45 @@ import {
   Container,
   ContentBook,
   Direction,
-  About,
-} from "./styles";
+  About
+} from './styles'
 
-import exit from "../../Assets/exit.svg";
-import logo from "../../Assets/logoPurple.svg";
-import home from "../../Assets/homeImage.svg";
-import book from "../../Assets/item1.svg";
-import icon from "../../Assets/icon.svg";
-import left from "../../Assets/left.png";
-import right from "../../Assets/right.png";
-import git from "../../Assets/github.png";
-import api from "../../services/api";
-import { useContextAutenticacao } from "../../context/autenticacao";
+import exit from '../../Assets/exit.svg'
+import logo from '../../Assets/logoPurple.svg'
+import home from '../../Assets/homeImage.svg'
+import book from '../../Assets/item1.svg'
+import icon from '../../Assets/icon.svg'
+import left from '../../Assets/left.png'
+import right from '../../Assets/right.png'
+import git from '../../Assets/github.png'
+import api from '../../services/api'
+import { useContextAutenticacao } from '../../context/autenticacao'
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 function Home() {
-  const { logoff } = useContextAutenticacao();
-  const [data, setData] = useState([]);
-  const referencia = useRef(null);
+  const { logoff } = useContextAutenticacao()
+  const [data, setData] = useState([])
+  const referencia = useRef(null)
 
   useEffect(async () => {
-    console.log("teste");
-    const response = await api.get("/getLivro");
-    console.log(response.data);
-    setData(response.data);
-  }, []);
+    console.log('teste')
+    const response = await api.get('/getLivro')
+    console.log(response.data)
+    setData(response.data)
+  }, [])
 
-  const handleLeftClick = (e) => {
-    e.preventDefault();
-    console.log(referencia.current.offsetWidth);
-    referencia.current.scrollLeft -= referencia.current.offsetWidth;
-  };
+  const handleLeftClick = e => {
+    e.preventDefault()
+    console.log(referencia.current.offsetWidth)
+    referencia.current.scrollLeft -= referencia.current.offsetWidth
+  }
 
-  const handleRightClick = (e) => {
-    e.preventDefault();
-    console.log(referencia.current.offsetWidth);
-    referencia.current.scrollLeft += referencia.current.offsetWidth;
-  };
+  const handleRightClick = e => {
+    e.preventDefault()
+    console.log(referencia.current.offsetWidth)
+    referencia.current.scrollLeft += referencia.current.offsetWidth
+  }
 
   //teste
   if (!data)
@@ -52,7 +52,7 @@ function Home() {
       <div>
         <h2>Sem livros por enquanto</h2>
       </div>
-    );
+    )
 
   return (
     <>
@@ -75,7 +75,7 @@ function Home() {
           </li>
           <li>
             <Link to="/perfil">
-              {" "}
+              {' '}
               <a> Perfil</a>
             </Link>
           </li>
@@ -107,35 +107,35 @@ function Home() {
           <h2>Livros disponíveis</h2>
           <ul className="elementos">
             <li>
-              {" "}
+              {' '}
               <a href="#"> Ficcão</a>
             </li>
             <li>
-              {" "}
+              {' '}
               <a href="#"> Romance</a>
             </li>
             <li>
-              {" "}
+              {' '}
               <a href="#"> Drama</a>
             </li>
             <li>
-              {" "}
+              {' '}
               <a href="#"> Suspense</a>
             </li>
             <li>
-              {" "}
+              {' '}
               <a href="#"> Terror</a>
             </li>
             <li>
-              {" "}
+              {' '}
               <a href="#"> Fantasia</a>
             </li>
           </ul>
         </div>
 
         <ContentBook ref={referencia}>
-          {data.map((item) => {
-            const { autor, nome, categoria, genero, sinopse } = item;
+          {data.map(item => {
+            const { autor, nome, categoria, genero, sinopse } = item
             return (
               <div className="item">
                 <div className="conteudoItem">
@@ -151,19 +151,19 @@ function Home() {
                   </div>
                 </div>
               </div>
-            );
-          })}{" "}
+            )
+          })}{' '}
           {/* =========== FECHAMENTO DO MAP ============ */}
         </ContentBook>
       </Body>
       <Direction>
         <div className="container">
           <button onClick={handleLeftClick} className="right">
-            {" "}
+            {' '}
             <img src={left} alt="" />
           </button>
           <button onClick={handleRightClick} className="left">
-            {" "}
+            {' '}
             <img src={right} alt="" />
           </button>
         </div>
@@ -201,7 +201,7 @@ function Home() {
         </div>
       </Footer>
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home
