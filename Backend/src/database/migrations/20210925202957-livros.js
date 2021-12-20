@@ -31,6 +31,14 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      venda: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
+      preco: {
+        type: Sequelize.DOUBLE,
+        allowNull: true,
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,

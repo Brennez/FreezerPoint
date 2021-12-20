@@ -11,9 +11,11 @@ class UsuarioController {
       return res.status(400).json({ mensagem: 'Usuario já existe' });
     }
 
-    const { nome,telefone, email, senha, admin } = await Usuario.create(req.body);
-    console.log({ nome,telefone, email, senha, admin });
-    return res.json({ nome,telefone, email, senha, admin });
+    const { nome, telefone, email, senha, admin } = await Usuario.create(
+      req.body,
+    );
+    console.log({ nome, telefone, email, senha, admin });
+    return res.json({ nome, telefone, email, senha, admin });
   }
 
   async get(req, res, next) {
