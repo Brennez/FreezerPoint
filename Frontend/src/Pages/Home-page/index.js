@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
+import Button from '@mui/material/Button'
 import {
   Header,
   Body,
@@ -59,6 +60,10 @@ function Home() {
       <Header>
         <div class="logo">
           <img src={logo} alt="logo da empresa" />
+        </div>
+
+        <div>
+          <Button variant="contained"> Olá Mundo</Button>
         </div>
 
         <ul class="menu">
