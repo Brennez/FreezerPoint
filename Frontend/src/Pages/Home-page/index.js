@@ -19,6 +19,7 @@ import left from '../../Assets/left.png'
 import right from '../../Assets/right.png'
 import git from '../../Assets/github.png'
 import api from '../../services/api'
+import { StyledEngineProvider } from '@mui/material/styles';
 import { useContextAutenticacao } from '../../context/autenticacao'
 import MenuButton from '../../components/menuButton/MenuButton'
 import { MenuItem } from '@mui/material'
@@ -77,7 +78,9 @@ function Home() {
             </Link>
           </li>
           <li>
-            <MenuButton></MenuButton>
+            <StyledEngineProvider injectFirst>
+              <MenuButton />
+            </StyledEngineProvider>
           </li>
           <li>
             <a href="#sobre"> Sobre</a>
