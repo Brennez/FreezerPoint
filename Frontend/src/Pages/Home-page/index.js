@@ -20,6 +20,10 @@ import right from '../../Assets/right.png'
 import git from '../../Assets/github.png'
 import api from '../../services/api'
 import { useContextAutenticacao } from '../../context/autenticacao'
+import MenuButton from '../../components/menuButton/MenuButton'
+import { MenuItem } from '@mui/material'
+
+// ------------------------------------------------------------
 
 import { Link } from 'react-router-dom'
 
@@ -62,9 +66,9 @@ function Home() {
           <img src={logo} alt="logo da empresa" />
         </div>
 
-        <div>
+        {/* <div>
           <Button variant="contained"> Olá Mundo</Button>
-        </div>
+        </div> */}
 
         <ul class="menu">
           <li>
@@ -73,7 +77,7 @@ function Home() {
             </Link>
           </li>
           <li>
-            <Link to="/createLivro"> Cadastrar</Link>
+            <MenuButton></MenuButton>
           </li>
           <li>
             <a href="#sobre"> Sobre</a>
