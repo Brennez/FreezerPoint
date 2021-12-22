@@ -11,9 +11,11 @@ class UsuarioController {
       return res.status(400).json({ mensagem: 'Usuario já existe' });
     }
 
-    const { nome, email, senha, admin } = await Usuario.create(req.body);
-    console.log({ nome, email, senha, admin });
-    return res.json({ nome, email, senha, admin });
+    const { nome, telefone, email, senha, admin } = await Usuario.create(
+      req.body,
+    );
+    console.log({ nome, telefone, email, senha, admin });
+    return res.json({ nome, telefone, email, senha, admin });
   }
 
   async get(req, res, next) {
@@ -47,6 +49,7 @@ class UsuarioController {
     res.json({ id, nome, email });
   }
 
+  //Atualizar email
   async updateEmail(req, res) {
     const { novoEmail } = req.body;
 
@@ -82,6 +85,7 @@ class UsuarioController {
     res.json(user);
   }
 
+  // Deletar a conta
   async delete(req, res) {
     const { id } = req.body;
     const usuario = await Usuario.findByPk(id);

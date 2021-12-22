@@ -10,6 +10,8 @@ class Livro extends Model {
         genero: Sequelize.STRING,
         edicao: Sequelize.STRING,
         sinopse: Sequelize.STRING,
+        venda: Sequelize.BOOLEAN,
+        preco: Sequelize.DOUBLE,
       },
       {
         sequelize,
@@ -19,29 +21,3 @@ class Livro extends Model {
 }
 
 export default Livro;
-
-/*
-Livros:
-Anúncio de livros;
-    Nome;
-    ID;
-    Autor;
-    Unidades;
-    Edição;
-    Cliente (Que está anunciando);
-    Sinopse;
-    Imagem;
-    Condição (Usado, Novo, Semi-Novo);
-    Gênero;
-    Categoria (Venda,  Troca ou Doação);
-Listar Livros (Feed de livros disponíveis);
-Pesquisa de Livros;
-    Gênero;
-    Categoria;
-    Condição;
-    Autor;
-    Nome;
-Atualizar Dados Cadastrais de Livro (Apenas para anunciante) ;
-Excluir Livro;
-
-*/

@@ -31,6 +31,14 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      venda: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
+      preco: {
+        type: Sequelize.DOUBLE,
+        allowNull: true,
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,
@@ -41,6 +49,9 @@ module.exports = {
       },
     });
   },
+
+  // yarn sequelize db:migrate:undo  --> Desfaz uma migration
+  //yarn sequelize db:migrate:undo:all --> desfaz faz todas as migrations
 
   down: async (queryInterface) => {
     await queryInterface.dropTable('livros');

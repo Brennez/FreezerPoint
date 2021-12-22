@@ -11,6 +11,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      telefone: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       email: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -35,6 +39,9 @@ module.exports = {
       },
     });
   },
+
+  // yarn sequelize db:migrate:undo  --> Desfaz uma migration
+  //yarn sequelize db:migrate:undo:all --> desfaz faz todas as migrations
 
   down: async (queryInterface) => {
     await queryInterface.dropTable('usuarios');

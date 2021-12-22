@@ -2,14 +2,17 @@ import Livro from '../models/livro';
 
 class LivroController {
   async store(req, res) {
-    const { nome, autor, edicao, sinopse, genero, categoria } = req.body;
+    const { nome, autor, categoria, genero, edicao, sinopse, venda, preco } =
+      req.body;
     const livro = await Livro.create({
       nome,
       autor,
+      categoria,
+      genero,
       edicao,
       sinopse,
-      genero,
-      categoria,
+      venda,
+      preco,
     });
     res.json(livro);
   }
@@ -25,8 +28,8 @@ class LivroController {
     if (!livro) {
       res.status(404).json({ erro: 'Esse Livro nao existe' });
     } else {
-      const { nome, autor, edicao, sinopse, genero, categoria } = livro;
-      res.json({ nome, autor, edicao, sinopse, genero, categoria });
+      const { nome, autor, edicao, sinopse, genero, categoria, preco } = livro;
+      res.json({ nome, autor, edicao, sinopse, genero, categoria, preco });
     }
   }
 
