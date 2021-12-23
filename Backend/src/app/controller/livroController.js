@@ -2,7 +2,7 @@ import Livro from '../models/livro';
 
 class LivroController {
   async store(req, res) {
-    const { nome, autor, categoria, genero, edicao, sinopse, venda, preco } =
+    const { nome, autor, categoria, genero, edicao, sinopse, venda,troca,doacao, preco } =
       req.body;
     const livro = await Livro.create({
       nome,
@@ -12,6 +12,8 @@ class LivroController {
       edicao,
       sinopse,
       venda,
+      troca,
+      doacao,
       preco,
     });
     res.json(livro);

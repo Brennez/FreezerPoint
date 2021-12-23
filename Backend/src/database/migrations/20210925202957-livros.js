@@ -35,6 +35,14 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false,
       },
+      troca: {
+         type: Sequelize.BOOLEAN,
+         allowNull: false, 
+      },
+      doacao: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,   
+      },
       preco: {
         type: Sequelize.DOUBLE,
         allowNull: true,
