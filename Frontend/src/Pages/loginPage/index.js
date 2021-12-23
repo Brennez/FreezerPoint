@@ -1,34 +1,34 @@
-import React, { useRef, useState } from "react";
-import { Container, ContentForm, Image, Logo } from "./styles";
-import { Form } from "@unform/web";
-import logo from "../../Assets/logo.svg";
-import Input from "../../components/input";
-import * as Yup from "yup";
-import { useContextAutenticacao } from "../../context/autenticacao";
-import { Link, useHistory } from "react-router-dom";
+import React, { useRef, useState } from 'react'
+import { Container, ContentForm, Image, Logo } from './styles'
+import { Form } from '@unform/web'
+import logo from '../../assets/logo.svg'
+import Input from '../../components/input'
+import * as Yup from 'yup'
+import { useContextAutenticacao } from '../../context/autenticacao'
+import { Link, useHistory } from 'react-router-dom'
 
 function Register() {
-  const [loginErro, setLoginErro] = useState(" ");
-  const formularioReferencia = useRef(null);
-  const { login } = useContextAutenticacao();
-  const history = useHistory();
+  const [loginErro, setLoginErro] = useState(' ')
+  const formularioReferencia = useRef(null)
+  const { login } = useContextAutenticacao()
+  const history = useHistory()
 
-  const submeterFormulario = async (data) => {
-    console.log(data);
+  const submeterFormulario = async data => {
+    console.log(data)
 
     //Valida dos campos do formulário
     try {
       const esquema = Yup.object().shape({
         email: Yup.string()
-          .email("Email inválido")
-          .required("Você precisa digitar um email"),
+          .email('Email inválido')
+          .required('Você precisa digitar um email'),
         senha: Yup.string()
-          .min(6, "A senha precisa ter no mínimo 6 caracteres")
-          .required("Você precisa digitar uma senha"),
-      });
-      await esquema.validate(data, { abortEarly: false });
-      await login(data);
-      history.push("/Home");
+          .min(6, 'A senha precisa ter no mínimo 6 caracteres')
+          .required('Você precisa digitar uma senha')
+      })
+      await esquema.validate(data, { abortEarly: false })
+      await login(data)
+      history.push('/Home')
 
       //Faz a requisição da api e grava no banco de dados
       //ATENÇÃO
@@ -39,16 +39,16 @@ function Register() {
       // console.log(reponse.data);
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
-        const erros = {};
-        error.inner.forEach((e) => {
-          erros[e.path] = e.message;
-        });
-        console.log(erros);
-        formularioReferencia.current?.setErrors(erros);
+        const erros = {}
+        error.inner.forEach(e => {
+          erros[e.path] = e.message
+        })
+        console.log(erros)
+        formularioReferencia.current?.setErrors(erros)
       }
-      setLoginErro("Não foi possível realizar o login");
+      setLoginErro('Não foi possível realizar o login')
     }
-  };
+  }
   return (
     <Container>
       <Logo>
@@ -67,14 +67,14 @@ function Register() {
           {!!loginErro && <h2 className="erro">{loginErro}</h2>}
 
           <Link className="loginButton" to="/createUsuario">
-            {" "}
+            {' '}
             não possui uma conta? cadastre-se
           </Link>
         </Form>
       </ContentForm>
       <Image></Image>
     </Container>
-  );
+  )
 }
 
-export default Register;
+export default Register

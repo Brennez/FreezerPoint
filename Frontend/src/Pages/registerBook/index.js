@@ -1,34 +1,34 @@
-import React, { useRef } from "react";
-import { Container, ContentForm, Image, Header } from "./styles";
-import logo from "../../Assets/logo.svg";
-import { Form } from "@unform/web";
-import Input from "../../components/input";
-import api from "../../services/api";
-import left from "../../Assets/left.png";
-import { Link, useHistory } from "react-router-dom";
+import React, { useRef } from 'react'
+import { Container, ContentForm, Image, Header } from './styles'
+import logo from '../../assets/logo.svg'
+import { Form } from '@unform/web'
+import Input from '../../components/input'
+import api from '../../services/api'
+import left from '../../assets/left.png'
+import { Link, useHistory } from 'react-router-dom'
 
 function RegisterBook() {
-  const formularioReferencia = useRef(null);
-  const history = useHistory();
+  const formularioReferencia = useRef(null)
+  const history = useHistory()
 
-  const submeterFormulario = async (data) => {
-    const reponse = await api.post("createLivro", {
+  const submeterFormulario = async data => {
+    const reponse = await api.post('createLivro', {
       nome: data.nome,
       autor: data.autor,
       categoria: data.categoria,
       genero: data.genero,
       edicao: data.edicao,
-      sinopse: data.sinopse,
-    });
-    console.log(reponse.data);
-    history.push("/Home");
-  };
+      sinopse: data.sinopse
+    })
+    console.log(reponse.data)
+    history.push('/Home')
+  }
   return (
     <>
       <Header>
         <Link to="/Home">
-          {" "}
-          <img className="exitButton" size="20px" src={left} alt="" />{" "}
+          {' '}
+          <img className="exitButton" size="20px" src={left} alt="" />{' '}
         </Link>
         <img src={logo} alt="logo" />
       </Header>
@@ -60,7 +60,7 @@ function RegisterBook() {
         <Image> </Image>
       </Container>
     </>
-  );
+  )
 }
 
-export default RegisterBook;
+export default RegisterBook

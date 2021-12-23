@@ -1,8 +1,8 @@
-import React from "react";
-import GlobalStyle from "./Styles/global";
-import { AutenticacaoProvider } from "./context/autenticacao";
-import { BrowserRouter } from "react-router-dom";
-import Routes from "./Routes/index";
+import React from 'react'
+import GlobalStyle from './Styles/global'
+import { AutenticacaoProvider } from './context/autenticacao'
+import { BrowserRouter } from 'react-router-dom'
+import Routes from './routes/index'
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <RegisterBook /> */}
       </BrowserRouter>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

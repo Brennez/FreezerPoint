@@ -1,14 +1,14 @@
-import React from "react";
-import { Switch } from "react-router-dom";
-import Login from "../Pages/Login-page";
-import Register from "../Pages/Register-page";
-import Home from "../Pages/Home-page";
-import Book from "../Pages/Register-Book";
-import Profile from "../Pages/Profile-User";
-import ControleRotas from "./route";
-import Update from "../Pages/Update-nome";
-import UE from "../Pages/Update-Email";
-import US from "../Pages/Update-senha";
+import React from 'react'
+import { Switch } from 'react-router-dom'
+import Login from '../Pages/loginPage'
+import Register from '../Pages/registerPage'
+import Home from '../Pages/homePage'
+import Book from '../Pages/registerBook'
+import Profile from '../Pages/profileUser'
+import ControleRotas from './route'
+import Update from '../Pages/updateNome'
+import UE from '../Pages/updateEmail'
+import US from '../Pages/updateSenha'
 
 // import ControleDeRotas from "./route";
 
@@ -53,7 +53,7 @@ function Routes() {
         component={US}
       ></ControleRotas>
     </Switch>
-  );
+  )
 }
 
-export default Routes;
+export default Routes

@@ -1,18 +1,18 @@
-import styled from "styled-components";
-import image from "../../Assets/image.svg";
-import { shade } from "polished";
+import styled from 'styled-components'
+import image from '../../assets/image.svg'
+import { shade } from 'polished'
 
 export const Logo = styled.div`
   img {
     position: absolute;
   }
-`;
+`
 
 export const Container = styled.div`
   display: flex;
   height: 100vh;
   margin-left: 2rem;
-`;
+`
 
 export const ContentForm = styled.div`
   display: flex;
@@ -28,7 +28,7 @@ export const ContentForm = styled.div`
     display: grid;
     gap: 0.5rem;
     p {
-      font-family: "Nunito", sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 1rem;
       color: #444b59;
       margin-bottom: 4rem;
@@ -56,14 +56,14 @@ export const ContentForm = styled.div`
       } */
   }
   a {
-    font-family: "Nunito", sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 0.9rem;
     color: #444b59;
     text-align: center;
     margin-bottom: 1rem;
   }
   button {
-    font-family: "Nunito", sans-serif;
+    font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
     border-color: #9ba0fc;
     border: none;
@@ -76,7 +76,7 @@ export const ContentForm = styled.div`
   }
 
   button:hover {
-    background: ${shade(0.1, "#9ba0fc")};
+    background: ${shade(0.1, '#9ba0fc')};
   }
 
   .separator {
@@ -92,7 +92,7 @@ export const ContentForm = styled.div`
   }
 
   .sign-button {
-    font-family: "Nunito", sans-serif;
+    font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
     border-color: #9ba0fc;
     outline: none;
@@ -103,13 +103,13 @@ export const ContentForm = styled.div`
     transition: background 0.2s;
   }
   .sign-button:hover {
-    background: ${shade(0.1, "#9ba0fc")};
+    background: ${shade(0.1, '#9ba0fc')};
   }
-`;
+`
 
 export const Image = styled.div`
   background: url(${image}) no-repeat center;
   background-size: contain;
   width: 100vw;
   height: 100vh;
-`;
+`

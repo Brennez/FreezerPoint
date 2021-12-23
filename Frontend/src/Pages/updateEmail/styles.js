@@ -1,18 +1,18 @@
-import styled from "styled-components";
-import image from "../../Assets/image.svg";
-import { shade } from "polished";
+import styled from 'styled-components'
+import image from '../../assets/image.svg'
+import { shade } from 'polished'
 
 export const Logo = styled.div`
   .container {
     display: flex;
   }
-`;
+`
 
 export const Container = styled.div`
   display: flex;
   height: 100vh;
   margin-left: 2rem;
-`;
+`
 
 export const ContentForm = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ export const ContentForm = styled.div`
 
   h1 {
     margin-bottom: 1rem;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
     color: rgba(32, 32, 40, 0.8);
   }
@@ -39,7 +39,7 @@ export const ContentForm = styled.div`
   }
 
   .nome {
-    font-family: "Nunito", sans-serif;
+    font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
     border-color: #9ba0fc;
     margin-bottom: 1rem;
@@ -54,7 +54,7 @@ export const ContentForm = styled.div`
   }
 
   .email {
-    font-family: "Nunito", sans-serif;
+    font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
     border-color: #9ba0fc;
     border: none;
@@ -69,7 +69,7 @@ export const ContentForm = styled.div`
   }
 
   .senha {
-    font-family: "Nunito", sans-serif;
+    font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
     border-color: #9ba0fc;
     border: none;
@@ -89,7 +89,7 @@ export const ContentForm = styled.div`
   }
 
   #teste {
-    font-family: "Nunito", sans-serif;
+    font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
     border-color: #9ba0fc;
     margin-bottom: 1rem;
@@ -107,13 +107,13 @@ export const ContentForm = styled.div`
   }
 
   button:hover {
-    background: ${shade(0.1, "#9ba0fc")};
+    background: ${shade(0.1, '#9ba0fc')};
   }
-`;
+`
 
 export const Image = styled.div`
   background: url(${image}) no-repeat center;
   background-size: contain;
   width: 100vw;
   height: 100vh;
-`;
+`

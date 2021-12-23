@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import bookPage from "../../Assets/bookPage.svg";
+import bookPage from "../../assets/bookPage.svg";
 import { shade } from "polished";
 
 export const Header = styled.div`

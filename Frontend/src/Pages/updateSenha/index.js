@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Container, ContentForm, Image, Logo } from './styles'
-import logo from '../../Assets/logo.svg'
+import logo from '../../assets/logo.svg'
 import api from '../../services/api'
 import { Form } from '@unform/web'
 import * as Yup from 'yup'
 import Input from '../../components/input'
 import { Link } from 'react-router-dom'
-import left from '../../Assets/left.png'
+import left from '../../assets/left.png'
 
 function UpdateSenha() {
   const formularioReferencia = useRef(null)

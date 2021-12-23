@@ -10,19 +10,18 @@ import {
   About
 } from './styles'
 
-import exit from '../../Assets/exit.svg'
-import logo from '../../Assets/logoPurple.svg'
-import home from '../../Assets/homeImage.svg'
-import book from '../../Assets/item1.svg'
-import icon from '../../Assets/icon.svg'
-import left from '../../Assets/left.png'
-import right from '../../Assets/right.png'
-import git from '../../Assets/github.png'
+import exit from '../../assets/exit.svg'
+import logo from '../../assets/logoPurple.svg'
+import home from '../../assets/homeImage.svg'
+import book from '../../assets/item1.svg'
+import icon from '../../assets/icon.svg'
+import left from '../../assets/left.png'
+import right from '../../assets/right.png'
+import git from '../../assets/github.png'
 import api from '../../services/api'
-import { StyledEngineProvider } from '@mui/material/styles';
+import { StyledEngineProvider } from '@mui/material/styles'
 import { useContextAutenticacao } from '../../context/autenticacao'
 import MenuButton from '../../components/menuButton/MenuButton'
-import { MenuItem } from '@mui/material'
 
 // ------------------------------------------------------------
 

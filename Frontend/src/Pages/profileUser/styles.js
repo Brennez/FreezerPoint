@@ -1,18 +1,17 @@
-import styled from "styled-components";
-import image from "../../Assets/image.svg";
-import { shade } from "polished";
+import styled from 'styled-components'
+import image from '../../assets/image.svg'
 
 export const Logo = styled.div`
   .container {
     display: flex;
   }
-`;
+`
 
 export const Container = styled.div`
   display: flex;
   height: 100vh;
   margin-left: 2rem;
-`;
+`
 
 export const ContentForm = styled.div`
   display: flex;
@@ -24,7 +23,7 @@ export const ContentForm = styled.div`
 
   h1 {
     margin-bottom: 1rem;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
     color: rgba(32, 32, 40, 0.8);
   }
@@ -35,8 +34,12 @@ export const ContentForm = styled.div`
     margin-bottom: 0.5rem;
   }
 
+  .containerName {
+    display: flex;
+  }
+
   .nome {
-    font-family: "Nunito", sans-serif;
+    font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
     border-color: #9ba0fc;
     margin-bottom: 1rem;
@@ -50,8 +53,19 @@ export const ContentForm = styled.div`
     transition: background 0.2s;
   }
 
+  .containerName .icon {
+    margin-left: 0.5rem;
+  }
+
+  .containerEmail {
+    display: flex;
+  }
+
+  .containerEmail .icon {
+    margin-left: 0.5rem;
+  }
   .email {
-    font-family: "Nunito", sans-serif;
+    font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
     border-color: #9ba0fc;
     border: none;
@@ -65,8 +79,16 @@ export const ContentForm = styled.div`
     transition: background 0.2s;
   }
 
+  .containerSenha {
+    display: flex;
+  }
+
+  #tituloSenha {
+    margin-top: 1rem;
+  }
+
   .senha {
-    font-family: "Nunito", sans-serif;
+    font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
     border-color: #9ba0fc;
     border: none;
@@ -75,42 +97,30 @@ export const ContentForm = styled.div`
     color: white;
     padding: 0.5rem;
     padding-right: 50%;
+
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
     transition: background 0.2s;
   }
 
-  .contentButton {
+  .containerSenha .icon {
+    margin-left: 0.5rem;
+  }
+  .container .info {
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin-top: 2rem;
   }
 
-  #teste {
-    font-family: "Nunito", sans-serif;
-    border-radius: 5rem;
-    border-color: #9ba0fc;
-    margin-bottom: 1rem;
-    border: none;
-    outline: none;
-    background: #9ba0fc;
-    color: white;
-    padding: 0.5rem;
-    padding-right: 40%;
-    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
-    transition: background 0.2s;
-    .texto {
-      margin-left: 11rem;
-    }
+  .info {
+    margin-top: 5rem;
+    color: rgba(32, 32, 40, 0.8);
+    cursor: pointer;
   }
-
-  button:hover {
-    background: ${shade(0.1, "#9ba0fc")};
-  }
-`;
+`
 
 export const Image = styled.div`
   background: url(${image}) no-repeat center;
   background-size: contain;
   width: 100vw;
   height: 100vh;
-`;
+`

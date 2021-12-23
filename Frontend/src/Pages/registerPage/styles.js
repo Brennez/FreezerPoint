@@ -1,19 +1,19 @@
-import styled from "styled-components";
-import image from "../../Assets/image.svg";
-import { shade } from "polished";
+import styled from 'styled-components'
+import image from '../../assets/image.svg'
+import { shade } from 'polished'
 
 export const Logo = styled.div`
   img {
     position: absolute;
   }
-`;
+`
 // TODO: Colocar a logo
 
 export const Container = styled.div`
   display: flex;
   height: 100vh;
   margin-left: 2rem;
-`;
+`
 
 export const ContentForm = styled.div`
   display: flex;
@@ -64,7 +64,7 @@ export const ContentForm = styled.div`
     }
 
     button:hover {
-      background: ${shade(0.1, "#9ba0fc")};
+      background: ${shade(0.1, '#9ba0fc')};
     }
 
     .separator {
@@ -95,7 +95,7 @@ export const ContentForm = styled.div`
     }
 
     .loginButton:hover{
-      background: ${shade(0.1, "#9ba0fc")};
+      background: ${shade(0.1, '#9ba0fc')};
     }
     }
 
@@ -111,14 +111,14 @@ export const ContentForm = styled.div`
       transition: background 0.2s;
     }
     .sign-button:hover {
-      background: ${shade(0.1, "#9ba0fc")};
+      background: ${shade(0.1, '#9ba0fc')};
     }
   }
-`;
+`
 
 export const Image = styled.div`
   background: url(${image}) no-repeat center;
   background-size: contain;
   width: 100vw;
   height: 100vh;
-`;
+`

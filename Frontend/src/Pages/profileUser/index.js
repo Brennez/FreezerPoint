@@ -1,30 +1,30 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Container, ContentForm, Image, Logo } from "./styles";
-import logo from "../../Assets/logo.svg";
-import editor from "../../Assets/editor.svg";
-import left from "../../Assets/left.png";
-import api from "../../services/api";
-import { Header } from "../Register-Book/styles";
+import React, { useState, useEffect, useRef } from 'react'
+import { Container, ContentForm, Image, Logo } from './styles'
+import logo from '../../assets/logo.svg'
+import editor from '../../assets/editor.svg'
+import left from '../../assets/left.png'
+import api from '../../services/api'
+import { Header } from '../registerBook/styles'
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 function Profile() {
-  const [data, setData] = useState([]);
-  const referencia = useRef(null);
+  const [data, setData] = useState([])
+  const referencia = useRef(null)
 
   useEffect(async () => {
-    console.log("teste");
-    const response = await api.get("/buscaID");
-    setData(response.data);
-  }, []);
+    console.log('teste')
+    const response = await api.get('/buscaID')
+    setData(response.data)
+  }, [])
 
   return (
     <>
       <Logo>
         <div className="container">
           <Link to="/Home">
-            {" "}
-            <img className="exitButton" size="20px" src={left} alt="" />{" "}
+            {' '}
+            <img className="exitButton" size="20px" src={left} alt="" />{' '}
           </Link>
           <img src={logo} alt="icon" />
         </div>
@@ -60,7 +60,7 @@ function Profile() {
             <h2 id="tituloSenha">Senha</h2>
             <div className="containerSenha">
               <p className="senha" href="">
-                {" "}
+                {' '}
                 ********
               </p>
               <div className="icon">
@@ -76,7 +76,7 @@ function Profile() {
         <Image></Image>
       </Container>
     </>
-  );
+  )
 }
 
-export default Profile;
+export default Profile
