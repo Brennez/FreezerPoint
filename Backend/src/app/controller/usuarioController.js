@@ -81,6 +81,7 @@ class UsuarioController {
     }
 
     const user = await usuario.update({ senha: senhaNova });
+    console.log(user);
 
     res.json(user);
   }
@@ -92,17 +93,6 @@ class UsuarioController {
     usuario.destroy();
     res.json('Usuario Excluido');
   }
-
-  // async getNome(req, res) {
-  //   const { nome } = req.body;
-  //   const usuario = await Usuario.findAll().filter(nome);
-  //   if (usuario === null) {
-  //     res.json('Not found!');
-  //   } else {
-  //     res.json(usuario); // true
-  //     // Its primary key is 123
-  //   }
-  // }
 }
 
 export default new UsuarioController();
