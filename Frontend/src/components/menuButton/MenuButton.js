@@ -7,14 +7,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import SellIcon from '@mui/icons-material/Sell'
 import ChangeCircleIcon from '@mui/icons-material/ChangeCircle'
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism'
-import { createTheme } from '@mui/material/styles'
-import green from '@mui/material/colors/green'
+import { Link } from 'react-router-dom'
 
-const theme = createTheme({
-  palette: {
-    primary: green
-  }
-})
 const StyledMenu = styled(props => (
   <Menu
     elevation={0}
@@ -91,18 +85,24 @@ export default function CustomizedMenus() {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} disableRipple>
-          <SellIcon />
-          Venda
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          <ChangeCircleIcon />
-          Troca
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          <VolunteerActivismIcon />
-          Doação
-        </MenuItem>
+        <Link to="/#">
+          <MenuItem disableRipple>
+            <SellIcon />
+            Venda
+          </MenuItem>
+        </Link>
+        <Link to="/createLivro">
+          <MenuItem disableRipple>
+            <ChangeCircleIcon />
+            Troca
+          </MenuItem>
+        </Link>
+        <Link to="/createLivro">
+          <MenuItem disableRipple>
+            <VolunteerActivismIcon />
+            Doação
+          </MenuItem>
+        </Link>
       </StyledMenu>
     </div>
   )
