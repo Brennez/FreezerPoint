@@ -31,9 +31,9 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      imageUrl: {
+      imageurl: {
         type: Sequelize.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       venda: {
         type: Sequelize.BOOLEAN,

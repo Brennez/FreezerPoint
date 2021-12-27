@@ -1,14 +1,14 @@
 import React from 'react'
 import { Switch } from 'react-router-dom'
-import Login from '../Pages/loginPage'
-import Register from '../Pages/registerPage'
-import Home from '../Pages/homePage'
-import Book from '../Pages/registerBook'
-import Profile from '../Pages/profileUser'
+import Login from '../pages/loginPage'
+import Register from '../pages/registerPage'
+import Home from '../pages/homePage'
+import Book from '../pages/registerBook'
+import Profile from '../pages/profileUser'
 import ControleRotas from './route'
-import Update from '../Pages/updateNome'
-import UE from '../Pages/updateEmail'
-import US from '../Pages/updateSenha'
+import Update from '../pages/updateNome'
+import UE from '../pages/updateEmail'
+import US from '../pages/updateSenha'
 
 // import ControleDeRotas from "./route";
 
