@@ -76,10 +76,8 @@ function Home() {
               <a> Home</a>
             </Link>
           </li>
-          <li>
-            <StyledEngineProvider injectFirst>
-              <MenuButton />
-            </StyledEngineProvider>
+          <li styled={{ color: 'red' }}>
+            <MenuButton />
           </li>
           <li>
             <a href="#sobre"> Sobre</a>

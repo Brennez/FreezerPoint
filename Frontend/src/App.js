@@ -1,5 +1,5 @@
 import React from 'react'
-import GlobalStyle from './Styles/global'
+import GlobalStyle from './styles/global'
 import { AutenticacaoProvider } from './context/autenticacao'
 import { BrowserRouter } from 'react-router-dom'
 import Routes from './routes/index'
