@@ -204,7 +204,7 @@ function Home() {
             <br />
             Fale conosco
           </p>
-          <a href="https://github.com/Alexandre16347/FreezerPoint">
+          <a href="https://github.com/Brennez/FreezerPoint">
             <img src={git} alt="" />
           </a>
         </div>

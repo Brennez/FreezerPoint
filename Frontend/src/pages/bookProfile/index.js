@@ -14,14 +14,7 @@ function ProfileBook() {
 
   useEffect(async () => {
     console.log('teste')
-    const response = await api.get('/buscaID')
-    setData(response.data)
-  }, [])
-
-  useEffect(async () => {
-    console.log('teste')
     const response = await api.get('/getLivro')
-    console.log(response.data)
     setData(response.data)
   }, [])
 
@@ -43,9 +36,7 @@ function ProfileBook() {
             return (
               <div>
                 <h1 className="title">Meus livros</h1>
-                <ul>
-                  <li>{nome}</li>
-                </ul>
+                <a href="#">{nome}</a>
               </div>
             )
           })}
