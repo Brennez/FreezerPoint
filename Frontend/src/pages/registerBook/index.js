@@ -18,7 +18,8 @@ function RegisterBook() {
       categoria: data.categoria,
       genero: data.genero,
       edicao: data.edicao,
-      sinopse: data.sinopse
+      sinopse: data.sinopse,
+      imageurl: data.url
     })
     console.log(reponse.data)
     history.push('/Home')
@@ -37,6 +38,15 @@ function RegisterBook() {
         <ContentForm>
           <h1 className="title">Cadastre um livro</h1>
           <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
+            <div class="container">
+              <input name="venda" id="venda1" type="radio" value="venda"  checked/>
+              <label for="venda1">Venda</label>
+              <input name="venda" id="troca1" type="radio" value="troca"/>
+              <label for="troca1">Troca</label>
+              <input name="venda" id="doacao2" type="radio" value="doacao" />
+              <label for="doacao2">Doação</label> 
+            </div> 
+            
             <h2>Título</h2>
             <Input name="nome" type="text" placeholder="Harry Potter" />
             <h2>Autor</h2>
@@ -53,8 +63,10 @@ function RegisterBook() {
               type="text"
               placeholder="Uma breve descrição sobre o livro"
             ></Input>
-
+            <h2>Url da imagem</h2>
+            <Input name="url" type="text" placeholder="www.urlimage.com" />
             <button type="submit"> Cadastrar </button>
+          
           </Form>
         </ContentForm>
         <Image> </Image>
