@@ -7,7 +7,9 @@ import Book from '../pages/registerBook'
 import Profile from '../pages/profileUser'
 import ControleRotas from './route'
 import ProfileBook from '../pages/bookProfile'
-
+import UE from '../pages/updateEmail'
+import US from '../pages/updateSenha'
+import Update from '../pages/updateNome'
 // import ControleDeRotas from "./route";
 
 function Routes() {
