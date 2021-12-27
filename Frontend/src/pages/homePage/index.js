@@ -33,7 +33,7 @@ function Home() {
   const referencia = useRef(null)
 
   useEffect(async () => {
-    console.log('teste')
+    // console.log('teste')
     const response = await api.get('/getLivro')
     console.log(response.data)
     setData(response.data)

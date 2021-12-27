@@ -6,9 +6,7 @@ import Home from '../pages/homePage'
 import Book from '../pages/registerBook'
 import Profile from '../pages/profileUser'
 import ControleRotas from './route'
-import Update from '../pages/updateNome'
-import UE from '../pages/updateEmail'
-import US from '../pages/updateSenha'
+import ProfileBook from '../pages/bookProfile'
 
 // import ControleDeRotas from "./route";
 
@@ -40,6 +38,13 @@ function Routes() {
         exact
         component={Update}
       ></ControleRotas>
+      <ControleRotas
+        path="/book"
+        isPrivate={true}
+        exact
+        component={ProfileBook}
+      ></ControleRotas>
+
       <ControleRotas
         path="/updateEmail"
         isPrivate={true}
