@@ -31,17 +31,21 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      imageUrl: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       venda: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
       },
       troca: {
-         type: Sequelize.BOOLEAN,
-         allowNull: false, 
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
       doacao: {
         type: Sequelize.BOOLEAN,
-        allowNull: false,   
+        allowNull: false,
       },
       preco: {
         type: Sequelize.DOUBLE,
