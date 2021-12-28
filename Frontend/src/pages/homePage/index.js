@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import Button from '@mui/material/Button'
+
 import {
   Header,
   Body,
@@ -19,9 +19,7 @@ import left from '../../assets/left.png'
 import right from '../../assets/right.png'
 import git from '../../assets/github.png'
 import api from '../../services/api'
-import { StyledEngineProvider } from '@mui/material/styles'
 import { useContextAutenticacao } from '../../context/autenticacao'
-import MenuButton from '../../components/menuButton/MenuButton'
 
 // ------------------------------------------------------------
 
@@ -76,9 +74,11 @@ function Home() {
               <a> Home</a>
             </Link>
           </li>
-          <li styled={{ color: 'red' }}>
-            <MenuButton />
-          </li>
+          <li styled={{ color: 'red' }}>  
+            <Link to="/createLivro">
+              <a>Cadastrar</a>
+            </Link>
+           </li> 
           <li>
             <a href="#sobre"> Sobre</a>
           </li>
