@@ -71,6 +71,20 @@ function Profile() {
                 </a>
               </div>
             </div>
+            
+            <h2 id="tituloTelefone">Telefone</h2>
+            <div className="containerTelefone">
+              <p className="telefone" href="">
+                {data.telefone}
+              </p>
+              <div className="icon">
+                <a href="">
+                  <Link to="/updateTelefone">
+                    <img src={editor} alt="" />
+                  </Link>
+                </a>
+              </div>
+            </div>
           </div>
         </ContentForm>
         <Image></Image>
