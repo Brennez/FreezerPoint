@@ -8,13 +8,13 @@ import { Header } from '../registerBook/styles'
 
 import { Link } from 'react-router-dom'
 
-function ProfileBook() {
+function BookProfile() {
   const [data, setData] = useState([])
   const referencia = useRef(null)
 
   useEffect(async () => {
     console.log('teste')
-    const response = await api.get('/getLivro')
+    const response = await api.get('/buscaID')
     setData(response.data)
   }, [])
 
@@ -31,27 +31,57 @@ function ProfileBook() {
       </Logo>
       <Container>
         <ContentForm ref={referencia}>
-          <h1 className="title"> Meus livros</h1>
-          {data.map(item => {
-            const { nome } = item
-            return (
-              <div className="containerName">
-                <a href="#">{nome}</a>
+          <div>
+            <h1 className="title">Perfil</h1>
+            <h2>Nome</h2>
+            <div className="containerName">
+              <p className="nome" href="">
+                {data.nome}
+              </p>
+              <div className="icon">
+                <Link to="/update">
+                  <img src={editor} alt="" />
+                </Link>
               </div>
-            )
-          })}
+            </div>
+            <h2>Autor</h2>
+            <div className="containerEmail">
+              <p className="email" href="">
+                {data.email}
+              </p>
+              <div className="icon">
+                <a href="">
+                  <Link to="/updateEmail">
+                    <img src={editor} alt="" />
+                  </Link>
+                </a>
+              </div>
+            </div>
+            <h2 id="tituloSenha">Sinopse</h2>
+            <div className="containerSenha">
+              <p className="senha" href="">
+                {' '}
+                ********
+              </p>
+              <div className="icon">
+                <a href="">
+                  <Link to="/updateSenha">
+                    <img src={editor} alt="" />
+                  </Link>
+                </a>
+              </div>
+            </div>
+            {/* Fim container
+             */}
+            <h2 id="tituloSenha">Categoria</h2>
+            <h2 id="tituloSenha">Gênero</h2>
+            <h2 id="tituloSenha">Edição</h2>
+          </div>
         </ContentForm>
         <Image></Image>
       </Container>
     </>
   )
-
-  //   /<div>
-  //   <h1 className="title">Meus livros</h1>
-  //   <ul>
-  //     <li></li>
-  //   </ul>
-  // </div>
 }
 
-export default ProfileBook
+export default BookProfile

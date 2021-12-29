@@ -6,10 +6,11 @@ import Home from '../pages/homePage'
 import Book from '../pages/registerBook'
 import Profile from '../pages/profileUser'
 import ControleRotas from './route'
-import ProfileBook from '../pages/bookProfile'
+import bookList from '../pages/bookList'
 import UE from '../pages/updateEmail'
 import US from '../pages/updateSenha'
 import Update from '../pages/updateNome'
+import BookProfile from '../pages/bookProfile'
 // import ControleDeRotas from "./route";
 
 function Routes() {
@@ -44,7 +45,13 @@ function Routes() {
         path="/book"
         isPrivate={true}
         exact
-        component={ProfileBook}
+        component={bookList}
+      ></ControleRotas>
+      <ControleRotas
+        path="/bookProfile"
+        isPrivate={true}
+        exact
+        component={BookProfile}
       ></ControleRotas>
 
       <ControleRotas
