@@ -89,6 +89,12 @@ function Home() {
             </Link>
           </li>
           <li>
+            <Link to="/Book">
+              {' '}
+              <a> Carrinho</a>
+            </Link>
+          </li>
+          <li>
             <Link to="/login">
               <a onClick={logoff}>
                 <img src={exit} alt="exit" />
