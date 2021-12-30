@@ -71,7 +71,6 @@ function Profile() {
                 </a>
               </div>
             </div>
-            
             <h2 id="tituloTelefone">Telefone</h2>
             <div className="containerTelefone">
               <p className="telefone" href="">

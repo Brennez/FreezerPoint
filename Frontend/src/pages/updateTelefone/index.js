@@ -15,13 +15,13 @@ function Update() {
     //Valida dos campos do formulário
     try {
       const esquema = Yup.object().shape({
-        novoNome: Yup.string().required('Você precisa digitar um Telefone')
+        novoTelefone: Yup.string().required('Você precisa digitar um Telefone')
       })
       await esquema.validate(data, { abortEarly: false })
 
       //Faz a requisição da api e grava no banco de dados
       const response = await api.put('/update', {
-        novoNome: data.novoNome
+        novoTelefone: data.novoTelefone
       })
       //Atuliza a pagina
       window.location.reload()
@@ -62,7 +62,7 @@ function Update() {
             <h1 className="title">Editar</h1>
             <h2>Telefone antigo</h2>
             <p className="telefone" href="">
-              {data.nome}
+              {data.telefone}
             </p>
             <h2>Novo telefone</h2>
             <Input name="novoTelefone" type="number" placeholder="Digite seu telefone" />
