@@ -86,6 +86,21 @@ class UsuarioController {
     res.json(user);
   }
 
+  //atualiza telefone
+  async updateTelefone(req, res) {
+    const { novoTelefone } = req.body;
+
+    const usuario = await Usuario.findByPk(req.id);
+
+    if (!usuario) {
+      return res.status(404).json({ erro: 'Usuário não existe' });
+    }
+
+    const { id, nome, email, telefone } = usuario.update({ nome: novoTelefone });
+
+    res.json({ id, nome, email, telefone });
+  }
+
   // Deletar a conta
   async delete(req, res) {
     const { id } = req.body;

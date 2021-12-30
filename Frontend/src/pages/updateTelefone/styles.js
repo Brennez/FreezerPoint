@@ -79,6 +79,20 @@ export const ContentForm = styled.div`
     transition: background 0.2s;
   }
 
+  .telefone {
+    font-family: 'Nunito', sans-serif;
+    border-radius: 5rem;
+    border-color: #9ba0fc;
+    border: none;
+    outline: none;
+    background: #9ba0fc;
+    color: white;
+    padding: 0.5rem;
+    padding-right: 50%;
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+    transition: background 0.2s;
+  }
+
   .contentButton {
     display: flex;
     justify-content: center;

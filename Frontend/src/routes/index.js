@@ -9,6 +9,7 @@ import ControleRotas from './route'
 import bookList from '../pages/bookList'
 import UE from '../pages/updateEmail'
 import US from '../pages/updateSenha'
+import UT from '../pages/updateTelefone'
 import Update from '../pages/updateNome'
 import BookProfile from '../pages/bookProfile'
 // import ControleDeRotas from "./route";
@@ -65,6 +66,12 @@ function Routes() {
         isPrivate={true}
         exact
         component={US}
+      ></ControleRotas>
+      <ControleRotas
+        path="/updateTelefone"
+        isPrivate={true}
+        exact
+        component={UT}
       ></ControleRotas>
     </Switch>
   )

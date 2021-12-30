@@ -21,6 +21,7 @@ routes.put('/updateGenero', autenticacao, LC.updateGenero);
 routes.put('/update', autenticacao, UC.update);
 routes.put('/updateEmail', autenticacao, UC.updateEmail);
 routes.put('/updateSenha', autenticacao, UC.updateSenha);
+routes.put('/updateTelefone', autenticacao, UC.updateTelefone);
 routes.delete('/deleteUsuario', autenticacao, UC.delete);
 routes.get('/busca', UC.get);
 routes.get('/buscaID', autenticacao, UC.getID);
