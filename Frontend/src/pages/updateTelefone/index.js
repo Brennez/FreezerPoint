@@ -68,20 +68,21 @@ function UpdateTelefone() {
             <p className="telefone" href="">
               {data.telefone}
             </p>
-            <h2>Novo telefone</h2>
-            <Input
-              name="novoTelefone"
-              type="number"
-              placeholder="Digite seu telefone"
-            />
+            <div className="containerInput">
+              <h2>Novo telefone</h2>
+              <Input
+                name="novoTelefone"
+                type="number"
+                placeholder="Digite seu telefone"
+              />
+            </div>
             <div className="contentButton">
               <button
                 type="submit"
-                className="botao"
-                id="teste"
+                id="button"
                 onClick={reload}
+                className="textButton"
               >
-                {' '}
                 <p className="text">Aplicar</p>
               </button>
             </div>

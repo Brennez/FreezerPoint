@@ -93,13 +93,20 @@ export const ContentForm = styled.div`
     transition: background 0.2s;
   }
 
+  .containerInput {
+    margin-top: 2rem;
+  }
+
   .contentButton {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+    .text {
+      margin-left: 10rem;
+    }
   }
 
-  #teste {
+  #button {
     font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
     border-color: #9ba0fc;
