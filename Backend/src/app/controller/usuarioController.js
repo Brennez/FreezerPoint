@@ -96,9 +96,11 @@ class UsuarioController {
       return res.status(404).json({ erro: 'Usuário não existe' });
     }
 
-    const { id, nome, email, telefone } = usuario.update({ nome: novoTelefone });
+    const { id, nome, email, telefone } = usuario.update({
+      telefone: novoTelefone,
+    });
 
-    res.json({ id, nome, email, telefone });
+    res.status(200).json({ id, nome, email, telefone });
   }
 
   // Deletar a conta

@@ -8,8 +8,12 @@ import Input from '../../components/input'
 import { Link } from 'react-router-dom'
 import left from '../../assets/left.png'
 
-function Update() {
+function UpdateTelefone() {
   const formularioReferencia = useRef(null)
+
+  function reload() {
+    window.location.reload()
+  }
 
   const submeterFormulario = async data => {
     //Valida dos campos do formulário
@@ -20,11 +24,11 @@ function Update() {
       await esquema.validate(data, { abortEarly: false })
 
       //Faz a requisição da api e grava no banco de dados
-      const response = await api.put('/update', {
+      const response = await api.put('/updateTelefone', {
         novoTelefone: data.novoTelefone
       })
       //Atuliza a pagina
-      window.location.reload()
+      reload()
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         const erros = {}
@@ -65,9 +69,18 @@ function Update() {
               {data.telefone}
             </p>
             <h2>Novo telefone</h2>
-            <Input name="novoTelefone" type="number" placeholder="Digite seu telefone" />
+            <Input
+              name="novoTelefone"
+              type="number"
+              placeholder="Digite seu telefone"
+            />
             <div className="contentButton">
-              <button type="submit" className="botao" id="teste">
+              <button
+                type="submit"
+                className="botao"
+                id="teste"
+                onClick={reload}
+              >
                 {' '}
                 <p className="text">Aplicar</p>
               </button>
@@ -80,4 +93,4 @@ function Update() {
   )
 }
 
-export default Update
+export default UpdateTelefone
