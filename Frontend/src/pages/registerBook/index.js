@@ -6,6 +6,8 @@ import Input from '../../components/input'
 import api from '../../services/api'
 import left from '../../assets/left.png'
 import { Link, useHistory } from 'react-router-dom'
+import Button from '../../components/button'
+
 
 function RegisterBook() {
   const formularioReferencia = useRef(null)
@@ -38,7 +40,7 @@ function RegisterBook() {
         <ContentForm>
           <h1 className="title">Cadastre um livro</h1>
           <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
-            <div class="container">
+            {/* <div class="container">
               <input name="venda" id="venda1" type="radio" value="venda"  checked/>
               <label for="venda1">Venda</label>
               <input name="venda" id="troca1" type="radio" value="troca"/>
@@ -46,7 +48,9 @@ function RegisterBook() {
               <input name="venda" id="doacao2" type="radio" value="doacao" />
               <label for="doacao2">Doação</label> 
             </div> 
-            
+             */}
+            <h2>Seu livro é para...</h2>
+            <Button/>
             <h2>Título</h2>
             <Input name="nome" type="text" placeholder="Harry Potter" />
             <h2>Autor</h2>
