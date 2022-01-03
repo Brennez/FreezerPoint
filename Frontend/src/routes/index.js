@@ -49,7 +49,7 @@ function Routes() {
         component={bookList}
       ></ControleRotas>
       <ControleRotas
-        path="/bookProfile"
+        path="/bookProfile/:id"
         isPrivate={true}
         exact
         component={BookProfile}

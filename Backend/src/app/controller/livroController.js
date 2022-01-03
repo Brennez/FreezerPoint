@@ -42,11 +42,13 @@ class LivroController {
     if (!livro) {
       res.status(404).json({ erro: 'Esse Livro nao existe' });
     } else {
-      const { nome, autor } = livro;
-      res.json({
-        nome,
-        autor,
-      });
+      // const { nome, autor } = livro;
+      //   res.json({
+      //     nome,
+      //     autor,
+      //   });
+      // }
+      res.json(livro);
     }
   }
 

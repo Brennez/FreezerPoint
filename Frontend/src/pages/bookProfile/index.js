@@ -4,17 +4,21 @@ import logo from '../../assets/logo.svg'
 import editor from '../../assets/editor.svg'
 import left from '../../assets/left.png'
 import api from '../../services/api'
-import { Header } from '../registerBook/styles'
+import { useHistory, useParams } from 'react-router-dom'
 
 import { Link } from 'react-router-dom'
 
 function BookProfile() {
   const [data, setData] = useState([])
   const referencia = useRef(null)
+  // const history = useHistory()
+  const { id } = useParams()
+
+  // console.log(history)
+  console.log(id)
 
   useEffect(async () => {
-    console.log('teste')
-    const response = await api.get('/buscaID')
+    const response = await api.get(`/buscaID/${id}`)
     setData(response.data)
   }, [])
 

@@ -34,7 +34,7 @@ function ProfileBook() {
             const { id, nome } = item
             return (
               <div className="containerName">
-                <Link to={'/BookProfile'}>
+                <Link to={`/bookProfile/${id}`}>
                   <p>{nome}</p>
                 </Link>
               </div>
