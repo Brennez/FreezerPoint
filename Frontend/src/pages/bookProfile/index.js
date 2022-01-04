@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Container, ContentForm, Image, Logo } from './styles'
 import logo from '../../assets/logo.svg'
-import editor from '../../assets/editor.svg'
+import editorIcon from '../../assets/editor.svg'
 import left from '../../assets/left.png'
 import api from '../../services/api'
-import { useHistory, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import { Link } from 'react-router-dom'
 
@@ -15,12 +15,14 @@ function BookProfile() {
   const { id } = useParams()
 
   // console.log(history)
-  console.log(id)
+  // console.log(id)
 
   useEffect(async () => {
-    const response = await api.get(`/buscaID/${id}`)
+    const response = await api.get(`/getUmLivro/${id}`)
     setData(response.data)
   }, [])
+
+  // console.log(data.id)
 
   return (
     <>
@@ -36,50 +38,85 @@ function BookProfile() {
       <Container>
         <ContentForm ref={referencia}>
           <div>
-            <h1 className="title">Perfil</h1>
+            <h1 className="title">Meu livro</h1>
             <h2>Nome</h2>
             <div className="containerName">
               <p className="nome" href="">
                 {data.nome}
               </p>
-              <div className="icon">
+              {/* <div className="icon">
                 <Link to="/update">
-                  <img src={editor} alt="" />
+                  <img src={editorIcon} alt="" />
                 </Link>
-              </div>
+              </div> */}
             </div>
             <h2>Autor</h2>
             <div className="containerEmail">
               <p className="email" href="">
-                {data.email}
+                {data.autor}
               </p>
-              <div className="icon">
+              {/* <div className="icon">
                 <a href="">
                   <Link to="/updateEmail">
-                    <img src={editor} alt="" />
+                    <img src={editorIcon} alt="" />
                   </Link>
                 </a>
-              </div>
+              </div> */}
             </div>
-            <h2 id="tituloSenha">Sinopse</h2>
-            <div className="containerSenha">
-              <p className="senha" href="">
-                {' '}
-                ********
+            <h2 id="tituloSinopse">Sinopse</h2>
+            <div className="containerSinopse">
+              <p className="sinopse" href="">
+                {data.sinopse}
               </p>
-              <div className="icon">
+              {/* <div className="icon">
                 <a href="">
-                  <Link to="/updateSenha">
-                    <img src={editor} alt="" />
+                  <Link to="#">
+                    <img src={editorIcon} alt="" />
                   </Link>
                 </a>
-              </div>
+              </div> */}
             </div>
             {/* Fim container
              */}
-            <h2 id="tituloSenha">Categoria</h2>
-            <h2 id="tituloSenha">Gênero</h2>
-            <h2 id="tituloSenha">Edição</h2>
+            <h2 id="tituloCategoria">Categoria</h2>
+            <div className="containerCategoria">
+              <p className="categoria" href="">
+                {data.categoria}
+              </p>
+              {/* <div className="icon">
+                <a href="">
+                  <Link to="/#">
+                    <img src={editorIcon} alt="" />
+                  </Link>
+                </a>
+              </div> */}
+            </div>
+            <h2 id="tituloGenero">Gênero</h2>
+            <div className="containerGenero">
+              <p className="genero" href="">
+                {data.genero}
+              </p>
+              {/* <div className="icon">
+                <a href="">
+                  <Link to="/#">
+                    <img src={editorIcon} alt="" />
+                  </Link>
+                </a>
+              </div> */}
+            </div>
+            <h2 id="tituloEdicao">Edição</h2>
+            <div className="containerEdicao">
+              <p className="edicao" href="">
+                {data.edicao}
+              </p>
+              {/* <div className="icon">
+                <a href="">
+                  <Link to="/#">
+                    <img src={editorIcon} alt="" />
+                  </Link>
+                </a>
+              </div> */}
+            </div>
           </div>
         </ContentForm>
         <Image></Image>

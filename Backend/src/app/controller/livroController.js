@@ -37,17 +37,11 @@ class LivroController {
   }
 
   async getId(req, res, next) {
-    const { id } = req.body;
+    const { id } = req.params;
     const livro = await Livro.findByPk(id);
     if (!livro) {
       res.status(404).json({ erro: 'Esse Livro nao existe' });
     } else {
-      // const { nome, autor } = livro;
-      //   res.json({
-      //     nome,
-      //     autor,
-      //   });
-      // }
       res.json(livro);
     }
   }
