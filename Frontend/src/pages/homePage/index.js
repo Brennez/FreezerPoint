@@ -74,11 +74,11 @@ function Home() {
               <a> Home</a>
             </Link>
           </li>
-          <li styled={{ color: 'red' }}>  
+          <li styled={{ color: 'red' }}>
             <Link to="/createLivro">
               <a>Cadastrar</a>
             </Link>
-           </li> 
+          </li>
           <li>
             <a href="#sobre"> Sobre</a>
           </li>
@@ -91,7 +91,7 @@ function Home() {
           <li>
             <Link to="/Book">
               {' '}
-              <a> Carrinho</a>
+              <a> Publicações</a>
             </Link>
           </li>
           <li>
