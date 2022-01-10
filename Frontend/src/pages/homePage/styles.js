@@ -1,18 +1,19 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
   margin-right: 4.6rem;
   margin-left: 12.938rem;
-`;
+`
 
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 4.75rem;
+  margin-top: 2rem;
   margin-right: 13.438rem;
   margin-left: 13.438rem;
+  margin-bottom: 5rem;
 
   .menu {
     display: flex;
@@ -21,7 +22,7 @@ export const Header = styled.div`
 
   .menu li {
     margin-left: 21px;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .menu li a {
@@ -29,7 +30,7 @@ export const Header = styled.div`
     padding: 1rem;
     cursor: pointer;
   }
-`;
+`
 
 export const Body = styled.div`
   .conteudo {
@@ -37,13 +38,13 @@ export const Body = styled.div`
   }
   .conteudo h1 {
     margin-bottom: 1rem;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 2.25rem;
     color: rgba(32, 32, 40, 0.8);
   }
 
   .conteudo p {
-    font-family: 400, "Montserrat", sans-serif;
+    font-family: 400, 'Montserrat', sans-serif;
     margin-bottom: 2rem;
     color: rgba(32, 32, 40, 0.6);
   }
@@ -51,7 +52,7 @@ export const Body = styled.div`
   .conteudo a {
     color: white;
     padding: 0.688rem 1.5rem;
-    background: rgba(122, 66, 161, 0.7);
+    background: rgba(155, 160, 252, 0.8);
     border-radius: 0.5rem;
   }
 
@@ -64,7 +65,7 @@ export const Body = styled.div`
     h2 {
       color: rgba(32, 32, 40, 0.8);
       font-size: 1.563rem;
-      font-family: 900, "Montserrat", sans-serif;
+      font-family: 900, 'Montserrat', sans-serif;
     }
   }
 
@@ -72,12 +73,12 @@ export const Body = styled.div`
     display: flex;
     li {
       margin-left: 2rem;
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 1rem;
       color: #202028;
     }
   }
-`;
+`
 
 export const ContentBook = styled.div`
   margin-top: 2rem;
@@ -112,7 +113,7 @@ export const ContentBook = styled.div`
 
   .item .conteudoItem .info {
     margin-top: 0.688rem;
-    font-family: 700, "Montserrat", sans-serif;
+    font-family: 700, 'Montserrat', sans-serif;
   }
 
   .item .conteudoItem .info .preco {
@@ -128,7 +129,7 @@ export const ContentBook = styled.div`
   }
 
   .item .conteudoItem .info .autor {
-    font-family: 400, "Montserrat", sans-serif;
+    font-family: 400, 'Montserrat', sans-serif;
     color: rgba(32, 32, 40, 0.8);
     margin-top: 5px;
     font-size: 0.9rem;
@@ -142,7 +143,7 @@ export const ContentBook = styled.div`
   }
 
   .conteudoItem .botao a {
-    font-family: 900, "Montserrat", sans-serif;
+    font-family: 900, 'Montserrat', sans-serif;
     color: white;
     font-style: bold;
     border-radius: 0.625rem;
@@ -153,7 +154,7 @@ export const ContentBook = styled.div`
   .conteudoItem .botao img {
     margin-left: 1rem;
   }
-`;
+`
 
 export const Direction = styled.div`
   width: 100%;
@@ -163,14 +164,14 @@ export const Direction = styled.div`
     background-color: #dfddda;
     border: none;
   }
-`;
+`
 export const About = styled.div`
   .conteudo h2 {
     display: flex;
     justify-content: center;
     margin-top: 5rem;
     margin-bottom: 1rem;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 2.25rem;
     color: rgba(32, 32, 40, 0.8);
   }
@@ -179,12 +180,12 @@ export const About = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 400, "Montserrat", sans-serif;
+    font-family: 400, 'Montserrat', sans-serif;
     margin-bottom: 2rem;
     font-size: 1.3rem;
     color: rgba(32, 32, 40, 0.6);
   }
-`;
+`
 export const Footer = styled.div`
   background-color: #9ba0fc;
   padding: 4rem;
@@ -205,4 +206,4 @@ export const Footer = styled.div`
     width: auto;
     height: auto;
   }
-`;
+`

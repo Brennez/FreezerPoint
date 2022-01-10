@@ -10,14 +10,18 @@ import {
   About
 } from './styles'
 
-import exit from '../../assets/exit.svg'
-import logo from '../../assets/logoPurple.svg'
+import Input from '../../components/input'
+import exit from '../../assets/iconLogout.svg'
+import logo from '../../assets/logo.svg'
+import logoFooter from '../../assets/logoFooter.svg'
 import home from '../../assets/homeImage.svg'
 import book from '../../assets/item1.svg'
 import icon from '../../assets/icon.svg'
+import iconCart from '../../assets/iconCart.svg'
+import iconHeart from '../../assets/iconHeart.svg'
 import left from '../../assets/left.png'
 import right from '../../assets/right.png'
-import git from '../../assets/github.png'
+import git from '../../assets/iconGithub.svg'
 import api from '../../services/api'
 import { useContextAutenticacao } from '../../context/autenticacao'
 
@@ -64,17 +68,13 @@ function Home() {
           <img src={logo} alt="logo da empresa" />
         </div>
 
-        {/* <div>
-          <Button variant="contained"> Olá Mundo</Button>
-        </div> */}
-
         <ul class="menu">
           <li>
             <Link to="/Home">
               <a> Home</a>
             </Link>
           </li>
-          <li styled={{ color: 'red' }}>
+          <li>
             <Link to="/createLivro">
               <a>Cadastrar</a>
             </Link>
@@ -88,16 +88,22 @@ function Home() {
               <a> Perfil</a>
             </Link>
           </li>
+
+          <li>
+            <Link to="#">
+              <img src={iconHeart} alt="myList" height={30} />
+            </Link>
+          </li>
           <li>
             <Link to="/Book">
               {' '}
-              <a> Publicações</a>
+              <img src={iconCart} alt="Mycart" height={30} />
             </Link>
           </li>
           <li>
             <Link to="/login">
               <a onClick={logoff}>
-                <img src={exit} alt="exit" />
+                <img src={exit} alt="exit" height={30} />
               </a>
             </Link>
           </li>
@@ -199,7 +205,7 @@ function Home() {
 
       <Footer>
         <div className="container">
-          <img src={logo} alt="logo" />
+          <img src={logoFooter} alt="logoRodape" />
           <p className="nome">
             UESPI, Campus
             <br />
@@ -211,7 +217,7 @@ function Home() {
             Fale conosco
           </p>
           <a href="https://github.com/Brennez/FreezerPoint">
-            <img src={git} alt="" />
+            <img src={git} alt="" height={100} width={100} />
           </a>
         </div>
       </Footer>
