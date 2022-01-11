@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Container, ContentForm, Image, Logo } from './styles'
 import logo from '../../assets/logo.svg'
 import editorIcon from '../../assets/editor.svg'
+import editor from '../../assets/editor.svg'
 import left from '../../assets/left.png'
 import api from '../../services/api'
 import { useParams } from 'react-router-dom'
@@ -44,6 +45,11 @@ function BookProfile() {
               <p className="nome" href="">
                 {data.nome}
               </p>
+              <div className="icon">
+                <Link to="/updateTitulo">
+                  <img src={editor} alt="" />
+                </Link>
+              </div>
               {/* <div className="icon">
                 <Link to="/update">
                   <img src={editorIcon} alt="" />
@@ -51,10 +57,15 @@ function BookProfile() {
               </div> */}
             </div>
             <h2>Autor</h2>
-            <div className="containerEmail">
-              <p className="email" href="">
+            <div className="containerAutor">
+              <p className="autor" href="">
                 {data.autor}
               </p>
+              <div className="icon">
+                <Link to={`/updateAutor/${id}`}>
+                  <img src={editor} alt="" />
+                </Link>
+              </div>
               {/* <div className="icon">
                 <a href="">
                   <Link to="/updateEmail">
@@ -68,6 +79,11 @@ function BookProfile() {
               <p className="sinopse" href="">
                 {data.sinopse}
               </p>
+              <div className="icon">
+                <Link to="/updateSinopse">
+                  <img src={editor} alt="" />
+                </Link>
+              </div>
               {/* <div className="icon">
                 <a href="">
                   <Link to="#">
@@ -83,6 +99,11 @@ function BookProfile() {
               <p className="categoria" href="">
                 {data.categoria}
               </p>
+              <div className="icon">
+                <Link to="/updateCategoria">
+                  <img src={editor} alt="" />
+                </Link>
+              </div>
               {/* <div className="icon">
                 <a href="">
                   <Link to="/#">
@@ -96,6 +117,11 @@ function BookProfile() {
               <p className="genero" href="">
                 {data.genero}
               </p>
+              <div className="icon">
+                <Link to="/updateGenero">
+                  <img src={editor} alt="" />
+                </Link>
+              </div>
               {/* <div className="icon">
                 <a href="">
                   <Link to="/#">
@@ -109,6 +135,11 @@ function BookProfile() {
               <p className="edicao" href="">
                 {data.edicao}
               </p>
+              <div className="icon">
+                <Link to="/updateEdicao">
+                  <img src={editor} alt="" />
+                </Link>
+              </div>
               {/* <div className="icon">
                 <a href="">
                   <Link to="/#">

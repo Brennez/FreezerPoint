@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import image from '../../assets/image.svg'
+import { shade } from 'polished'
 
 export const Logo = styled.div`
   .container {
@@ -33,19 +34,18 @@ export const ContentForm = styled.div`
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
   }
-
-  .containerName {
-    display: flex;
+  .tituloAutor {
+    margin-top: 1rem;
   }
 
   .nome {
     font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
-    border-color: #6c70ef;
+    border-color: #9ba0fc;
     margin-bottom: 1rem;
     border: none;
     outline: none;
-    background: #6c70ef;
+    background: #9ba0fc;
     color: white;
     padding: 0.5rem;
     padding-right: 50%;
@@ -53,24 +53,13 @@ export const ContentForm = styled.div`
     transition: background 0.2s;
   }
 
-  .containerName .icon {
-    margin-left: 0.5rem;
-  }
-
-  .containerAutor {
-    display: flex;
-  }
-
-  .containerAutor .icon {
-    margin-left: 0.5rem;
-  }
   .autor {
     font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
-    border-color: #6c70ef;
+    border-color: #9ba0fc;
     border: none;
     outline: none;
-    background: #6c70ef;
+    background: #9ba0fc;
     color: white;
     padding: 0.5rem;
     padding-right: 33%;
@@ -79,111 +68,46 @@ export const ContentForm = styled.div`
     transition: background 0.2s;
   }
 
-  .containerSinopse {
-    display: flex;
-  }
-
-  #tituloSinopse {
-    margin-top: 1rem;
-  }
-
-  .sinopse {
+  .senha {
     font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
-    border-color: #6c70ef;
+    border-color: #9ba0fc;
     border: none;
     outline: none;
-    background: #6c70ef;
+    background: #9ba0fc;
     color: white;
     padding: 0.5rem;
     padding-right: 50%;
-
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
     transition: background 0.2s;
   }
 
-  .containerCategoria {
+  .contentButton {
     display: flex;
-  }
-
-  #tituloCategoria {
-    margin-top: 1rem;
-  }
-
-  .categoria {
-    font-family: 'Nunito', sans-serif;
-    border-radius: 5rem;
-    border-color: #6c70ef;
-    border: none;
-    outline: none;
-    background: #6c70ef;
-    color: white;
-    padding: 0.5rem;
-    padding-right: 50%;
-
-    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
-    transition: background 0.2s;
-  }
-
-  .containerGenero {
-    display: flex;
-  }
-
-  #tituloGenero {
-    margin-top: 1rem;
-  }
-
-  .genero {
-    font-family: 'Nunito', sans-serif;
-    border-radius: 5rem;
-    border-color: #6c70ef;
-    border: none;
-    outline: none;
-    background: #6c70ef;
-    color: white;
-    padding: 0.5rem;
-    padding-right: 50%;
-
-    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
-    transition: background 0.2s;
-  }
-
-  .containerEdicao {
-    display: flex;
-  }
-
-  #tituloEdicao {
-    margin-top: 1rem;
-  }
-
-  .edicao {
-    font-family: 'Nunito', sans-serif;
-    border-radius: 5rem;
-    border-color: #6c70ef;
-    border: none;
-    outline: none;
-    background: #6c70ef;
-    color: white;
-    padding: 0.5rem;
-    padding-right: 50%;
-
-    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
-    transition: background 0.2s;
-  }
-
-  .containerSenha .icon {
-    margin-left: 0.5rem;
-  }
-  .container .info {
-    display: flex;
-    align-items: center;
     justify-content: center;
+    margin-top: 2rem;
   }
 
-  .info {
-    margin-top: 5rem;
-    color: rgba(32, 32, 40, 0.8);
-    cursor: pointer;
+  #teste {
+    font-family: 'Nunito', sans-serif;
+    border-radius: 5rem;
+    border-color: #9ba0fc;
+    margin-bottom: 1rem;
+    border: none;
+    outline: none;
+    background: #9ba0fc;
+    color: white;
+    padding: 0.5rem;
+    padding-right: 40%;
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+    transition: background 0.2s;
+    .texto {
+      margin-left: 11rem;
+    }
+  }
+
+  button:hover {
+    background: ${shade(0.1, '#9ba0fc')};
   }
 `
 
