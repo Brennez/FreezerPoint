@@ -34,16 +34,17 @@ export const Header = styled.div`
 
 export const Body = styled.div`
   .conteudo {
-    margin-top: 18.625rem;
+    margin-top: 10rem;
   }
   .conteudo h1 {
     margin-bottom: 1rem;
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.25rem;
+    font-size: 4rem;
     color: rgba(32, 32, 40, 0.8);
   }
 
   .conteudo p {
+    font-size: 1.2rem;
     font-family: 400, 'Montserrat', sans-serif;
     margin-bottom: 2rem;
     color: rgba(32, 32, 40, 0.6);
@@ -71,6 +72,7 @@ export const Body = styled.div`
 
   .cabecalho .elementos {
     display: flex;
+    gap: 1rem;
     li {
       margin-left: 2rem;
       font-family: 'Montserrat', sans-serif;
@@ -81,6 +83,8 @@ export const Body = styled.div`
 `
 
 export const ContentBook = styled.div`
+  margin-left: 13.438rem;
+  margin-right: 13.438rem;
   margin-top: 2rem;
   display: flex;
   overflow-x: auto;
@@ -92,11 +96,11 @@ export const ContentBook = styled.div`
 
   .item {
     margin-right: 0.5rem;
-    align-items: center;
     background-color: white;
     border-radius: 0.5rem;
     padding: 0.625rem;
-    width: 184.32px;
+    /* width: 184.32px; */
+    width: 10rem;
     flex: none;
   }
 
@@ -160,10 +164,6 @@ export const Direction = styled.div`
   width: 100%;
   text-align: center;
   margin-top: 1rem;
-  .container {
-    background-color: #dfddda;
-    border: none;
-  }
 `
 export const About = styled.div`
   .conteudo h2 {

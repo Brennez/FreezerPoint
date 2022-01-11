@@ -20,7 +20,7 @@ export const Container = styled.div`
       width: 100%;
       border-radius: 5rem;
       border-style: solid;
-      border-color: #9ba0fc;
+      border-color: #6c70ef;
       outline: none;
       padding: 0.5rem;
       ::placeholder {

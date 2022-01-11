@@ -41,11 +41,11 @@ export const ContentForm = styled.div`
   a {
     font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
-    border-color: #9ba0fc;
+    border-color: #6c70ef;
     margin-bottom: 1rem;
     border: none;
     outline: none;
-    background: #9ba0fc;
+    background: #6c70ef;
     color: white;
     padding: 0.5rem;
     padding-right: 50%;

@@ -115,7 +115,7 @@ function Home() {
             <h1>O Freezer</h1>
             <p>
               Em nosso site você encontra um livro para todos os gostos. Uma
-              grande variedade. Preços acessíveis. Histórias interessantes
+              grande variedade. Preços acessíveis. Histórias interessantes.
             </p>
             <a href="#sobre">Saiba mais</a>
           </div>

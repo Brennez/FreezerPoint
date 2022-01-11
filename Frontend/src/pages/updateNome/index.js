@@ -40,7 +40,6 @@ function Update() {
   //pegando os dados do backend
   const [data, setData] = useState([])
   useEffect(async () => {
-    console.log('teste')
     const response = await api.get('/buscaID')
     setData(response.data)
   }, [])
@@ -65,7 +64,11 @@ function Update() {
               {data.nome}
             </p>
             <h2>Novo nome</h2>
-            <Input name="novoNome" type="text" placeholder="Digite seu nome" />
+            <Input
+              name="novoNome"
+              type="text"
+              placeholder="Digite seu novo nome"
+            />
             <div className="contentButton">
               <button type="submit" className="botao" id="teste">
                 {' '}

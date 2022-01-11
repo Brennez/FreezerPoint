@@ -70,7 +70,7 @@ function UpdateEmail() {
             <Input
               name="novoEmail"
               type="email"
-              placeholder="Digite seu nome"
+              placeholder="Digite seu novo email"
             />
             <div className="contentButton">
               <button type="submit" className="botao" id="teste">
