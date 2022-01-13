@@ -85,13 +85,6 @@ function BookProfile() {
                   <img src={editor} alt="" />
                 </Link>
               </div>
-              {/* <div className="icon">
-                <a href="">
-                  <Link to="/#">
-                    <img src={editorIcon} alt="" />
-                  </Link>
-                </a>
-              </div> */}
             </div>
             <h2 id="tituloGenero">Gênero</h2>
             <div className="containerGenero">
@@ -99,17 +92,10 @@ function BookProfile() {
                 {data.genero}
               </p>
               <div className="icon">
-                <Link to="/updateGenero">
+                <Link to={`/updateGenero/${id}`}>
                   <img src={editor} alt="" />
                 </Link>
               </div>
-              {/* <div className="icon">
-                <a href="">
-                  <Link to="/#">
-                    <img src={editorIcon} alt="" />
-                  </Link>
-                </a>
-              </div> */}
             </div>
             <h2 id="tituloEdicao">Edição</h2>
             <div className="containerEdicao">
@@ -121,13 +107,6 @@ function BookProfile() {
                   <img src={editor} alt="" />
                 </Link>
               </div>
-              {/* <div className="icon">
-                <a href="">
-                  <Link to="/#">
-                    <img src={editorIcon} alt="" />
-                  </Link>
-                </a>
-              </div> */}
             </div>
           </div>
         </ContentForm>
