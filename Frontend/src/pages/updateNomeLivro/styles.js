@@ -32,7 +32,7 @@ export const ContentForm = styled.div`
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
   }
-  .tituloAutor {
+  .tituloDoLivro {
     margin-top: 1rem;
   }
 
@@ -51,7 +51,7 @@ export const ContentForm = styled.div`
     transition: background 0.2s;
   }
 
-  .autor {
+  .titulo {
     font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
     border-color: #9ba0fc;

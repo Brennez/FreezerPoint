@@ -46,15 +46,10 @@ function BookProfile() {
                 {data.nome}
               </p>
               <div className="icon">
-                <Link to="/updateTitulo">
+                <Link to={`/updateNomeLivro/${id}`}>
                   <img src={editor} alt="" />
                 </Link>
               </div>
-              {/* <div className="icon">
-                <Link to="/update">
-                  <img src={editorIcon} alt="" />
-                </Link>
-              </div> */}
             </div>
             <h2>Autor</h2>
             <div className="containerAutor">

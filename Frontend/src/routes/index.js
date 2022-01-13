@@ -10,6 +10,7 @@ import bookList from '../pages/bookList'
 import UE from '../pages/updateEmail'
 import US from '../pages/updateSenha'
 import UT from '../pages/updateTelefone'
+import UNL from '../pages/updateNomeLivro'
 import UA from '../pages/updateAutor'
 import Update from '../pages/updateNome'
 import BookProfile from '../pages/bookProfile'
@@ -79,6 +80,12 @@ function Routes() {
         isPrivate={true}
         exact
         component={UA}
+      ></ControleRotas>
+      <ControleRotas
+        path="/updateNomeLivro/:id"
+        isPrivate={true}
+        exact
+        component={UNL}
       ></ControleRotas>
     </Switch>
   )

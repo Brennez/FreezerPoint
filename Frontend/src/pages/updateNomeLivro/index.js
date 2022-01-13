@@ -17,13 +17,13 @@ function UpdateAutor() {
     //Valida dos campos do formulário
     try {
       const esquema = Yup.object().shape({
-        autor: Yup.string().required('Você precisa digitar um autor')
+        nome: Yup.string().required('Você precisa digitar um título')
       })
       await esquema.validate(data, { abortEarly: false })
 
       //Faz a requisição da api e grava no banco de dados
-      const response = await api.put(`/updateAutor/${id}`, {
-        autor: data.autor
+      const response = await api.put(`/updateNomeLivro/${id}`, {
+        nome: data.nome
       })
       //Atuliza a pagina
       window.location.reload()
@@ -61,13 +61,13 @@ function UpdateAutor() {
         <ContentForm>
           <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
             <h1 className="title">Editar</h1>
-            <h2>Autor antigo</h2>
-            <p className="autor" href="">
-              {data.autor}
+            <h2>Título antigo</h2>
+            <p className="titulo" href="">
+              {data.nome}
             </p>
-            <h2 className="tituloAutor">Novo Autor</h2>
+            <h2 className="tituloDoLivro">Novo título</h2>
             <Input
-              name="autor"
+              name="nome"
               type="text"
               placeholder="Digite o nome do autor"
             />

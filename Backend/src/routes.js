@@ -9,7 +9,7 @@ const routes = new Router();
 routes.post('/createLivro', autenticacao, LC.store);
 routes.get('/getLivro', LC.get);
 routes.get('/getUmLivro/:id', LC.getId);
-routes.put('/updateNomeLivro', autenticacao, LC.update);
+routes.put('/updateNomeLivro/:id', autenticacao, LC.update);
 routes.put('/updateAutor/:id', autenticacao, LC.updateAutor);
 routes.put('/updateCategoria', autenticacao, LC.updateCategoria);
 routes.put('/updateSinopse', autenticacao, LC.updateSinopse);
