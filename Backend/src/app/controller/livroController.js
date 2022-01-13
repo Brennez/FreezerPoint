@@ -58,7 +58,8 @@ class LivroController {
   }
 
   async updateAutor(req, res) {
-    const { id, autor } = req.body;
+    const { autor } = req.body;
+    const { id } = req.params;
     const livro = await Livro.findByPk(id);
     if (!livro) {
       res.status(404).json({ erro: 'Esse Livro nao existe' });

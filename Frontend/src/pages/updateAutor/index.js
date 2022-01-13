@@ -11,21 +11,21 @@ import { useParams } from 'react-router-dom'
 
 function UpdateAutor() {
   const formularioReferencia = useRef(null)
-  const {id} = useParams()
+  const { id } = useParams()
 
   const submeterFormulario = async data => {
     //Valida dos campos do formulário
     try {
+      console.log('AMIGO ESTOU AQUI')
       const esquema = Yup.object().shape({
-        novoAutor: Yup.string()
-          .autor('Autor inválido')
-          .required('Você precisa digitar um autor')
+        autor: Yup.string().required('Você precisa digitar um autor')
       })
       await esquema.validate(data, { abortEarly: false })
 
       //Faz a requisição da api e grava no banco de dados
+      console.log('AMIGO AINDA ESTOU AQUI')
       const response = await api.put(`/updateAutor/${id}`, {
-        novoAutor: data.novoAutor
+        autor: data.autor
       })
       //Atuliza a pagina
       window.location.reload()
@@ -44,8 +44,7 @@ function UpdateAutor() {
   //pegando os dados do backend
   const [data, setData] = useState([])
   useEffect(async () => {
-    console.log('teste')
-    const response = await api.get('/buscaID')
+    const response = await api.get(`/getUmLivro/${id}`)
     setData(response.data)
   }, [])
 
@@ -53,7 +52,7 @@ function UpdateAutor() {
     <>
       <Logo>
         <div className="container">
-          <Link to="/bookProfile/1">
+          <Link to={`/bookProfile/${id}`}>
             {' '}
             <img className="exitButton" size="20px" src={left} alt="" />{' '}
           </Link>
@@ -70,8 +69,8 @@ function UpdateAutor() {
             </p>
             <h2 className="tituloAutor">Novo Autor</h2>
             <Input
-              name="novoAutor"
-              type="autor"
+              name="autor"
+              type="text"
               placeholder="Digite o nome do autor"
             />
             <div className="contentButton">
