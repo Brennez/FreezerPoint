@@ -103,7 +103,7 @@ function BookProfile() {
                 {data.edicao}
               </p>
               <div className="icon">
-                <Link to="/updateEdicao">
+                <Link to={`/updateEdicao/${id}`}>
                   <img src={editor} alt="" />
                 </Link>
               </div>
