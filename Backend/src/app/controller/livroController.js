@@ -80,7 +80,8 @@ class LivroController {
     }
   }
   async updateCategoria(req, res) {
-    const { id, categoria } = req.body;
+    const { categoria } = req.body;
+    const { id } = req.params;
     const livro = await Livro.findByPk(id);
     if (!livro) {
       res.status(404).json({ erro: 'Esse Livro nao existe' });

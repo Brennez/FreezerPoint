@@ -72,13 +72,6 @@ function BookProfile() {
                   <img src={editor} alt="" />
                 </Link>
               </div>
-              {/* <div className="icon">
-                <a href="">
-                  <Link to="#">
-                    <img src={editorIcon} alt="" />
-                  </Link>
-                </a>
-              </div> */}
             </div>
             {/* Fim container
              */}
@@ -88,7 +81,7 @@ function BookProfile() {
                 {data.categoria}
               </p>
               <div className="icon">
-                <Link to="/updateCategoria">
+                <Link to={`/updateCategoria/${id}`}>
                   <img src={editor} alt="" />
                 </Link>
               </div>

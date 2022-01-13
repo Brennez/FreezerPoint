@@ -13,6 +13,7 @@ import UT from '../pages/updateTelefone'
 import UNL from '../pages/updateNomeLivro'
 import UA from '../pages/updateAutor'
 import USL from '../pages/updateSinopse'
+import UCL from '../pages/updateCategoria'
 import Update from '../pages/updateNome'
 import BookProfile from '../pages/bookProfile'
 // import ControleDeRotas from "./route";
@@ -93,6 +94,12 @@ function Routes() {
         isPrivate={true}
         exact
         component={USL}
+      ></ControleRotas>
+      <ControleRotas
+        path="/updateCategoria/:id"
+        isPrivate={true}
+        exact
+        component={UCL}
       ></ControleRotas>
     </Switch>
   )
