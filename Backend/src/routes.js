@@ -12,7 +12,7 @@ routes.get('/getUmLivro/:id', LC.getId);
 routes.put('/updateNomeLivro/:id', autenticacao, LC.update);
 routes.put('/updateAutor/:id', autenticacao, LC.updateAutor);
 routes.put('/updateCategoria', autenticacao, LC.updateCategoria);
-routes.put('/updateSinopse', autenticacao, LC.updateSinopse);
+routes.put('/updateSinopse/:id', autenticacao, LC.updateSinopse);
 routes.put('/updateEdicao', autenticacao, LC.updateEdicao);
 routes.put('/updateGenero', autenticacao, LC.updateGenero);
 

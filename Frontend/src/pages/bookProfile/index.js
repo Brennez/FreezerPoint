@@ -61,13 +61,6 @@ function BookProfile() {
                   <img src={editor} alt="" />
                 </Link>
               </div>
-              {/* <div className="icon">
-                <a href="">
-                  <Link to="/updateEmail">
-                    <img src={editorIcon} alt="" />
-                  </Link>
-                </a>
-              </div> */}
             </div>
             <h2 id="tituloSinopse">Sinopse</h2>
             <div className="containerSinopse">
@@ -75,7 +68,7 @@ function BookProfile() {
                 {data.sinopse}
               </p>
               <div className="icon">
-                <Link to="/updateSinopse">
+                <Link to={`/updateSinopse/${id}`}>
                   <img src={editor} alt="" />
                 </Link>
               </div>

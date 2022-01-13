@@ -12,6 +12,7 @@ import US from '../pages/updateSenha'
 import UT from '../pages/updateTelefone'
 import UNL from '../pages/updateNomeLivro'
 import UA from '../pages/updateAutor'
+import USL from '../pages/updateSinopse'
 import Update from '../pages/updateNome'
 import BookProfile from '../pages/bookProfile'
 // import ControleDeRotas from "./route";
@@ -86,6 +87,12 @@ function Routes() {
         isPrivate={true}
         exact
         component={UNL}
+      ></ControleRotas>
+      <ControleRotas
+        path="/updateSinopse/:id"
+        isPrivate={true}
+        exact
+        component={USL}
       ></ControleRotas>
     </Switch>
   )

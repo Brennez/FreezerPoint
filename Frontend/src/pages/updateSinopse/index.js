@@ -9,7 +9,7 @@ import left from '../../assets/left.png'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
-function UpdateNomeLivro() {
+function UpdateSinopse() {
   const formularioReferencia = useRef(null)
   const { id } = useParams()
 
@@ -17,13 +17,13 @@ function UpdateNomeLivro() {
     //Valida dos campos do formulário
     try {
       const esquema = Yup.object().shape({
-        nome: Yup.string().required('Você precisa digitar um título')
+        sinopse: Yup.string().required('Você precisa digitar um título')
       })
       await esquema.validate(data, { abortEarly: false })
 
       //Faz a requisição da api e grava no banco de dados
-      const response = await api.put(`/updateNomeLivro/${id}`, {
-        nome: data.nome
+      const response = await api.put(`/updateSinopse/${id}`, {
+        sinopse: data.sinopse
       })
       //Atuliza a pagina
       window.location.reload()
@@ -61,15 +61,15 @@ function UpdateNomeLivro() {
         <ContentForm>
           <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
             <h1 className="title">Editar</h1>
-            <h2>Título antigo</h2>
-            <p className="titulo" href="">
-              {data.nome}
+            <h2>Sinopse antiga</h2>
+            <p className="sinopse" href="">
+              {data.sinopse}
             </p>
-            <h2 className="tituloDoLivro">Novo título</h2>
+            <h2 className="tituloDaSinopse">Nova sinopse</h2>
             <Input
-              name="nome"
+              name="sinopse"
               type="text"
-              placeholder="Digite o nome do autor"
+              placeholder="Digite a nova sinopse"
             />
             <div className="contentButton">
               <button type="submit" className="botao" id="teste">
@@ -85,4 +85,4 @@ function UpdateNomeLivro() {
   )
 }
 
-export default UpdateNomeLivro
+export default UpdateSinopse
