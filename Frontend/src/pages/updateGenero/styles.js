@@ -32,18 +32,18 @@ export const ContentForm = styled.div`
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
   }
-  .tituloDaSinopse {
+  .tituloDoGenero{
     margin-top: 1rem;
   }
 
   .nome {
     font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
-    border-color: #9ba0fc;
+    border-color: #6c70ef;
     margin-bottom: 1rem;
     border: none;
     outline: none;
-    background: #9ba0fc;
+    background: #6c70ef;
     color: white;
     padding: 0.5rem;
     padding-right: 50%;
@@ -54,10 +54,10 @@ export const ContentForm = styled.div`
   .genero {
     font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
-    border-color: #9ba0fc;
+    border-color: #6c70ef;
     border: none;
     outline: none;
-    background: #9ba0fc;
+    background: #6c70ef;
     color: white;
     padding: 0.5rem;
     padding-right: 33%;

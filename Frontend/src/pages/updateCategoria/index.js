@@ -62,10 +62,10 @@ function UpdateCategoria() {
           <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
             <h1 className="title">Editar</h1>
             <h2>Categoria antiga</h2>
-            <p className="sinopse" href="">
+            <p className="categoria" href="">
               {data.categoria}
             </p>
-            <h2 className="tituloDaSinopse">Nova Categoria</h2>
+            <h2 className="tituloDaCategoria">Nova Categoria</h2>
             <Input
               name="categoria"
               type="text"

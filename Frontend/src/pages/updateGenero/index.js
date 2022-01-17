@@ -65,7 +65,7 @@ function UpdateGenero() {
             <p className="genero" href="">
               {data.genero}
             </p>
-            <h2 className="tituloDaSinopse">Novo Gênero</h2>
+            <h2 className="tituloDoGenero">Novo Gênero</h2>
             <Input
               name="genero"
               type="text"
