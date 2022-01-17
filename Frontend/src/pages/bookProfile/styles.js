@@ -53,7 +53,7 @@ export const ContentForm = styled.div`
     transition: background 0.2s;
   }
 
-  .containerName .icon {
+  .icon {
     margin-left: 0.5rem;
   }
 
@@ -61,9 +61,7 @@ export const ContentForm = styled.div`
     display: flex;
   }
 
-  .containerAutor .icon {
-    margin-left: 0.5rem;
-  }
+
   .autor {
     font-family: 'Nunito', sans-serif;
     border-radius: 5rem;
