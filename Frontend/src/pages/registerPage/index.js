@@ -22,9 +22,10 @@ function Register() {
         email: Yup.string()
           .email('Email inválido')
           .required('Você precisa digitar um email'),
-        telefone: Yup.number()
-          .min(9, 'Você precisa digitar 9 números')
-          .required('Você precisa digitar um número de telefone'),
+        telefone: Yup.string()
+          .min(9, 'O número precisa ter 9 dígitos')
+          .required('Você precisa digitar um número'),
+
         senha: Yup.string()
           .min(6, 'A senha precisa ter no mínimo 6 caracteres')
           .required('Você precisa digitar uma senha')
@@ -46,7 +47,6 @@ function Register() {
         error.inner.forEach(e => {
           erros[e.path] = e.message
         })
-        console.log(erros)
         formularioReferencia.current?.setErrors(erros)
       }
     }
