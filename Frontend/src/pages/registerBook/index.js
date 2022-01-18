@@ -2,12 +2,13 @@ import React, { useRef } from 'react'
 import { Container, ContentForm, Image, Header } from './styles'
 import logo from '../../assets/logo.svg'
 import { Form } from '@unform/web'
-import Input from '../../components/input'
+// import Input from '../../components/input'
 import api from '../../services/api'
 import left from '../../assets/left.png'
 import { Link, useHistory } from 'react-router-dom'
 import Button from '../../components/button'
 import { useState } from 'react'
+import { Input } from '../../components/input/newInput'
 
 function RegisterBook() {
   const formularioReferencia = useRef(null)
@@ -31,17 +32,18 @@ function RegisterBook() {
     history.push('/Home')
   }
 
-    const [data, setData] = useState({
-        "title": "",
-        "author": "",
-        "category": "",
-        "gender": "",
-        "edition": "",
-        "url_image": "",
-        "synopsis": ""
- })
-
-
+  // const [data, setData] = useState({
+  //   title: '',
+  //   author: '',
+  //   category: '',
+  //   gender: '',
+  //   edition: '',
+  //   url_image: '',
+  //   synopsis: ''
+  // })
+  {
+    /* <Input data={data}, key={title} setData={setData}></Input> */
+  }
   return (
     <>
       <Header>
@@ -57,11 +59,18 @@ function RegisterBook() {
           <h1 className="title">Cadastre um livro</h1>
           <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
             <h2>Seu livro é para...</h2>
-            <Button name="oi" type="text"/>
+            <Button name="oi" type="text" />
             <h2>Título</h2>
-            <Input data={data}, key={title} setData={setData}></Input>
-            <Input name="nome" type="text" placeholder="Harry Potter" />
-            <h2>Autor</h2>
+
+            <Input
+              data={data}
+              key={nome}
+              setData={setData}
+              name="nome"
+              type="text"
+              placeholder="Harry Potter"
+            />
+            {/* <h2>Autor</h2>
             <Input name="autor" type="text" placeholder="J. K. Rowling" />
             <h2>Categoria</h2>
             <Input name="categoria" type="text" placeholder="Livro" />
@@ -78,9 +87,8 @@ function RegisterBook() {
             <h2>Url da imagem</h2>
             <Input name="url" type="text" placeholder="www.urlimage.com" />
             <h2 hidden>Preço</h2>
-            <Input name="preco" type="number" placeholder="150" hidden/>
+            <Input name="preco" type="number" placeholder="150" hidden /> */}
             <button type="submit"> Cadastrar </button>
-          
           </Form>
         </ContentForm>
         <Image> </Image>
