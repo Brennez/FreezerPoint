@@ -110,7 +110,9 @@ function BookProfile() {
             </div>
           </div>
         </ContentForm>
-        <Image></Image>
+        <Link to={`/updateImage/${id}`}>
+          <img src={data.imageurl} alt="imagem_do_livro" />
+        </Link>
       </Container>
     </>
   )

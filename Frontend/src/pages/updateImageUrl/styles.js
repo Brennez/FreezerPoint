@@ -32,7 +32,7 @@ export const ContentForm = styled.div`
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
   }
-  .tituloDaImagem {
+  .tituloDaCategoria {
     margin-top: 1rem;
   }
 
@@ -51,7 +51,19 @@ export const ContentForm = styled.div`
     transition: background 0.2s;
   }
 
-  .imagem {
+  .categoria {
+    font-family: 'Nunito', sans-serif;
+    border-radius: 5rem;
+    border-color: #6c70ef;
+    border: none;
+    outline: none;
+    background: #6c70ef;
+    color: white;
+    padding: 0.5rem;
+    padding-right: 33%;
+
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+    transition: background 0.2s;
   }
 
   .contentButton {

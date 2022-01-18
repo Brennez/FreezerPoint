@@ -16,6 +16,7 @@ import USL from '../pages/updateSinopse'
 import UCL from '../pages/updateCategoria'
 import UGL from '../pages/updateGenero'
 import UEL from '../pages/updateEdicao'
+import UIL from '../pages/updateImageUrl'
 import Update from '../pages/updateNome'
 import BookProfile from '../pages/bookProfile'
 // import ControleDeRotas from "./route";
@@ -114,6 +115,12 @@ function Routes() {
         isPrivate={true}
         exact
         component={UEL}
+      ></ControleRotas>
+      <ControleRotas
+        path="/updateImage/:id"
+        isPrivate={true}
+        exact
+        component={UIL}
       ></ControleRotas>
     </Switch>
   )
