@@ -15,6 +15,7 @@ routes.put('/updateCategoria/:id', autenticacao, LC.updateCategoria);
 routes.put('/updateSinopse/:id', autenticacao, LC.updateSinopse);
 routes.put('/updateEdicao/:id', autenticacao, LC.updateEdicao);
 routes.put('/updateGenero/:id', autenticacao, LC.updateGenero);
+routes.put('/updateImage/:id', autenticacao, LC.updateImage);
 
 // --------------------- ROTAS DE USUÁRIO ----------------------//
 

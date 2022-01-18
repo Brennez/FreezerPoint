@@ -115,6 +115,18 @@ class LivroController {
       res.json(novo);
     }
   }
+
+  async updateImage(req, res) {
+    const { imageurl } = req.body;
+    const { id } = req.params;
+    const livro = await Livro.findByPk(id);
+    if (!livro) {
+      res.status(404).json({ erro: 'Este livro não existe' });
+    } else {
+      const novo = await livro.update({ imageurl: imageurl });
+      res.json(novo);
+    }
+  }
 }
 
 export default new LivroController();

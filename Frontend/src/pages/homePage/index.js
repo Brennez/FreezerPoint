@@ -115,7 +115,7 @@ function Home() {
             <h1>O Freezer</h1>
             <p>
               Em nosso site você encontra um livro para todos os gostos. Uma
-              grande variedade. Preços acessíveis. Histórias interessantes.
+              grande variedade de histórias interessantes.
             </p>
             <a href="#sobre">Saiba mais</a>
           </div>
@@ -156,11 +156,11 @@ function Home() {
 
         <ContentBook ref={referencia}>
           {data.map(item => {
-            const { autor, nome, categoria, genero, sinopse, url } = item
+            const { autor, nome, categoria, genero, sinopse, imageurl } = item
             return (
               <div className="item">
                 <div className="conteudoItem">
-                  <img src={url}  className="imageItem" />
+                  <img src={imageurl} className="imageItem" />
                   <div className="info">
                     {/* <p className="preco"> R$ 10.00</p> */}
                     <p className="titulo"> {nome}</p>
@@ -197,8 +197,8 @@ function Home() {
             de coleta para livros e revistas que
             <br /> deseja fazer a doação para a comunidade. O nosso site fornece
             uma maneira intuitiva e eficiente para o usuário
-            <br /> fazer a compra troca e doação de livros, estabelecendo a
-            conexão entre leitores e os livros.
+            <br /> fazer a doação de livros, estabelecendo a conexão entre
+            leitores e os livros.
           </p>
         </div>
       </About>
