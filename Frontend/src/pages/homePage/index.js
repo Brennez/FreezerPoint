@@ -156,11 +156,11 @@ function Home() {
 
         <ContentBook ref={referencia}>
           {data.map(item => {
-            const { autor, nome, categoria, genero, sinopse } = item
+            const { autor, nome, categoria, genero, sinopse, url } = item
             return (
               <div className="item">
                 <div className="conteudoItem">
-                  <img src={book} className="imageItem" />
+                  <img src={url}  className="imageItem" />
                   <div className="info">
                     {/* <p className="preco"> R$ 10.00</p> */}
                     <p className="titulo"> {nome}</p>

@@ -1,37 +1,36 @@
-import React, { Component } from "react";
-import { Container } from "./styles";
+import React, { useEffect, useRef } from "react";
+import { Container, Erro } from "./styles";
+import { useField } from "@unform/core";
 
-class Button extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "React"
-    };
-    this.onChangeValue = this.onChangeValue.bind(this);
-  }
+const Button = ({ name, ...rest }) => {
+  const referenciaInput = useRef(null);
+  const { fieldName, defaultValue, error, registerField } = useField(name);
 
-  onChangeValue(event) {
-    console.log(event.target.value);
-  }
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      ref: referenciaInput.current,
+      path: "value",
+    });
+  }, []);
 
-  render() {
-    return (
-        <Container>
-        <div onChange={this.onChangeValue}>
+  return (
+    <>
+       <Container>
+        <div>
             <div class="radio">
-                <input type="radio" value="Venda" name="gender" /> Venda
+                <input type="radio" value="Venda" name="type" /> Venda
             </div>
             <div class="radio">
-                <input type="radio" value="Troca" name="gender" /> Troca
+                <input type="radio" value="Troca" name="type" /> Troca
             </div>
             <div class="radio">
-                <input type="radio" value="Doacao" name="gender" /> Doação
+                <input type="radio" value="Doacao" name="type" /> Doação
             </div>
         </div>
       </Container>
-    
-    );
-  }
-}
+    </>
+  );
+};
 
 export default Button;
