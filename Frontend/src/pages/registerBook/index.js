@@ -7,7 +7,7 @@ import api from '../../services/api'
 import left from '../../assets/left.png'
 import { Link, useHistory } from 'react-router-dom'
 import Button from '../../components/button'
-
+import { useState } from 'react'
 
 function RegisterBook() {
   const formularioReferencia = useRef(null)
@@ -21,11 +21,27 @@ function RegisterBook() {
       genero: data.genero,
       edicao: data.edicao,
       sinopse: data.sinopse,
-      imageurl: data.url
+      imageurl: data.url,
+      venda: false,
+      troca: false,
+      doacao: true,
+      preco: 56
     })
     console.log(reponse.data)
     history.push('/Home')
   }
+
+    const [data, setData] = useState({
+        "title": "",
+        "author": "",
+        "category": "",
+        "gender": "",
+        "edition": "",
+        "url_image": "",
+        "synopsis": ""
+ })
+
+
   return (
     <>
       <Header>
@@ -40,18 +56,10 @@ function RegisterBook() {
         <ContentForm>
           <h1 className="title">Cadastre um livro</h1>
           <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
-            {/* <div class="container">
-              <input name="venda" id="venda1" type="radio" value="venda"  checked/>
-              <label for="venda1">Venda</label>
-              <input name="venda" id="troca1" type="radio" value="troca"/>
-              <label for="troca1">Troca</label>
-              <input name="venda" id="doacao2" type="radio" value="doacao" />
-              <label for="doacao2">Doação</label> 
-            </div> 
-             */}
             <h2>Seu livro é para...</h2>
-            <Button/>
+            <Button name="oi" type="text"/>
             <h2>Título</h2>
+            <Input data={data}, key={title} setData={setData}></Input>
             <Input name="nome" type="text" placeholder="Harry Potter" />
             <h2>Autor</h2>
             <Input name="autor" type="text" placeholder="J. K. Rowling" />
@@ -69,6 +77,8 @@ function RegisterBook() {
             ></Input>
             <h2>Url da imagem</h2>
             <Input name="url" type="text" placeholder="www.urlimage.com" />
+            <h2 hidden>Preço</h2>
+            <Input name="preco" type="number" placeholder="150" hidden/>
             <button type="submit"> Cadastrar </button>
           
           </Form>
