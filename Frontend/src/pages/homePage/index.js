@@ -162,7 +162,6 @@ function Home() {
                 <div className="conteudoItem">
                   <img src={imageurl} className="imageItem" />
                   <div className="info">
-                    {/* <p className="preco"> R$ 10.00</p> */}
                     <p className="titulo"> {nome}</p>
                     <p className="autor"> {autor}</p>
                     <div className="botao">

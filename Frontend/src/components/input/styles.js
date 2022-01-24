@@ -18,8 +18,8 @@ export const Container = styled.div`
     
      input {
       width: 100%;
-      border-radius: 5rem;
-      border-style: solid;
+      border-radius: 2rem;
+      border-style: none;
       border-color: #6c70ef;
       outline: none;
       padding: 0.5rem;
