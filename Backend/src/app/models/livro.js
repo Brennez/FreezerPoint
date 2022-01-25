@@ -11,10 +11,6 @@ class Livro extends Model {
         edicao: Sequelize.STRING,
         sinopse: Sequelize.STRING,
         imageurl: Sequelize.STRING,
-        venda: Sequelize.BOOLEAN,
-        troca: Sequelize.BOOLEAN,
-        doacao: Sequelize.BOOLEAN,  
-        preco: Sequelize.DOUBLE,
       },
       {
         sequelize,

@@ -20,28 +20,12 @@ function RegisterBook() {
       genero: data.genero,
       edicao: data.edicao,
       sinopse: data.sinopse,
-      imageurl: data.url,
-      venda: false,
-      troca: false,
-      doacao: true,
-      preco: 56
+      imageurl: data.url
     })
     console.log(reponse.data)
     history.push('/Home')
   }
 
-  // const [data, setData] = useState({
-  //   title: '',
-  //   author: '',
-  //   category: '',
-  //   gender: '',
-  //   edition: '',
-  //   url_image: '',
-  //   synopsis: ''
-  // })
-  {
-    /* <Input data={data}, key={title} setData={setData}></Input> */
-  }
   return (
     <>
       <Header>
