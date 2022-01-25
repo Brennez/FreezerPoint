@@ -39,6 +39,15 @@ function BookProfile() {
       <Container>
         <ContentForm ref={referencia}>
           <div>
+          <Link to={`/updateImage/${id}`}>
+            <div className="containerItem">
+              <div className="item">
+                <div className="conteudoItem">
+                  <img src={data.imageurl} className="imageItem" />
+                </div>
+              </div>
+            </div>
+          </Link>
             <h1 className="title">Meu livro</h1>
             <h2>Nome</h2>
             <div className="containerName">
@@ -110,15 +119,6 @@ function BookProfile() {
             </div>
           </div>
         </ContentForm>
-        <Link to={`/updateImage/${id}`}>
-          <div className="containerItem">
-            <div className="item">
-              <div className="conteudoItem">
-                <img src={data.imageurl} className="imageItem" />
-              </div>
-            </div>
-          </div>
-        </Link>
       </Container>
     </>
   )
