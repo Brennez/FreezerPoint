@@ -62,7 +62,13 @@ function UpdateUrlImage() {
           <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
             <h1 className="title">Editar</h1>
             <h2>Imagem antiga</h2>
-            <img src={data.imageurl} alt="imagem_antiga" />
+            <div className="containerItem">
+              <div className="item">
+                <div className="conteudoItem">
+                  <img src={data.imageurl} className="imageItem" />
+                </div>
+              </div>
+            </div>
             <h2 className="tituloDaImagem">Nova Imagem</h2>
             <Input
               name="image"
