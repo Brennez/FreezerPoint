@@ -19,6 +19,7 @@ export const Container = styled.div`
     padding: 0.625rem;
     width: 10rem;
     flex: none;
+    margin-bottom: 10%;
   }
   /* conteúdo do item */
   .item .conteudoItem {

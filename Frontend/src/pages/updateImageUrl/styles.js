@@ -11,6 +11,29 @@ export const Container = styled.div`
   display: flex;
   height: 100vh;
   margin-left: 2rem;
+
+  .item {
+    margin-right: 0.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 0.625rem;
+    width: 10rem;
+    flex: none;
+    margin-bottom: 10%;
+  }
+  /* conteúdo do item */
+  .item .conteudoItem {
+    display: grid;
+    justify-content: center;
+  }
+  /* Imagem de dentro */
+  .item .conteudoItem .imageItem {
+    /* width: 100px;
+    height:100px; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `
 export const ContentForm = styled.div`
   display: flex;
