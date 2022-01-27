@@ -11,13 +11,17 @@ export const Container = styled.div`
   display: flex;
   height: 100vh;
   margin-left: 2rem;
+  align-items: center;
 
   .item {
     margin-right: 0.5rem;
+    margin-left: 10rem;
+    margin-top: 10rem;
     background-color: white;
     border-radius: 0.5rem;
     padding: 0.625rem;
-    width: 10rem;
+    width: 50%;
+    height: 50%;
     flex: none;
     margin-bottom: 10%;
   }
@@ -29,7 +33,7 @@ export const Container = styled.div`
   /* Imagem de dentro */
   .item .conteudoItem .imageItem {
     /* width: 100px;
-    height:100px; */
+    height: 100px; */
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -68,8 +72,9 @@ export const ContentForm = styled.div`
     margin-bottom: 1rem;
     border: none;
     outline: none;
-    background: #6c70ef;
-    color: white;
+    background: #aba59c;
+    border-radius: 0.5rem;
+    color: black;
     padding: 0.5rem;
     padding-right: 50%;
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
@@ -90,8 +95,9 @@ export const ContentForm = styled.div`
     border-color: #6c70ef;
     border: none;
     outline: none;
-    background: #6c70ef;
-    color: white;
+    background: #aba59c;
+    border-radius: 0.5rem;
+    color: black;
     padding: 0.5rem;
     padding-right: 33%;
 
@@ -113,8 +119,9 @@ export const ContentForm = styled.div`
     border-color: #6c70ef;
     border: none;
     outline: none;
-    background: #6c70ef;
-    color: white;
+    background: #aba59c;
+    border-radius: 0.5rem;
+    color: black;
     padding: 0.5rem;
     padding-right: 50%;
 
@@ -136,8 +143,9 @@ export const ContentForm = styled.div`
     border-color: #6c70ef;
     border: none;
     outline: none;
-    background: #6c70ef;
-    color: white;
+    background: #aba59c;
+    border-radius: 0.5rem;
+    color: black;
     padding: 0.5rem;
     padding-right: 50%;
 
@@ -159,8 +167,9 @@ export const ContentForm = styled.div`
     border-color: #6c70ef;
     border: none;
     outline: none;
-    background: #6c70ef;
-    color: white;
+    background: #aba59c;
+    border-radius: 0.5rem;
+    color: black;
     padding: 0.5rem;
     padding-right: 50%;
 
@@ -182,8 +191,9 @@ export const ContentForm = styled.div`
     border-color: #6c70ef;
     border: none;
     outline: none;
-    background: #6c70ef;
-    color: white;
+    background: #aba59c;
+    border-radius: 0.5rem;
+    color: black;
     padding: 0.5rem;
     padding-right: 50%;
 

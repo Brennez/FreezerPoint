@@ -42,7 +42,8 @@ export const ContentForm = styled.div`
     margin-bottom: 1rem;
     border: none;
     outline: none;
-    background: #6c70ef;
+    background: #aba59c;
+    border-radius: 0.5rem;
     color: white;
     padding: 0.5rem;
     padding-right: 50%;

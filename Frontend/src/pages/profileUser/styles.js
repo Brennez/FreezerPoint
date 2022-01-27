@@ -43,7 +43,7 @@ export const ContentForm = styled.div`
     margin-bottom: 1rem;
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
     background: #aba59c;
-    /* border-radius: 2rem; */
+    border-radius: 0.5rem;
     color: black;
     padding: 0.5rem;
     padding-right: 50%;
@@ -67,8 +67,9 @@ export const ContentForm = styled.div`
     border-color: #6c70ef;
     border: none;
     outline: none;
-    background: #6c70ef;
-    color: white;
+    background: #aba59c;
+    border-radius: 0.5rem;
+    color: black;
     padding: 0.5rem;
     padding-right: 33%;
 
@@ -90,8 +91,9 @@ export const ContentForm = styled.div`
     border-color: #6c70ef;
     border: none;
     outline: none;
-    background: #6c70ef;
-    color: white;
+    background: #aba59c;
+    border-radius: 0.5rem;
+    color: black;
     padding: 0.5rem;
     padding-right: 50%;
 
@@ -117,8 +119,9 @@ export const ContentForm = styled.div`
     border-color: #6c70ef;
     border: none;
     outline: none;
-    background: #6c70ef;
-    color: white;
+    background: #aba59c;
+    border-radius: 0.5rem;
+    color: black;
     padding: 0.5rem;
     padding-right: 50%;
 
