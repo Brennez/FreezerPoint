@@ -166,7 +166,7 @@ function Home() {
                     <p className="autor"> {autor}</p>
                     <div className="botao">
                       <a href="#"> Adicionar</a>
-                      <img clasname="icon" src={icon} alt="icone fav" />
+                      {/* <img clasname="icon" src={icon} alt="icone fav" /> */}
                     </div>
                   </div>
                 </div>
