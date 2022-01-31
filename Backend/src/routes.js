@@ -3,6 +3,8 @@ import UC from './app/controller/usuarioController';
 import LC from './app/controller/livroController';
 import SC from './app/controller/SessionController';
 import autenticacao from './app/middleware/autenticacao';
+import ML from './app/controller/myListController';
+
 const routes = new Router();
 
 // --------------------- ROTAS DE LIVRO -----------------------------//
@@ -32,5 +34,9 @@ routes.get('/buscaID', autenticacao, UC.getID);
 routes.post('/createUsuario', UC.store);
 routes.post('/login', SC.store);
 routes.post('/createAdmin', UC.store);
+
+
+routes.post('/testeLista',ML.store);
+routes.get('/testeLista/:id',ML.index);
 
 export default routes;

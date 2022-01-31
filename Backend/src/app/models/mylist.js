@@ -10,6 +10,18 @@ class MyList extends Model {
         sequelize,
       },
     );
+    return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Usuario, {
+        foreignKey: 'id_user',
+        as: "usuarios"}
+      )
+    this.belongsTo(models.Livro, {
+      foreignKey: 'id_livros',
+      as: "livros"}
+    )
   }
 }
 
