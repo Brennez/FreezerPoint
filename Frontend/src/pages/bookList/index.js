@@ -10,9 +10,17 @@ function ProfileBook() {
   const [data, setData] = useState([])
   const referencia = useRef(null)
 
+
   useEffect(async () => {
     console.log('teste')
-    const response = await api.get('/getLivro')
+
+    // Pegando id do usuário
+    const response2 = await api.get('buscaID')
+    const id_user = response2.data["id"]
+
+    // const response = await api.get(`/searchLista/${id_user}`)
+    const response = await api.get(`/getLivro`)
+
     setData(response.data)
   }, [])
 
