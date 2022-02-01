@@ -31,7 +31,7 @@ function RegisterBook() {
 
     // Pegando id do usuário
     const response2 = await api.get('buscaID')
-    const id_user = response2.data["id"];
+    const id_user = response2.data["id"]
 
     const criarLista = await api.post('createLista', {
       id_user: id_user,
