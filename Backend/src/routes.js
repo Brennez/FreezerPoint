@@ -35,8 +35,8 @@ routes.post('/createUsuario', UC.store);
 routes.post('/login', SC.store);
 routes.post('/createAdmin', UC.store);
 
-
-routes.post('/testeLista',ML.store);
-routes.get('/testeLista/:id',ML.index);
+// ------------------   ROTAS DA MINHA LISTA -------------------------//
+routes.post('/createLista',ML.store);
+routes.get('/searchLista/:id',ML.index);
 
 export default routes;

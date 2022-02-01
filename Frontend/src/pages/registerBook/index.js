@@ -13,7 +13,7 @@ function RegisterBook() {
   const history = useHistory()
 
   const submeterFormulario = async data => {
-    const reponse = await api.post('createLivro', {
+    const response = await api.post('createLivro', {
       nome: data.nome,
       autor: data.autor,
       categoria: data.categoria,
@@ -22,7 +22,24 @@ function RegisterBook() {
       sinopse: data.sinopse,
       imageurl: data.url
     })
-    console.log(reponse.data)
+
+    // Pegando id do livro
+    const response1 = await api.get('getLivro')
+    // Pegando o ultimo livro adicionado
+    const lastBook = response1.data[response1.data.length - 1]
+    const id_livros = lastBook["id"]
+
+    // Pegando id do usuário
+    const response2 = await api.get('buscaID')
+    const id_user = response2.data["id"];
+
+    const criarLista = await api.post('createLista', {
+      id_user: id_user,
+      id_livros: id_livros
+    })
+
+    console.log(criarLista.data)
+    console.log(response.data)
     history.push('/Home')
   }
 
