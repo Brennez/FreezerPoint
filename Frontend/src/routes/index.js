@@ -5,6 +5,7 @@ import Register from '../pages/registerPage'
 import Home from '../pages/homePage'
 import Book from '../pages/registerBook'
 import Profile from '../pages/profileUser'
+import cartList from '../pages/cartList'
 import ControleRotas from './route'
 import bookList from '../pages/bookList'
 import UE from '../pages/updateEmail'
@@ -55,13 +56,18 @@ function Routes() {
         exact
         component={bookList}
       ></ControleRotas>
+         <ControleRotas
+        path="/cartList"
+        isPrivate={true}
+        exact
+        component={cartList}
+      ></ControleRotas>
       <ControleRotas
         path="/bookProfile/:id"
         isPrivate={true}
         exact
         component={BookProfile}
       ></ControleRotas>
-
       <ControleRotas
         path="/updateEmail"
         isPrivate={true}

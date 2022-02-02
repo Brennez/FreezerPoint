@@ -6,10 +6,9 @@ import api from '../../services/api'
 
 import { Link } from 'react-router-dom'
 
-function ProfileBook() {
+function CartList() {
   const [data, setData] = useState([])
   const referencia = useRef(null)
-
 
   useEffect(async () => {
     console.log('teste')
@@ -19,6 +18,7 @@ function ProfileBook() {
     const id_user = response2.data["id"]
 
     const response = await api.get(`/searchLista/${id_user}`)
+    // const response = await api.get(`/getLivro`)
 
   // Primeira maneira -> aqui ele já retorna o objeto com formatado
   const result = response.data.map(book => {
@@ -64,4 +64,4 @@ function ProfileBook() {
   )
 }
 
-export default ProfileBook
+export default CartList
