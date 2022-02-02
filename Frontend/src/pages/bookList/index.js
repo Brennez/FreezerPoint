@@ -49,10 +49,10 @@ function ProfileBook() {
         <ContentForm ref={referencia}>
           <h1 className="title"> Meus livros</h1>
           {data.map(item => {
-            const { id, nome } = item
+            const { id_livros, nome } = item
             return (
               <div className="containerName">
-                <Link to={`/bookProfile/${id}`}>
+                <Link to={`/bookProfile/${id_livros}`}>
                   <p>{nome}</p>
                 </Link>
               </div>
