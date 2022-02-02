@@ -18,10 +18,20 @@ function ProfileBook() {
     const response2 = await api.get('buscaID')
     const id_user = response2.data["id"]
 
-    // const response = await api.get(`/searchLista/${id_user}`)
-    const response = await api.get(`/getLivro`)
+    const response = await api.get(`/searchLista/${id_user}`)
+    // const response = await api.get(`/getLivro`)
 
-    setData(response.data)
+  // Primeira maneira -> aqui ele já retorna o objeto com formatado
+  const result = response.data.map(book => {
+      return {
+          id_livros: book.id_livros,
+          nome: book.livros.nome
+      }
+  });
+  
+  console.log(result);
+
+  setData(result)
   }, [])
 
   return (
