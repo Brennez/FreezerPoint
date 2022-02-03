@@ -70,11 +70,6 @@ function Home() {
 
         <ul class="menu">
           <li>
-            <Link to="/Home">
-              <a> Home</a>
-            </Link>
-          </li>
-          <li>
             <Link to="/createLivro">
               <a>Cadastrar</a>
             </Link>

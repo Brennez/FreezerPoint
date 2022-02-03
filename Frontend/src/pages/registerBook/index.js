@@ -24,14 +24,14 @@ function RegisterBook() {
     })
 
     // Pegando id do livro
-    const response1 = await api.get('getLivro')
+    const livros = await api.get('getLivro')
     // Pegando o ultimo livro adicionado
-    const lastBook = response1.data[response1.data.length - 1]
-    const id_livros = lastBook["id"]
+    const lastBook = livros.data[livros.data.length - 1]
+    const id_livros = lastBook['id']
 
     // Pegando id do usuário
-    const response2 = await api.get('buscaID')
-    const id_user = response2.data["id"]
+    const user = await api.get('buscaID')
+    const id_user = user.data['id']
 
     const criarLista = await api.post('createLista', {
       id_user: id_user,

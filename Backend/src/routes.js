@@ -4,7 +4,7 @@ import LC from './app/controller/livroController';
 import SC from './app/controller/SessionController';
 import autenticacao from './app/middleware/autenticacao';
 import ML from './app/controller/myListController';
-
+import CL from './app/controller/cartList';
 const routes = new Router();
 
 // --------------------- ROTAS DE LIVRO -----------------------------//
@@ -36,7 +36,11 @@ routes.post('/login', SC.store);
 routes.post('/createAdmin', UC.store);
 
 // ------------------   ROTAS DA MINHA LISTA -------------------------//
-routes.post('/createLista',ML.store);
-routes.get('/searchLista/:id',ML.index);
+routes.post('/createLista', ML.store);
+routes.get('/searchLista/:id', ML.index);
+
+// ------------------   ROTA DO CARRINHO  -------------------------//
+// routes.post('/createCart/:id', CL.store);
+// routes.get('/getCart', CL.)
 
 export default routes;

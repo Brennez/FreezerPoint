@@ -6,31 +6,30 @@ import api from '../../services/api'
 
 import { Link } from 'react-router-dom'
 
-function ProfileBook() {
+function BookProfile() {
   const [data, setData] = useState([])
   const referencia = useRef(null)
-
 
   useEffect(async () => {
     console.log('teste')
 
     // Pegando id do usuário
     const response2 = await api.get('buscaID')
-    const id_user = response2.data["id"]
+    const id_user = response2.data['id']
 
     const response = await api.get(`/searchLista/${id_user}`)
 
-  // Primeira maneira -> aqui ele já retorna o objeto com formatado
-  const result = response.data.map(book => {
+    // Primeira maneira -> aqui ele já retorna o objeto com formatado
+    const result = response.data.map(book => {
       return {
-          id_livros: book.id_livros,
-          nome: book.livros.nome
+        id_livros: book.id_livros,
+        nome: book.livros.nome
       }
-  });
-  
-  console.log(result);
+    })
 
-  setData(result)
+    console.log(result)
+
+    setData(result)
   }, [])
 
   return (
@@ -64,4 +63,4 @@ function ProfileBook() {
   )
 }
 
-export default ProfileBook
+export default BookProfile
