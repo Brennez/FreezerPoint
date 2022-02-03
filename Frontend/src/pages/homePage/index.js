@@ -88,14 +88,14 @@ function Home() {
               <a> Perfil</a>
             </Link>
           </li>
-
           <li>
-            <Link to="#">
-              <img src={iconHeart} alt="myList" height={30} />
+            <Link to="/Book">
+              {' '}
+              <a>Publicações</a>
             </Link>
           </li>
           <li>
-            <Link to="/Book">
+            <Link to="/cartList">
               {' '}
               <img src={iconCart} alt="Mycart" height={30} />
             </Link>

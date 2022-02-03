@@ -1,6 +1,6 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('mylist', {
+    await queryInterface.createTable('my_lists', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -24,6 +24,10 @@ module.exports = {
         },
       },
       created_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      updated_at: {
         type: Sequelize.DATE,
         allowNull: false,
       },
