@@ -3,37 +3,21 @@ import { Container, ContentForm, Image, Logo } from './styles'
 import logo from '../../assets/logo.svg'
 import left from '../../assets/left.png'
 import api from '../../services/api'
-import { useParams } from 'react-router-dom'
 
-import { Link , useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-
-
-
-function CartList() {
+function CartProfile() {
   const [data, setData] = useState([])
   const referencia = useRef(null)
-  const { id } = useParams()
-  const history = useHistory()
 
   useEffect(async () => {
     // Pegando id do usuário
     const response2 = await api.get('buscaID')
-
     const id_user = response2.data['id']
-    
-    
-    const criarCarrinho = await api.post('/createCart', {
-      id_user: id_user,
-      id_livro: id, 
-    })
-  
-    if(criarCarrinho.status === 400) {
-      history.push('/Home')
-    }
 
     const response = await api.get(`/getCart/${id_user}`)
 
+    // Primeira maneira -> aqui ele já retorna o objeto com formatado
     const result = response.data.map(book => {
       return {
         id_livro: book.id_livro,
@@ -75,4 +59,4 @@ function CartList() {
   )
 }
 
-export default CartList
+export default CartProfile
