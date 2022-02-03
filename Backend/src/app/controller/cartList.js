@@ -1,20 +1,22 @@
-// class CartList {
-//   livros = new Array();
+class CartList {
+  livros = new Array();
 
-//   getId(id) {
-//     const idLivro = this.livros.find((id) => livros.id === id);
-//     return idLivro;
-//   }
+  getId(id) {
+    const idLivro = this.livros.find((id) => livros.id === id);
+    return idLivro;
+  }
 
-//   list() {
-//     return this.livros;
-//   }
+  list() {
+    return this.livros;
+  }
 
-//   store(req, res) {
-//     const { id } = req.params;
-//     this.livros.push(id);
-//     return res.status(200).json({ message: 'livro adicionado com sucesso' });
-//   }
-// }
+  store(req, res) {
+    livros = new Array();
 
-// export default CartList;
+    const { id } = req.params;
+    idLivro = this.livros.push(id);
+    return res.status(200).json({ message: 'livro adicionado com sucesso' });
+  }
+}
+
+export default CartList;

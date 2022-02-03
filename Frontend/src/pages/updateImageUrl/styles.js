@@ -67,7 +67,7 @@ export const ContentForm = styled.div`
     border: none;
     outline: none;
     background: #6c70ef;
-    color: white;
+    color: black;
     padding: 0.5rem;
     padding-right: 50%;
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
