@@ -3,8 +3,9 @@ import Usuario from '../app/models/usuario';
 import Livro from '../app/models/livro';
 import databaseConfig from '../config/database';
 import MyList from '../app/models/mylist';
+import MyCartList from '../app/models/cartlist'
 
-const models = [Usuario, Livro , MyList];
+const models = [Usuario, Livro , MyList, MyCartList];
 
 class Database {
   constructor() {

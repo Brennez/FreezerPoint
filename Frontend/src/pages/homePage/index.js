@@ -150,6 +150,7 @@ function Home() {
         </div>
 
         <ContentBook ref={referencia}>
+          
           {data.map(item => {
             const { id, autor, nome, imageurl } = item
             return (

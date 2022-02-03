@@ -4,7 +4,8 @@ import LC from './app/controller/livroController';
 import SC from './app/controller/SessionController';
 import autenticacao from './app/middleware/autenticacao';
 import ML from './app/controller/myListController';
-import CL from './app/controller/cartList';
+import CL from './app/controller/cartListController';
+
 const routes = new Router();
 
 // --------------------- ROTAS DE LIVRO -----------------------------//
@@ -40,7 +41,7 @@ routes.post('/createLista', ML.store);
 routes.get('/searchLista/:id', ML.index);
 
 // ------------------   ROTA DO CARRINHO  -------------------------//
-// routes.post('/createCart/:id', CL.store);
-// routes.get('/getCart', CL.)
+routes.post('/createCart', CL.store);
+routes.get('/getCart/:id', CL.index)
 
 export default routes;
