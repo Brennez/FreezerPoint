@@ -20,16 +20,22 @@ function CartList() {
 
     const id_user = response2.data['id']
 
-    const response = await api.get(`/searchLista/${id_user}`)
-    // const response = await api.get(`/getLivro`)
+    const criarCarrinho = await api.post('/createCart', {
+      id_user: id_user,
+      id_livro: id, 
+    })
+
+    const response = await api.get(`/getCart/${id_user}`)
+
 
     // Primeira maneira -> aqui ele já retorna o objeto com formatado
     const result = response.data.map(book => {
       return {
-        id_livros: book.id_livros,
+        id_livro: book.id_livro,
         nome: book.livros.nome
       }
     })
+
     setData(result)
   }, [])
 
@@ -48,10 +54,10 @@ function CartList() {
         <ContentForm ref={referencia}>
           <h1 className="title"> Meu carrinho</h1>
           {data.map(item => {
-            const { id_livros, nome } = item
+            const { id_livro, nome } = item
             return (
               <div className="containerName">
-                <Link to={`/bookProfile/${id_livros}`}>
+                <Link to={`/bookProfile/${id_livro}`}>
                   <p>{nome}</p>
                 </Link>
               </div>
