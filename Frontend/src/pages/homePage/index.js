@@ -90,7 +90,7 @@ function Home() {
             </Link>
           </li>
           <li>
-            <Link to="/cartList">
+            <Link to="/cartProfile">
               {' '}
               <img src={iconCart} alt="Mycart" height={30} />
             </Link>

@@ -42,6 +42,7 @@ routes.get('/searchLista/:id', ML.index);
 
 // ------------------   ROTA DO CARRINHO  -------------------------//
 routes.post('/createCart', CL.store);
-routes.get('/getCart/:id', CL.index)
+routes.get('/getCart/:id', CL.index);
+
 
 export default routes;
