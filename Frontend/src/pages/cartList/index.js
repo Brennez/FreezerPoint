@@ -3,34 +3,34 @@ import { Container, ContentForm, Image, Logo } from './styles'
 import logo from '../../assets/logo.svg'
 import left from '../../assets/left.png'
 import api from '../../services/api'
+import { useParams } from 'react-router-dom'
 
 import { Link } from 'react-router-dom'
 
 function CartList() {
   const [data, setData] = useState([])
   const referencia = useRef(null)
+  const { id } = useParams()
+
+  // console.log('AMIGO ESTOU AQUI ' + id)
 
   useEffect(async () => {
-    console.log('teste')
-
     // Pegando id do usuário
     const response2 = await api.get('buscaID')
-    const id_user = response2.data["id"]
+
+    const id_user = response2.data['id']
 
     const response = await api.get(`/searchLista/${id_user}`)
     // const response = await api.get(`/getLivro`)
 
-  // Primeira maneira -> aqui ele já retorna o objeto com formatado
-  const result = response.data.map(book => {
+    // Primeira maneira -> aqui ele já retorna o objeto com formatado
+    const result = response.data.map(book => {
       return {
-          id_livros: book.id_livros,
-          nome: book.livros.nome
+        id_livros: book.id_livros,
+        nome: book.livros.nome
       }
-  });
-  
-  console.log(result);
-
-  setData(result)
+    })
+    setData(result)
   }, [])
 
   return (
@@ -46,7 +46,7 @@ function CartList() {
       </Logo>
       <Container>
         <ContentForm ref={referencia}>
-          <h1 className="title"> Meus livros</h1>
+          <h1 className="title"> Meu carrinho</h1>
           {data.map(item => {
             const { id_livros, nome } = item
             return (

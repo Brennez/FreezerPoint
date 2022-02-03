@@ -10,12 +10,10 @@ class CartList {
     return this.livros;
   }
 
-  store(req, res) {
-    livros = new Array();
-
-    const { id } = req.params;
+  async store(req, res) {
+    const { id } = await req.params;
     idLivro = this.livros.push(id);
-    return res.status(200).json({ message: 'livro adicionado com sucesso' });
+    return res.status(200).json({ message: 'Livro adicionado com sucesso' });
   }
 }
 

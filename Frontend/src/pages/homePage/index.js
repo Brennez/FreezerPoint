@@ -151,7 +151,7 @@ function Home() {
 
         <ContentBook ref={referencia}>
           {data.map(item => {
-            const { autor, nome, categoria, genero, sinopse, imageurl } = item
+            const { id, autor, nome, imageurl } = item
             return (
               <div className="item">
                 <div className="conteudoItem">
@@ -160,7 +160,7 @@ function Home() {
                     <p className="titulo"> {nome}</p>
                     <p className="autor"> {autor}</p>
                     <div className="botao">
-                      <a href="#"> Adicionar</a>
+                      <Link to={`/cartList/${id}`}>Adicionar</Link>
                       {/* <img clasname="icon" src={icon} alt="icone fav" /> */}
                     </div>
                   </div>

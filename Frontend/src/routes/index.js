@@ -56,8 +56,8 @@ function Routes() {
         exact
         component={bookList}
       ></ControleRotas>
-         <ControleRotas
-        path="/cartList"
+      <ControleRotas
+        path="/cartList/:id"
         isPrivate={true}
         exact
         component={cartList}
