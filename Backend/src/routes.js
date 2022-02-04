@@ -39,6 +39,7 @@ routes.post('/createAdmin', UC.store);
 // ------------------   ROTAS DA MINHA LISTA -------------------------//
 routes.post('/createLista', ML.store);
 routes.get('/searchLista/:id', ML.index);
+routes.get('/getUserId/:id', ML.getUserId);
 
 // ------------------   ROTA DO CARRINHO  -------------------------//
 routes.post('/createCart', CL.store);

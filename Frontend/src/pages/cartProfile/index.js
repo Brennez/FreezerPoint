@@ -46,7 +46,7 @@ function CartProfile() {
             const { id_livro, nome } = item
             return (
               <div className="containerName">
-                <Link to={`/bookProfile/${id_livro}`}>
+                <Link to={`/contactPage/${id_livro}`}>
                   <p>{nome}</p>
                 </Link>
               </div>
