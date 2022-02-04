@@ -1,5 +1,6 @@
 import Livro from '../models/livro';
 import MyList from '../models/mylist';
+import Usuario from '../models/usuario';
 
 class MyListController {
     async store(req, res) {
@@ -34,6 +35,22 @@ class MyListController {
         return res.json(mylist);
     }
 
+    async getUserId(req,res) {
+        const mylist = await MyList.findAll({
+            where:{
+                id_livros: req.params.id
+            }, 
+            include: [{
+                model:Usuario,
+                as:"usuarios",
+                atribute:[
+                    "nome",
+                    "telefone"
+                ]
+            }]  
+        })
+        return res.json(mylist);
+    }
 }
 
 export default new MyListController();

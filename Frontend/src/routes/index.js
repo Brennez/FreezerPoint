@@ -8,6 +8,7 @@ import Profile from '../pages/profileUser'
 import cartList from '../pages/cartList'
 import cartProfile from '../pages/cartProfile'
 import ControleRotas from './route'
+import contactPage from '../pages/contactPage'
 import bookList from '../pages/bookList'
 import UE from '../pages/updateEmail'
 import US from '../pages/updateSenha'
@@ -68,6 +69,12 @@ function Routes() {
         isPrivate={true}
         exact
         component={cartProfile}
+      ></ControleRotas>
+      <ControleRotas
+        path="/contactPage/:id"
+        isPrivate={true}
+        exact
+        component={contactPage}
       ></ControleRotas>
       <ControleRotas
         path="/bookProfile/:id"

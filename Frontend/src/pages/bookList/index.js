@@ -19,6 +19,8 @@ function BookProfile() {
 
     const response = await api.get(`/searchLista/${id_user}`)
 
+    console.log(response)
+
     // Primeira maneira -> aqui ele já retorna o objeto com formatado
     const result = response.data.map(book => {
       return {
