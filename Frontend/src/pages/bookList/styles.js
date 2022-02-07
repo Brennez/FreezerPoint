@@ -40,13 +40,13 @@ export const ContentForm = styled.div`
 
   a {
     font-family: 'Nunito', sans-serif;
-    border-radius: 5rem;
     border-color: #6c70ef;
     margin-bottom: 1rem;
     border: none;
     outline: none;
-    background: #6c70ef;
-    color: white;
+    background: #aba59c;
+    border-radius: 0.5rem;
+    color: black;
     padding: 0.5rem;
     padding-right: 50%;
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);

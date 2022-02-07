@@ -3,6 +3,7 @@ import { Container, ContentForm, Image, Logo } from './styles'
 import logo from '../../assets/logo.svg'
 import left from '../../assets/left.png'
 import api from '../../services/api'
+// import info from '../../assets/in'
 
 import { Link } from 'react-router-dom'
 

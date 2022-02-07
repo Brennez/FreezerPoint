@@ -38,17 +38,7 @@ export const ContentForm = styled.div`
       color: rgba(32, 32, 40, 0.8);
       font-size: 1.3rem;
     }
-    input {
-      border-radius: 5rem;
-      border-style: solid;
-      border-color: #9ba0fc;
-      outline: none;
-      padding: 0.5rem;
-      ::placeholder {
-        color: #c8d3f9;
-        size: 1.5rem;
-      }
-    }
+  
     button {
       font-family: "Nunito", sans-serif;
       border-radius: 5rem;
