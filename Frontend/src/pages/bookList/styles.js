@@ -38,7 +38,14 @@ export const ContentForm = styled.div`
     display: flex;
   }
 
-  a {
+  .icon {
+    margin-left: 0.5rem;
+    width: 15px;
+    height: 1rem;
+  }
+
+
+  .nome{
     font-family: 'Nunito', sans-serif;
     border-color: #6c70ef;
     margin-bottom: 1rem;

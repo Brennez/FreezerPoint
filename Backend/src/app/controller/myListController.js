@@ -51,6 +51,18 @@ class MyListController {
         })
         return res.json(mylist);
     }
+
+    async deleteLivro(req,res) {
+        const mylist = await MyList.destroy(
+            {
+                where: {
+                    id:req.params.id
+                }
+            }
+        )
+        return res.json("Livro excluido");
+    }
 }
+
 
 export default new MyListController();
