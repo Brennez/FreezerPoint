@@ -40,6 +40,7 @@ routes.post('/createAdmin', UC.store);
 routes.post('/createLista', ML.store);
 routes.get('/searchLista/:id', ML.index);
 routes.get('/getUserId/:id', ML.getUserId);
+routes.delete('/deleteLivro/:id', ML.deleteLivro);
 
 // ------------------   ROTA DO CARRINHO  -------------------------//
 routes.post('/createCart', CL.store);
