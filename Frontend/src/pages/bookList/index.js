@@ -3,6 +3,7 @@ import { Container, ContentForm, Image, Logo } from './styles'
 import logo from '../../assets/logo.svg'
 import left from '../../assets/left.png'
 import api from '../../services/api'
+import editor from '../../assets/delete.png'
 // import info from '../../assets/in'
 
 import { Link } from 'react-router-dom'
@@ -53,9 +54,14 @@ function BookProfile() {
             const { id_livros, nome } = item
             return (
               <div className="containerName">
-                <Link to={`/bookProfile/${id_livros}`}>
+                <Link className='nome' to={`/bookProfile/${id_livros}`}>
                   <p>{nome}</p>
                 </Link>
+                <div className="icon">
+                  <Link to={``}>
+                    <img src={editor} alt="" />
+                  </Link>
+                </div>
               </div>
             )
           })}
