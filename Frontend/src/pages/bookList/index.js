@@ -3,17 +3,15 @@ import { Container, ContentForm, Image, Logo } from './styles'
 import logo from '../../assets/logo.svg'
 import left from '../../assets/left.png'
 import api from '../../services/api'
-import editor from '../../assets/delete.png'
- 
-// import info from '../../assets/in'
+import deleteIcon from '../../assets/delete.png'
 
 import { Link } from 'react-router-dom'
 
-function BookProfile() {
+async function deletaLivro(id_livros) {
+  const deletar = await api.delete(`/deleteLivro/${id_livros}`)
+}
 
-  async function deleteRoute (id){
-    const deletar = await api.delete(`/deletar/${id}`)
-  }
+function BookProfile() {
   const [data, setData] = useState([])
   const referencia = useRef(null)
 
@@ -59,12 +57,12 @@ function BookProfile() {
             const { id_livros, nome } = item
             return (
               <div className="containerName">
-                <Link className='nome' to={`/bookProfile/${id_livros}`}>
+                <Link className="nome" to={`/bookProfile/${id_livros}`}>
                   <p>{nome}</p>
                 </Link>
                 <div className="icon">
-                  <a onClick={deleteRoute(id_livros)}>
-                    <img src={editor} alt="" />
+                  <a href="#" onClick={deletaLivro(`${id_livros}`)}>
+                    <img src={deleteIcon} alt="ícone de deletar." />
                   </a>
                 </div>
               </div>
