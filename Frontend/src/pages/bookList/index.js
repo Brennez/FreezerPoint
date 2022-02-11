@@ -7,10 +7,6 @@ import deleteIcon from '../../assets/delete.png'
 
 import { Link } from 'react-router-dom'
 
-async function deletaLivro(id_livros) {
-  const deletar = await api.delete(`/deleteLivro/${id_livros}`)
-}
-
 function BookProfile() {
   const [data, setData] = useState([])
   const referencia = useRef(null)
@@ -61,9 +57,7 @@ function BookProfile() {
                   <p>{nome}</p>
                 </Link>
                 <div className="icon">
-                  <a href="#" onClick={deletaLivro(`${id_livros}`)}>
-                    <img src={deleteIcon} alt="ícone de deletar." />
-                  </a>
+                  <img src={deleteIcon} alt="ícone de deletar." />
                 </div>
               </div>
             )

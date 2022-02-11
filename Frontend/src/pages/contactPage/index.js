@@ -21,8 +21,8 @@ function ContactPage() {
 
     const result = response.data.map(user => {
       return {
-        nome: user["usuarios"].nome,
-        telefone: user["usuarios"].telefone
+        nome: user['usuarios'].nome,
+        telefone: user['usuarios'].telefone
       }
     })
 
@@ -37,7 +37,7 @@ function ContactPage() {
     <>
       <Logo>
         <div className="container">
-          <Link to="/Home">
+          <Link to="/cartProfile">
             {' '}
             <img className="exitButton" size="20px" src={left} alt="" />{' '}
           </Link>
@@ -50,34 +50,32 @@ function ContactPage() {
             <h1 className="title">Contato do doador</h1>
             <h2>Nome</h2>
             {data.map(item => {
-               const { nome} = item
-               return (
-                 <div className="containerName">
+              const { nome } = item
+              return (
+                <div className="containerName">
                   <p className="nome" href="">
                     {nome}
                   </p>
                 </div>
-               )
-            })} 
-             <h2>Telefone</h2>
+              )
+            })}
+            <h2>Telefone</h2>
             {data.map(item => {
-               const { telefone} = item
-               return (
-                 <div className="containerName">
+              const { telefone } = item
+              return (
+                <div className="containerName">
                   <p className="nome" href="">
                     {telefone}
                   </p>
                 </div>
-               )
-            })} 
-          
+              )
+            })}
+
             {/* Fim container
              */}
-               
-       
           </div>
-        </ContentForm>      
-          {/* <div className="containerItem">
+        </ContentForm>
+        {/* <div className="containerItem">
             <div className="item">
               <div className="conteudoItem">
                 <img src={data.imageurl} className="imageItem" />
