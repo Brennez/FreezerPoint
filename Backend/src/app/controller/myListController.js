@@ -56,7 +56,8 @@ class MyListController {
         const mylist = await MyList.destroy(
             {
                 where: {
-                    id:req.params.id
+                    id_user: req.params.id_user,
+                    id_livros: req.params.id_livro
                 }
             }
         )

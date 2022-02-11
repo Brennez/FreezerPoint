@@ -127,6 +127,17 @@ class LivroController {
       res.json(novo);
     }
   }
+
+  async deleteLivro(req,res) {
+    const mylist = await Livro.destroy(
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    )
+    return res.json("Livro excluido");
+}
 }
 
 export default new LivroController();
