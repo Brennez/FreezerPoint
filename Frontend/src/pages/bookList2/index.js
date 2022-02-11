@@ -4,20 +4,29 @@ import logo from '../../assets/logo.svg'
 import left from '../../assets/left.png'
 import api from '../../services/api'
 import deleteIcon from '../../assets/delete.png'
+import { useParams } from 'react-router-dom'
 
 import { Link } from 'react-router-dom'
 
-function BookList() {
+
+function BookProfile2() {
   const [data, setData] = useState([])
   const referencia = useRef(null)
-
+  const { id } = useParams()
+  
   useEffect(async () => {
-    console.log('teste')
-
+  
     // Pegando id do usuário
     const response2 = await api.get('buscaID')
     const id_user = response2.data['id']
 
+    console.log("ID LIVROS => " + id)
+
+    // Deletando o livro
+    const deleteLivroLista = await api.delete(`/deleteLivroLista/${id_user}/${id}`)
+    const deleteLivroCarrinho = await api.delete(`/deleteLivroCart/${id_user}/${id}`)
+    const deleteLivro = await api.delete(`/deleteLivro/${id}`)
+    
     const response = await api.get(`/searchLista/${id_user}`)
 
     console.log(response)
@@ -72,4 +81,4 @@ function BookList() {
   )
 }
 
-export default BookList
+export default BookProfile2
