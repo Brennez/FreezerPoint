@@ -18,6 +18,7 @@ import home from '../../assets/homeImage.svg'
 import book from '../../assets/item1.svg'
 import icon from '../../assets/icon.svg'
 import iconCart from '../../assets/iconCart.svg'
+import iconBusca from '../../assets/busca.svg'
 import iconHeart from '../../assets/iconHeart.svg'
 import left from '../../assets/left.png'
 import right from '../../assets/right.png'
@@ -89,6 +90,12 @@ function Home() {
               <a>Publicações</a>
             </Link>
           </li>
+          <div>
+            <form action="/">
+              <input type="text" placeholder="..." class="buscar"/>
+              <button type="submit">Buscar</button>
+            </form>
+          </div>
           <li>
             <Link to="/cartProfile">
               {' '}
