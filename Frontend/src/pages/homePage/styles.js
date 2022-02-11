@@ -15,6 +15,13 @@ export const Header = styled.div`
   margin-left: 13.438rem;
   margin-bottom: 5rem;
 
+  .buscar {
+    color: rgba(32, 32, 40, 0.8);
+    background-color: #DFDDDA;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
   .menu {
     display: flex;
     align-items: center;
