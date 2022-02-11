@@ -19,6 +19,7 @@ routes.put('/updateSinopse/:id', autenticacao, LC.updateSinopse);
 routes.put('/updateEdicao/:id', autenticacao, LC.updateEdicao);
 routes.put('/updateGenero/:id', autenticacao, LC.updateGenero);
 routes.put('/updateImage/:id', autenticacao, LC.updateImage);
+routes.delete('/deleteLivro/:id', LC.deleteLivro);
 
 // --------------------- ROTAS DE USUÁRIO ----------------------//
 
@@ -40,11 +41,13 @@ routes.post('/createAdmin', UC.store);
 routes.post('/createLista', ML.store);
 routes.get('/searchLista/:id', ML.index);
 routes.get('/getUserId/:id', ML.getUserId);
-routes.delete('/deleteLivro/:id', ML.deleteLivro);
+routes.delete('/deleteLivroLista/:id_user/:id_livro', ML.deleteLivro);
 
 // ------------------   ROTA DO CARRINHO  -------------------------//
 routes.post('/createCart', CL.store);
 routes.get('/getCart/:id', CL.index);
+routes.delete('/deleteLivroCart/:id_user/:id_livro', CL.deleteLivro);
+
 
 
 export default routes;

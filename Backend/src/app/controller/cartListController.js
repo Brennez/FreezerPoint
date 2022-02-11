@@ -35,6 +35,18 @@ class MyCartListController {
     });
     return res.json(myCartlist);
   }
+
+    async deleteLivro(req,res) {
+      const mylist = await MyCartList.destroy(
+          {
+              where: {
+                id_user: req.params.id_user,
+                id_livro: req.params.id_livro
+              }
+          }
+      )
+      return res.json("Livro excluido");
+  }
 }
 
 export default new MyCartListController();
