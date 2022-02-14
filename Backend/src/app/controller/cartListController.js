@@ -29,7 +29,7 @@ class MyCartListController {
         {
           model: Livro,
           as: 'livros',
-          attributes: ['nome', 'autor', 'categoria'],
+          attributes: ['nome', 'autor', 'categoria','imageurl','categoria','genero'],
         },
       ],
     });

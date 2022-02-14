@@ -86,7 +86,7 @@ export const ContentForm = styled.div`
   }
   .containerButton {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: right;
   }
 
   a {
