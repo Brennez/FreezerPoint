@@ -17,12 +17,17 @@ function CartProfile() {
 
     const response = await api.get(`/getCart/${id_user}`)
 
+    console.log(response)
+
     // Primeira maneira -> aqui ele já retorna o objeto com formatado
     const result = response.data.map(book => {
       return {
         id_livro: book.id_livro,
         nome: book.livros.nome,
-        autor: book.livros.autor
+        autor: book.livros.autor,
+        imageurl: book.livros.imageurl,
+        categoria: book.livros.categoria,
+        genero: book.livros.genero
       }
     })
 
@@ -44,15 +49,14 @@ function CartProfile() {
         <ContentForm ref={referencia}>
           <h1 className="title"> Meu carrinho</h1>
           {data.map(item => {
-            const { autor, id_livro, nome } = item
+            const { autor, id_livro, nome , imageurl,categoria,genero } = item
             return (
               <>
                 <div className="containerName">
                   <div className="item">
                     <div className="conteudoItem">
                       <img
-                        src="https://images-na.ssl-images-amazon.com/images/I/519QpUB8EJL._SX331_BO1,204,203,200_.jpg"
-                        className="imageItem"
+                        src={imageurl} className="imageItem"
                       />
                       {/* <img clasname="icon" src={icon} alt="icone fav" /> */}
                     </div>
@@ -72,20 +76,20 @@ function CartProfile() {
                       </li>
                       <li>
                         <div className="containerInfo">
-                          Tipo: <p>autor</p>
+                          Tipo: <p>{categoria}</p>
                         </div>
                       </li>
                       <li>
                         <div className="containerInfo">
-                          Gênero: <p>Drama</p>
+                          Gênero: <p>{genero}</p>
                         </div>
                       </li>
                     </ul>
                   </div>
-                  {/* <div className="containerButton">
+                  <div className="containerButton">
                     <p>Excluir</p>
                     <p>info</p>
-                  </div> */}
+                  </div>
                   {/* </Link> */}
                 </div>
               </>

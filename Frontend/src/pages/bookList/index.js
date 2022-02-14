@@ -58,7 +58,7 @@ function BookList() {
                 </Link>
                 <div className="icon">
                
-                 <Link to={`/bookList/${id_livros}`}>
+                 <Link to={`/bookDeleted/${id_livros}`}>
                     <img src={deleteIcon} alt="ícone de deletar." />
                  </Link>
                   <img src={deleteIcon} alt="ícone de deletar." />

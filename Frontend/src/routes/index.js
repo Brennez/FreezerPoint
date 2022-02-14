@@ -10,7 +10,6 @@ import cartProfile from '../pages/cartProfile'
 import ControleRotas from './route'
 import contactPage from '../pages/contactPage'
 import bookList from '../pages/bookList'
-import bookList2 from '../pages/bookList2'
 
 import UE from '../pages/updateEmail'
 import US from '../pages/updateSenha'
@@ -24,6 +23,7 @@ import UEL from '../pages/updateEdicao'
 import UIL from '../pages/updateImageUrl'
 import Update from '../pages/updateNome'
 import BookProfile from '../pages/bookProfile'
+import BookDeleted from '../pages/bookDeleted'
 // import ControleDeRotas from "./route";
 
 function Routes() {
@@ -61,10 +61,10 @@ function Routes() {
         component={bookList}
       ></ControleRotas>
        <ControleRotas
-        path="/bookList/:id"
+        path="/bookDeleted/:id"
         isPrivate={true}
         exact
-        component={bookList2}
+        component={BookDeleted}
       ></ControleRotas>
       <ControleRotas
         path="/cartList/:id"
