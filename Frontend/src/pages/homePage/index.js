@@ -91,9 +91,10 @@ function Home() {
             </Link>
           </li>
           <div>
-            <form action="/">
-              <input type="text" placeholder="..." class="buscar"/>
-              <button type="submit">Buscar</button>
+            <form action="/bookSearched" method='get'>
+  
+              <input type="text" placeholder="..." class="buscar" id="searchField" name="searchField"/>
+              <button type="submit" value="formsubmit" id="form-submit">Buscar</button>
             </form>
           </div>
           <li>

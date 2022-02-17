@@ -24,6 +24,8 @@ import UIL from '../pages/updateImageUrl'
 import Update from '../pages/updateNome'
 import BookProfile from '../pages/bookProfile'
 import BookDeleted from '../pages/bookDeleted'
+import BookSearched from '../pages/bookSearched'
+
 // import ControleDeRotas from "./route";
 
 function Routes() {
@@ -65,6 +67,12 @@ function Routes() {
         isPrivate={true}
         exact
         component={BookDeleted}
+      ></ControleRotas>
+       <ControleRotas
+        path="/bookSearched"
+        isPrivate={true}
+        exact
+        component={BookSearched}
       ></ControleRotas>
       <ControleRotas
         path="/cartList/:id"
