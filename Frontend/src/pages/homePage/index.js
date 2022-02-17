@@ -19,9 +19,9 @@ import left from '../../assets/left.png'
 import right from '../../assets/right.png'
 import git from '../../assets/iconGithub.svg'
 import api from '../../services/api'
-import iconSearch from '../../assets/searchIcon.png'
 import avatar from '../../assets/avatar.png'
 import { useContextAutenticacao } from '../../context/autenticacao'
+import iconSearch from '../../assets/searchIcon.png'
 
 // ------------------------------------------------------------
 
@@ -88,7 +88,6 @@ function Home() {
             </Link>
             <input type="text" placeholder="Buscar..." class="searchInput" />
           </form>
-
           <li>
             <Link to="/cartProfile">
               {' '}
