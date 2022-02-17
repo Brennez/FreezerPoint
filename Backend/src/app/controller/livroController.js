@@ -104,6 +104,18 @@ class LivroController {
     }
   }
 
+  async searchLivro(req,res) {
+    const {nome} = req.body; 
+
+    const myBooks = await Livro.findAll({
+      where: {
+        nome: nome
+      }
+    });
+    return res.json(myBooks);
+  }
+
+
   async updateSinopse(req, res) {
     const { sinopse } = req.body;
     const { id } = req.params;
