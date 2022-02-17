@@ -24,6 +24,7 @@ import avatar from '../../assets/avatar.png'
 import { useContextAutenticacao } from '../../context/autenticacao'
 
 // ------------------------------------------------------------
+// teste 2
 
 import { Link } from 'react-router-dom'
 
