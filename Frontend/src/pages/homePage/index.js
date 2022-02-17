@@ -83,12 +83,6 @@ function Home() {
               <a>Publicações</a>
             </Link>
           </li>
-          <form action="/" className="containerSearch">
-            <Link to={'#'}>
-              <img src={iconSearch} alt="" />
-            </Link>
-            <input type="text" placeholder="Buscar..." class="searchInput" />
-          </form>
 
           <li>
             <Link to="/cartProfile">
