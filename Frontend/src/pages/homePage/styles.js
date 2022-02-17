@@ -11,15 +11,24 @@ export const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 2rem;
-  margin-right: 13.438rem;
-  margin-left: 13.438rem;
+  margin-right: 8rem;
+  margin-left: 8rem;
   margin-bottom: 5rem;
 
-  .buscar {
-    color: rgba(32, 32, 40, 0.8);
-    background-color: #DFDDDA;
-    text-decoration: none;
-    font-size: 1rem;
+  .containerSearch {
+    display: flex;
+  }
+
+  .searchInput {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: #dfddda;
+  }
+
+  .searchInput:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
   }
 
   .menu {

@@ -10,20 +10,17 @@ import {
   About
 } from './styles'
 
-import Input from '../../components/input'
 import exit from '../../assets/iconLogout.svg'
 import logo from '../../assets/logo.svg'
 import logoFooter from '../../assets/logoFooter.svg'
 import home from '../../assets/homeImage.svg'
-import book from '../../assets/item1.svg'
-import icon from '../../assets/icon.svg'
-import iconCart from '../../assets/iconCart.svg'
-import iconBusca from '../../assets/busca.svg'
-import iconHeart from '../../assets/iconHeart.svg'
+import iconCart from '../../assets/iconCart.png'
 import left from '../../assets/left.png'
 import right from '../../assets/right.png'
 import git from '../../assets/iconGithub.svg'
 import api from '../../services/api'
+import iconSearch from '../../assets/searchIcon.png'
+import avatar from '../../assets/avatar.png'
 import { useContextAutenticacao } from '../../context/autenticacao'
 
 // ------------------------------------------------------------
@@ -78,28 +75,31 @@ function Home() {
           <li>
             <a href="#sobre"> Sobre</a>
           </li>
-          <li>
-            <Link to="/perfil">
-              {' '}
-              <a> Perfil</a>
-            </Link>
-          </li>
+
           <li>
             <Link to="/Book">
               {' '}
               <a>Publicações</a>
             </Link>
           </li>
-          <div>
-            <form action="/">
-              <input type="text" placeholder="..." class="buscar"/>
-              <button type="submit">Buscar</button>
-            </form>
-          </div>
+          <form action="/" className="containerSearch">
+            <Link to={'#'}>
+              <img src={iconSearch} alt="" />
+            </Link>
+            <input type="text" placeholder="Buscar..." class="searchInput" />
+          </form>
+
           <li>
             <Link to="/cartProfile">
               {' '}
               <img src={iconCart} alt="Mycart" height={30} />
+            </Link>
+          </li>
+          <li>
+            <Link to="/perfil">
+              {' '}
+              {/* <a> Perfil</a> */}
+              <img src={avatar} alt="" />
             </Link>
           </li>
           <li>
@@ -157,7 +157,6 @@ function Home() {
         </div>
 
         <ContentBook ref={referencia}>
-          
           {data.map(item => {
             const { id, autor, nome, imageurl } = item
             return (
