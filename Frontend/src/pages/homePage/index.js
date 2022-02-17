@@ -24,6 +24,7 @@ import { useContextAutenticacao } from '../../context/autenticacao'
 import iconSearch from '../../assets/searchIcon.png'
 
 // ------------------------------------------------------------
+// teste 2
 
 import { Link } from 'react-router-dom'
 
