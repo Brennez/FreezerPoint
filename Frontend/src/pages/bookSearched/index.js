@@ -1,39 +1,42 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Container, ContentForm, Image, Logo } from './styles'
+import { Container, ContentBook, Image, Logo , Body } from './styles'
 import logo from '../../assets/logo.svg'
 import left from '../../assets/left.png'
 import api from '../../services/api'
-import deleteIcon from '../../assets/delete.png'
-import { useParams } from 'react-router-dom'
+import { useParams , useLocation } from 'react-router-dom'
 
 import { Link } from 'react-router-dom'
 
 function BookSearched() {
   const [data, setData] = useState([])
   const referencia = useRef(null)
-  const { searchField } = useParams()
+  var nome = '';
+  const MeuTeste = () => {
+    const search = useLocation().search;
+    nome = new URLSearchParams(search).get("mySearch");
+  }
 
+  MeuTeste()
+  
   useEffect(async () => {
-    
-    console.log(searchField)
-    
 
-   
-    // // const response = await api.get(`/searchLista/${id_user}`)
+    const response = await api.get(`/searchLivro/${nome}`)
 
-    // console.log(response)
+    console.log(response.data)
 
     // // Primeira maneira -> aqui ele já retorna o objeto com formatado
-    // const result = response.data.map(book => {
-    //   return {
-    //     id_livros: book.id_livros,
-    //     nome: book.livros.nome
-    //   }
-    // })
+    const result = response.data.map(book => {
+      return {
+        id: book.id,
+        nome: book.nome,
+        autor: book.autor,
+        imageurl: book.imageurl
+      }
+    })
 
-    // console.log(result)
+    console.log(result)
 
-    // setData(result)
+    setData(result)
   }, [])
 
   return (
@@ -48,20 +51,31 @@ function BookSearched() {
         </div>
       </Logo>
       <Container>
-        <ContentForm ref={referencia}>
-          <h1 className="title"> Meus livros</h1>
-          {/* {data.map(item => {
-            const { id_livros, nome } = item
+          <Body>
+            
+          <h1 className="title">Livros encontrados</h1>
+          <ContentBook ref={referencia}>
+          {data.map(item => {
+            const { id, autor, nome, imageurl } = item
             return (
-              <div className="containerName">
-                <Link className="nome" to={`/bookProfile/${id_livros}`}>
-                  <p>{nome}</p>
-                </Link>
+              <div className="item">
+                <div className="conteudoItem">
+                  <img src={imageurl} className="imageItem" />
+                  <div className="info">
+                    <p className="titulo"> {nome}</p>
+                    <p className="autor"> {autor}</p>
+                    <div className="botao">
+                      <Link to={`/cartList/${id}`}>Adicionar</Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             )
-          })} */}
-        </ContentForm>
-        <Image></Image>
+          })}{' '}
+          {/* =========== FECHAMENTO DO MAP ============ */}
+        </ContentBook>
+          </Body>
+
       </Container>
     </>
   )
