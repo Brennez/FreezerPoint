@@ -11,7 +11,7 @@ const routes = new Router();
 // --------------------- ROTAS DE LIVRO -----------------------------//
 routes.post('/createLivro', autenticacao, LC.store);
 routes.get('/getLivro', LC.get);
-routes.get('/searchLivro', LC.searchLivro);
+routes.get('/searchLivro/:nome', LC.searchLivro);
 routes.get('/getUmLivro/:id', LC.getId);
 routes.put('/updateNomeLivro/:id', autenticacao, LC.update);
 routes.put('/updateAutor/:id', autenticacao, LC.updateAutor);

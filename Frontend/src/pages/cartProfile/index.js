@@ -84,11 +84,23 @@ function CartProfile() {
                           Gênero: <p>{genero}</p>
                         </div>
                       </li>
+                      <li>
+                          <div class="containerInfo">
+                            <Link to={`/bookDeleted/${id_livro}`}>
+                               <p>Excluir</p>
+                            </Link>
+                            <Link to={`/contactPage/${id_livro}`}>
+                              <p>info</p>
+                            </Link>
+                           
+                              
+                          </div>
+                      </li>
                     </ul>
                   </div>
                   <div className="containerButton">
-                    <p>Excluir</p>
-                    <p>info</p>
+                    
+                    
                   </div>
                   {/* </Link> */}
                 </div>
