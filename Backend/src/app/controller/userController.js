@@ -42,7 +42,7 @@ class UserController {
       return res.status(404).json({ error: 'Usuário não existe' });
     }
 
-    const { id, name, email } = usuario.update({ name: newName });
+    const { id, name, email } = user.update({ name: newName });
 
     res.json({ id, name, email });
   }
@@ -71,10 +71,10 @@ class UserController {
       return res.status(404).json({ error: 'Usuário não existe' });
     }
 
-    if (!user.checkpassword(oldPassword)) {
+    if (!user.checkPassword(oldPassword)) {
       return res.status(404).json({ error: 'password inválida' });
     }
-    if (!user.checkpassword(newPassword)) {
+    if (!user.checkPassword(newPassword)) {
       return res.status(404).json({ error: 'password igual' });
     }
 

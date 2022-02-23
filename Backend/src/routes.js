@@ -9,8 +9,8 @@ const routes = new Router();
 
 // --------------------- ROTAS DE LIVRO -----------------------------//
 routes.post('/createLivro', authentication, BC.store);
-routes.get('/getLivro', BC.get);
-routes.get('/searchLivro', BC.searchBook);
+routes.get('/getBook', BC.get);
+routes.get('/searchBook', BC.searchBook);
 routes.get('/getABook/:id', BC.getId);
 routes.put('/updateBookName/:id', authentication, BC.update);
 routes.put('/updateAuthor/:id', authentication, BC.updateAuthor);
@@ -41,11 +41,11 @@ routes.post('/createAdmin', UC.store);
 routes.post('/createList', ML.store);
 routes.get('/searchList/:id', ML.index);
 routes.get('/getUserId/:id', ML.getUserId);
-routes.delete('/deleteBookList/:id_user/:id_livro', ML.deleteBook);
+routes.delete('/deleteBookList/:id_user/:id_book', ML.deleteBook);
 
 // ------------------   ROTA DO CARRINHO  -------------------------//
 routes.post('/createCart', CL.store);
 routes.get('/getCart/:id', CL.index);
-routes.delete('/deleteBookCart/:id_user/:id_livro', CL.deleteBook);
+routes.delete('/deleteBookCart/:id_user/:id_book', CL.deleteBook);
 
 export default routes;

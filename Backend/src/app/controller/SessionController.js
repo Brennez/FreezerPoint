@@ -21,7 +21,7 @@ class SessionController {
         id,
         name,
       },
-      token: jwt.sign({ id, name }, 'OnlyText', { expiresIn: '7d' }),
+      token: jwt.sign({ id, name }, 'textoUnico', { expiresIn: '7d' }),
     });
   }
 }
