@@ -1,17 +1,17 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('usuarios', {
+    await queryInterface.createTable('users', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      nome: {
+      name: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      telefone: {
+      phone: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
@@ -20,7 +20,7 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
-      senha: {
+      password: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -42,8 +42,8 @@ module.exports = {
 
   // yarn sequelize db:migrate:undo  --> Desfaz uma migration
   //yarn sequelize db:migrate:undo:all --> desfaz faz todas as migrations
-
+  // yarn sequelize-cli db:migrate --> roda uma migration
   down: async (queryInterface) => {
-    await queryInterface.dropTable('usuarios');
+    await queryInterface.dropTable('users');
   },
 };

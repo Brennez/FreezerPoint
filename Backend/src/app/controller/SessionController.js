@@ -1,27 +1,27 @@
 // import { UPSERT } from 'sequelize/types/lib/query-types';
-import Usuario from '../models/usuario';
+import User from '../models/user';
 import jwt from 'jsonwebtoken';
 
 class SessionController {
   async store(req, res) {
-    const { email, senha } = req.body;
-    const usuario = await Usuario.findOne({ where: { email } });
+    const { email, password } = req.body;
+    const user = await User.findOne({ where: { email } });
 
-    if (!usuario) {
+    if (!user) {
       return res.status(404).send({ error: 'Usuário não encontrado' });
     }
 
-    if (!(await usuario.checkSenha(senha))) {
+    if (!(await user.checkPassword(password))) {
       return res.status(401).send({ error: 'Senha incorreta' });
     }
 
-    const { id, nome } = usuario;
+    const { id, name } = user;
     return res.json({
-      usuario: {
+      user: {
         id,
-        nome,
+        name,
       },
-      token: jwt.sign({ id, nome }, 'textounico', { expiresIn: '7d' }),
+      token: jwt.sign({ id, name }, 'OnlyText', { expiresIn: '7d' }),
     });
   }
 }

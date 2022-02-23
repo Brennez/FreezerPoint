@@ -1,11 +1,9 @@
 import Sequelize, { Model } from 'sequelize';
 
 class MyList extends Model {
-
   static init(sequelize) {
     super.init(
-      {
-      },
+      {},
       {
         sequelize,
       },
@@ -14,14 +12,14 @@ class MyList extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Usuario, {
-        foreignKey: 'id_user',
-        as: "usuarios"}
-      )
-    this.belongsTo(models.Livro, {
-      foreignKey: 'id_livros',
-      as: "livros"}
-    )
+    this.belongsTo(models.User, {
+      foreignKey: 'id_user',
+      as: 'users',
+    });
+    this.belongsTo(models.Book, {
+      foreignKey: 'id_books',
+      as: 'books',
+    });
   }
 }
 

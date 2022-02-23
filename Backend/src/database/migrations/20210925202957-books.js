@@ -1,33 +1,33 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('livros', {
+    await queryInterface.createTable('books', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      nome: {
+      name: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      autor: {
+      author: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      categoria: {
+      category: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      genero: {
+      genre: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      edicao: {
+      edition: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      sinopse: {
+      synopsis: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -50,6 +50,6 @@ module.exports = {
   //yarn sequelize db:migrate:undo:all --> desfaz faz todas as migrations
 
   down: async (queryInterface) => {
-    await queryInterface.dropTable('livros');
+    await queryInterface.dropTable('books');
   },
 };

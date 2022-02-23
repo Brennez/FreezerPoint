@@ -11,16 +11,16 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'usuarios',
-          key:  'id',
+          model: 'users',
+          key: 'id',
         },
       },
-      id_livros: {
+      id_books: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'livros',
-          key:  'id',
+          model: 'books',
+          key: 'id',
         },
       },
       created_at: {
@@ -31,10 +31,10 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       },
-    })
+    });
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('mylist');
-  }
+    await queryInterface.dropTable('my_lists');
+  },
 };

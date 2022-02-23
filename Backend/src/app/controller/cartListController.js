@@ -1,21 +1,21 @@
-import Livro from '../models/livro';
+import Book from '../models/book';
 import MyCartList from '../models/cartlist';
 
 class MyCartListController {
   async store(req, res) {
     const idExist = await MyCartList.findOne({
-      where: { id_livro: req.body.id_livro },
+      where: { id_book: req.body.id_book },
     });
 
     if (idExist) {
-      return res.status(400).json({ mensagem: 'ID já existe' });
+      return res.status(400).json({ message: 'ID já existe' });
     }
 
-    const { id_user, id_livro } = req.body;
+    const { id_user, id_book } = req.body;
 
     const myCartList = await MyCartList.create({
       id_user,
-      id_livro,
+      id_book,
     });
     return res.json(myCartList);
   }
@@ -27,25 +27,30 @@ class MyCartListController {
       },
       include: [
         {
-          model: Livro,
-          as: 'livros',
-          attributes: ['nome', 'autor', 'categoria','imageurl','categoria','genero'],
+          model: Book,
+          as: 'books',
+          attributes: [
+            'name',
+            'author',
+            'category',
+            'imageurl',
+            'category',
+            'genre',
+          ],
         },
       ],
     });
     return res.json(myCartlist);
   }
 
-    async deleteLivro(req,res) {
-      const mylist = await MyCartList.destroy(
-          {
-              where: {
-                id_user: req.params.id_user,
-                id_livro: req.params.id_livro
-              }
-          }
-      )
-      return res.json("Livro excluido");
+  async deleteBook(req, res) {
+    const mylist = await MyCartList.destroy({
+      where: {
+        id_user: req.params.id_user,
+        id_book: req.params.id_book,
+      },
+    });
+    return res.json('Livro excluido');
   }
 }
 
