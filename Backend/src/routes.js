@@ -8,7 +8,7 @@ import CL from '../src/app/controller/cartListController';
 const routes = new Router();
 
 // --------------------- ROTAS DE LIVRO -----------------------------//
-routes.post('/createLivro', authentication, BC.store);
+routes.post('/createBook', authentication, BC.store);
 routes.get('/getBook', BC.get);
 routes.get('/searchBook', BC.searchBook);
 routes.get('/getABook/:id', BC.getId);
