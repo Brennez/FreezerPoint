@@ -65,7 +65,7 @@ function BookProfile() {
             <h2 id="tituloSinopse">Sinopse</h2>
             <div className="containerSinopse">
               <p className="sinopse" href="">
-                {data.sinopse}
+                {data.synopsis}
               </p>
               <div className="icon">
                 <Link to={`/updateSynopsis/${id}`}>

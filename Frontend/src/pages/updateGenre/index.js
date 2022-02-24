@@ -22,7 +22,7 @@ function UpdateGenre() {
       await scheme.validate(data, { abortEarly: false })
 
       //Faz a requisição da api e grava no banco de dados
-      const response = await api.put(`/updateGenero/${id}`, {
+      const response = await api.put(`/updateGenre/${id}`, {
         genre: data.genre
       })
       //Atuliza a pagina
@@ -67,7 +67,7 @@ function UpdateGenre() {
             </p>
             <h2 className="tituloDoGenero">Novo Gênero</h2>
             <Input
-              name="genero"
+              name="genre"
               type="text"
               placeholder="Digite a nova categoria"
             />

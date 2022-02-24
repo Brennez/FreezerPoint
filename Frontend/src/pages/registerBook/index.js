@@ -12,8 +12,8 @@ function RegisterBook() {
   const formReference = useRef(null)
   const history = useHistory()
 
-  const formSubmite = async data => {
-    const response = await api.post('createBook', {
+  const formSubmit = async data => {
+    const response = await api.post('/createBook', {
       name: data.name,
       author: data.author,
       category: data.category,
@@ -28,18 +28,18 @@ function RegisterBook() {
     // }
 
     // Pegando id do livro
-    const books = await api.get('getBool')
+    const books = await api.get('getBook')
     // Pegando o ultimo livro adicionado
     const lastBook = books.data[books.data.length - 1]
     const id_books = lastBook['id']
 
     // Pegando id do usuário
-    const user = await api.get('serachId')
+    const user = await api.get('/searchId')
     const id_user = user.data['id']
 
-    const createList = await api.post('createBook', {
+    const createList = await api.post('/createList', {
       id_user: id_user,
-      id_livros: id_books
+      id_books: id_books
     })
 
     console.log(createList.data)
@@ -60,29 +60,27 @@ function RegisterBook() {
       <Container>
         <ContentForm>
           <h1 className="title">Cadastre um livro</h1>
-          <Form ref={formReference} onSubmit={formSubmite}>
+          <Form ref={formReference} onSubmit={formSubmit}>
             {/* <h2>Seu livro é para...</h2>
             <Button name="oi" type="text" /> */}
             <h2>Título</h2>
-            <Input name="nome" type="text" placeholder="Harry Potter" />
+            <Input name="name" type="text" placeholder="Harry Potter" />
             <h2>Autor</h2>
-            <Input name="autor" type="text" placeholder="J. K. Rowling" />
+            <Input name="author" type="text" placeholder="J. K. Rowling" />
             <h2>Categoria</h2>
-            <Input name="categoria" type="text" placeholder="Livro" />
+            <Input name="category" type="text" placeholder="Livro" />
             <h2>Gênero</h2>
-            <Input name="genero" type="text" placeholder="Fantasia" />
+            <Input name="genre" type="text" placeholder="Fantasia" />
             <h2>Edição</h2>
-            <Input name="edicao" type="number" placeholder="2008" />
+            <Input name="edition" type="number" placeholder="2008" />
             <h2>Sinopse</h2>
             <Input
-              name="sinopse"
+              name="synopsis"
               type="text"
               placeholder="Uma breve descrição sobre o livro"
             ></Input>
             <h2>Url da imagem</h2>
             <Input name="url" type="text" placeholder="www.urlimage.com" />
-            <h2 hidden>Preço</h2>
-            <Input name="preco" type="number" placeholder="150" hidden />
             <button type="submit"> Cadastrar </button>
           </Form>
         </ContentForm>

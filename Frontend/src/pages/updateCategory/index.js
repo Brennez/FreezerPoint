@@ -13,7 +13,7 @@ function UpdateCategory() {
   const formReference = useRef(null)
   const { id } = useParams()
 
-  const submeterFormulario = async data => {
+  const formSubmit = async data => {
     //Valida dos campos do formulário
     try {
       const scheme = Yup.object().shape({
@@ -59,7 +59,7 @@ function UpdateCategory() {
       </Logo>
       <Container>
         <ContentForm>
-          <Form ref={formReference} onSubmit={submeterFormulario}>
+          <Form ref={formReference} onSubmit={formSubmit}>
             <h1 className="title">Editar</h1>
             <h2>Categoria antiga</h2>
             <p className="categoria" href="">
@@ -67,7 +67,7 @@ function UpdateCategory() {
             </p>
             <h2 className="tituloDaCategoria">Nova Categoria</h2>
             <Input
-              name="categoria"
+              name="category"
               type="text"
               placeholder="Digite a nova categoria"
             />

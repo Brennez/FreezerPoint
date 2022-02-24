@@ -67,7 +67,7 @@ function UpdateBookName() {
             </p>
             <h2 className="tituloDoLivro">Novo título</h2>
             <Input
-              name="nome"
+              name="name"
               type="text"
               placeholder="Digite o nome do autor"
             />

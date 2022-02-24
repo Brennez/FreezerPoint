@@ -1,8 +1,3 @@
-
-
-
-
-
 import React, { useEffect, useState, useRef } from 'react'
 
 import {
@@ -40,7 +35,7 @@ function Home() {
 
   useEffect(async () => {
     // console.log('teste')
-    const response = await api.get('/getLivro')
+    const response = await api.get('/getBook')
     console.log(response.data)
     setData(response.data)
   }, [])
@@ -74,7 +69,7 @@ function Home() {
 
         <ul class="menu">
           <li>
-            <Link to="/createLivro">
+            <Link to="/createBook">
               <a>Cadastrar</a>
             </Link>
           </li>
@@ -89,8 +84,13 @@ function Home() {
             </Link>
           </li>
           <form action="/bookSearched" className="containerSearch" method="get">
-              <img src={iconSearch} alt="" />
-            <input type="text" placeholder="Buscar..." class="searchInput" name="mySearch" />
+            <img src={iconSearch} alt="" />
+            <input
+              type="text"
+              placeholder="Buscar..."
+              class="searchInput"
+              name="mySearch"
+            />
           </form>
           <li>
             <Link to="/cartProfile">

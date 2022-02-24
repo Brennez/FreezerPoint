@@ -1,27 +1,27 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
-import api from "../services/api";
+import React from 'react'
+import { Route, Redirect } from 'react-router-dom'
+import api from '../services/api'
 
 function ControleRotas({ isPrivate = false, component: Component, ...rest }) {
-  const usuario = localStorage.getItem("@freezerPoint:usuario");
-  const token = localStorage.getItem("@freezerPoint:token");
-  api.defaults.headers.authorization = `Bearer ${token}`;
+  const user = localStorage.getItem('@freezerPoint:usuario')
+  const token = localStorage.getItem('@freezerPoint:token')
+  api.defaults.headers.authorization = `Bearer ${token}`
   return (
     <Route
       {...rest}
       render={() => {
-        return isPrivate === !!usuario ? (
+        return isPrivate === !!user ? (
           <Component />
         ) : (
           <Redirect
             to={{
-              pathname: isPrivate ? "/" : "/Home",
+              pathname: isPrivate ? '/' : '/Home'
             }}
           />
-        );
+        )
       }}
     ></Route>
-  );
+  )
 }
 
-export default ControleRotas;
+export default ControleRotas

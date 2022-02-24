@@ -1,27 +1,27 @@
-import React, { useEffect, useRef } from "react";
-import { Container, Erro } from "./styles";
-import { useField } from "@unform/core";
+import React, { useEffect, useRef } from 'react'
+import { Container, Erro } from './styles'
+import { useField } from '@unform/core'
 
 const Input = ({ name, ...rest }) => {
-  const referenciaInput = useRef(null);
-  const { fieldName, defaultValue, error, registerField } = useField(name);
+  const formReference = useRef(null)
+  const { fieldName, defaultValue, error, registerField } = useField(name)
 
   useEffect(() => {
     registerField({
       name: fieldName,
-      ref: referenciaInput.current,
-      path: "value",
-    });
-  }, []);
+      ref: formReference.current,
+      path: 'value'
+    })
+  }, [])
 
   return (
     <>
       <Container temErro={!!error}>
-        <input {...rest} ref={referenciaInput}></input>
+        <input {...rest} ref={formReference}></input>
       </Container>
       {!!error && <Erro>{error}</Erro>}
     </>
-  );
-};
+  )
+}
 
-export default Input;
+export default Input

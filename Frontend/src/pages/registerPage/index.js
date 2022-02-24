@@ -12,7 +12,8 @@ import { Link, useHistory } from 'react-router-dom'
 function Register() {
   const formReference = useRef(null)
   const history = useHistory()
-  const submeterFormulario = async data => {
+
+  const formSubmit = async data => {
     console.log(data)
 
     //Valida dos campos do formulário
@@ -33,7 +34,7 @@ function Register() {
       await scheme.validate(data, { abortEarly: false })
 
       //Faz a requisição da api e grava no banco de dados
-      const reponse = await api.post('createUser', {
+      const reponse = await api.post('/createUser', {
         name: data.name,
         email: data.email,
         phone: data.phone,
@@ -58,16 +59,16 @@ function Register() {
       </Logo>
       <ContentForm>
         <h1 className="title">Bem vindo!</h1>
-        <Form ref={formReference} onSubmit={submeterFormulario}>
+        <Form ref={formReference} onSubmit={formSubmit}>
           <p>Preencha seus dados para cadastrar</p>
           <h2>Nome</h2>
-          <Input name="nome" type="text" placeholder="Nome" />
+          <Input name="name" type="text" placeholder="Nome" />
           <h2>Email</h2>
           <Input name="email" type="text" placeholder="exemplo@gmail.com" />
           <h2>Telefone</h2>
-          <Input name="telefone" type="number" placeholder="940028922" />
+          <Input name="phone" type="number" placeholder="940028922" />
           <h2>Senha</h2>
-          <Input name="senha" type="password" placeholder="Senha" />
+          <Input name="password" type="password" placeholder="Senha" />
           <button type="submit"> Cadastre-se </button>
           {/* <Link to="/login">
             Ja possuo uma conta
