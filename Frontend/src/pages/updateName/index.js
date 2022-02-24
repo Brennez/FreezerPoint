@@ -11,7 +11,7 @@ import left from '../../assets/left.png'
 function Update() {
   const formReference = useRef(null)
 
-  const formSubmite = async data => {
+  const formSubmit = async data => {
     //Valida dos campos do formulário
     try {
       const scheme = Yup.object().shape({
@@ -57,7 +57,7 @@ function Update() {
       </Logo>
       <Container>
         <ContentForm>
-          <Form ref={formReference} onSubmit={formSubmite}>
+          <Form ref={formReference} onSubmit={formSubmit}>
             <h1 className="title">Editar</h1>
             <h2>Nome antigo</h2>
             <p className="nome" href="">
@@ -65,7 +65,7 @@ function Update() {
             </p>
             <h2>Novo nome</h2>
             <Input
-              name="novoNome"
+              name="newName"
               type="text"
               placeholder="Digite seu novo nome"
             />

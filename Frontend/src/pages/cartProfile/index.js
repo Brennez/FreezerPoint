@@ -49,15 +49,13 @@ function CartProfile() {
         <ContentForm ref={reference}>
           <h1 className="title"> Meu carrinho</h1>
           {data.map(item => {
-            const { author, id_book, name , imageurl, category, genre } = item
+            const { author, id_book, name, imageurl, category, genre } = item
             return (
               <>
                 <div className="containerName">
                   <div className="item">
                     <div className="conteudoItem">
-                      <img
-                        src={imageurl} className="imageItem"
-                      />
+                      <img src={imageurl} className="imageItem" />
                       {/* <img clasname="icon" src={icon} alt="icone fav" /> */}
                     </div>
                   </div>
@@ -85,23 +83,18 @@ function CartProfile() {
                         </div>
                       </li>
                       <li>
-                          <div class="containerInfo">
-                            <Link to={`/bookDeleted/${id_book}`}>
-                               <p>Excluir</p>
-                            </Link>
-                            <Link to={`/contactPage/${id_book}`}>
-                              <p>info</p>
-                            </Link>
-                           
-                              
-                          </div>
+                        <div class="containerInfo">
+                          <Link to={`/bookDeleted/${id_book}`}>
+                            <p>Excluir</p>
+                          </Link>
+                          <Link to={`/contactPage/${id_book}`}>
+                            <p>info</p>
+                          </Link>
+                        </div>
                       </li>
                     </ul>
                   </div>
-                  <div className="containerButton">
-                    
-                    
-                  </div>
+                  <div className="containerButton"></div>
                   {/* </Link> */}
                 </div>
               </>

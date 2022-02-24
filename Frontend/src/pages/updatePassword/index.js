@@ -11,7 +11,7 @@ import left from '../../assets/left.png'
 function UpdatePassword() {
   const formReference = useRef(null)
 
-  const formSubmite = async data => {
+  const formSubmit = async data => {
     //Valida dos campos do formulário
     try {
       const scheme = Yup.object().shape({
@@ -47,7 +47,6 @@ function UpdatePassword() {
   //pegando os dados do backend
   const [data, setData] = useState([])
   useEffect(async () => {
-    console.log('teste')
     const response = await api.get('/searchID')
     setData(response.data)
   }, [])
@@ -64,19 +63,19 @@ function UpdatePassword() {
       </Logo>
       <Container>
         <ContentForm>
-          <Form ref={formReference} onSubmit={formSubmite}>
+          <Form ref={formReference} onSubmit={formSubmit}>
             <h1 className="title">Editar</h1>
 
             <h2 className="tituloEmail">Senha antiga</h2>
             <Input
-              name="senhaVelha"
+              name="oldPassword"
               type="password"
               placeholder="Digite sua senha"
             />
 
             <h2 className="tituloEmail">Nova senha</h2>
             <Input
-              name="senhaNova"
+              name="newPassword"
               type="password"
               placeholder="Digite sua senha"
             />
