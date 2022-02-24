@@ -18,7 +18,7 @@ class UserController {
 
   async get(req, res, next) {
     const users = await User.findAll();
-    res.json(users);
+    res.status(200).json(users);
   }
 
   async getID(req, res) {
@@ -27,7 +27,7 @@ class UserController {
     if (user === null) {
       res.json('Não encontrado!');
     } else {
-      res.json(user); // true
+      res.status(200).json(user); // true
       // Its primary key is 123
     }
   }
@@ -44,7 +44,7 @@ class UserController {
 
     const { id, name, email } = user.update({ name: newName });
 
-    res.json({ id, name, email });
+    res.status(200).json("Nome atualizado");
   }
 
   //Atualizar email
@@ -59,7 +59,7 @@ class UserController {
 
     const { id, name, email } = user.update({ email: newEmail });
 
-    res.json({ id, name, email });
+    res.status(200).json("Email atualizado");
   }
 
   //verificar o bug de não conseguir acessar depois de trocar a password
@@ -81,7 +81,7 @@ class UserController {
     const newUser = await user.update({ password: newPassword });
     console.log(newUser);
 
-    res.json(newUser);
+    res.status(200).json("senha atualizada");
   }
 
   //atualiza phone
@@ -98,7 +98,7 @@ class UserController {
       phone: newPhone,
     });
 
-    res.status(200).json({ id, name, email, phone });
+    res.status(200).json("telefone atualizado");
   }
 
   // Deletar a conta
@@ -106,7 +106,12 @@ class UserController {
     const { id } = req.body;
     const user = await User.findByPk(id);
     user.destroy();
-    res.json('Usuario Excluido');
+    res.status(200).json('Usuario Excluido');
+  }
+
+  async deleteAll(req,res) {
+    const user = await User.deleteAll();
+    res.json('Banco excluido')
   }
 }
 
