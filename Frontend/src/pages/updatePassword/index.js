@@ -5,25 +5,30 @@ import api from '../../services/api'
 import { Form } from '@unform/web'
 import * as Yup from 'yup'
 import Input from '../../components/input'
-import left from '../../assets/left.png'
 import { Link } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
+import left from '../../assets/left.png'
 
-function UpdateUrlImage() {
+function UpdatePassword() {
   const formReference = useRef(null)
-  const { id } = useParams()
 
   const formSubmite = async data => {
     //Valida dos campos do formulário
     try {
       const scheme = Yup.object().shape({
-        image: Yup.string().required('Você precisa colar uma url')
+        newPassword: Yup.string()
+          .min(6, 'A senha precisa ter no mínimo 6 caracteres')
+          .required('Você precisa digitar uma senha'),
+        oldPassword: Yup.string()
+          .min(6, 'A senha sprecisa ter no mínimo 6 caracteres')
+          .required('Você precisa digitar uma senha')
       })
       await scheme.validate(data, { abortEarly: false })
 
       //Faz a requisição da api e grava no banco de dados
-      const response = await api.put(`/updateImage/${id}`, {
-        imageurl: data.image
+      const response = await api.put('/updatePassword', {
+        newPassword: data.oldPassword,
+
+        newPassword: data.newPassword
       })
       //Atuliza a pagina
       window.location.reload()
@@ -42,7 +47,8 @@ function UpdateUrlImage() {
   //pegando os dados do backend
   const [data, setData] = useState([])
   useEffect(async () => {
-    const response = await api.get(`/getABook/${id}`)
+    console.log('teste')
+    const response = await api.get('/searchID')
     setData(response.data)
   }, [])
 
@@ -50,8 +56,7 @@ function UpdateUrlImage() {
     <>
       <Logo>
         <div className="container">
-          <Link to={`/bookProfile/${id}`}>
-            {' '}
+          <Link to="/perfil">
             <img className="exitButton" size="20px" src={left} alt="" />{' '}
           </Link>
           <img src={logo} alt="icon" />
@@ -61,19 +66,19 @@ function UpdateUrlImage() {
         <ContentForm>
           <Form ref={formReference} onSubmit={formSubmite}>
             <h1 className="title">Editar</h1>
-            <h2>Imagem antiga</h2>
-            <div className="containerItem">
-              <div className="item">
-                <div className="conteudoItem">
-                  <img src={data.imageurl} className="imageItem" />
-                </div>
-              </div>
-            </div>
-            <h2 className="tituloDaImagem">Nova Imagem</h2>
+
+            <h2 className="tituloEmail">Senha antiga</h2>
             <Input
-              name="image"
-              type="text"
-              placeholder="Cole aqui a url da nova imagem"
+              name="senhaVelha"
+              type="password"
+              placeholder="Digite sua senha"
+            />
+
+            <h2 className="tituloEmail">Nova senha</h2>
+            <Input
+              name="senhaNova"
+              type="password"
+              placeholder="Digite sua senha"
             />
             <div className="contentButton">
               <button type="submit" className="botao" id="teste">
@@ -89,4 +94,4 @@ function UpdateUrlImage() {
   )
 }
 
-export default UpdateUrlImage
+export default UpdatePassword

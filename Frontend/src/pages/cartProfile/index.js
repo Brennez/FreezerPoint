@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom'
 
 function CartProfile() {
   const [data, setData] = useState([])
-  const referencia = useRef(null)
+  const reference = useRef(null)
 
   useEffect(async () => {
     // Pegando id do usuário
-    const response2 = await api.get('buscaID')
+    const response2 = await api.get('searchID')
     const id_user = response2.data['id']
 
     const response = await api.get(`/getCart/${id_user}`)
@@ -22,12 +22,12 @@ function CartProfile() {
     // Primeira maneira -> aqui ele já retorna o objeto com formatado
     const result = response.data.map(book => {
       return {
-        id_livro: book.id_livro,
-        nome: book.livros.nome,
-        autor: book.livros.autor,
-        imageurl: book.livros.imageurl,
-        categoria: book.livros.categoria,
-        genero: book.livros.genero
+        id_book: book.id_book,
+        name: book.books.name,
+        author: book.books.author,
+        imageurl: book.books.imageurl,
+        category: book.books.category,
+        genre: book.books.genre
       }
     })
 
@@ -46,10 +46,10 @@ function CartProfile() {
         </div>
       </Logo>
       <Container>
-        <ContentForm ref={referencia}>
+        <ContentForm ref={reference}>
           <h1 className="title"> Meu carrinho</h1>
           {data.map(item => {
-            const { autor, id_livro, nome , imageurl,categoria,genero } = item
+            const { author, id_book, name , imageurl, category, genre } = item
             return (
               <>
                 <div className="containerName">
@@ -66,29 +66,41 @@ function CartProfile() {
                     <ul>
                       <li>
                         <div className="containerInfo">
-                          Título: <p>{nome}</p>
+                          Título: <p>{name}</p>
                         </div>
                       </li>
                       <li>
                         <div className="containerInfo">
-                          Por: <p>{autor}</p>
+                          Por: <p>{author}</p>
                         </div>
                       </li>
                       <li>
                         <div className="containerInfo">
-                          Tipo: <p>{categoria}</p>
+                          Tipo: <p>{category}</p>
                         </div>
                       </li>
                       <li>
                         <div className="containerInfo">
-                          Gênero: <p>{genero}</p>
+                          Gênero: <p>{genre}</p>
                         </div>
+                      </li>
+                      <li>
+                          <div class="containerInfo">
+                            <Link to={`/bookDeleted/${id_book}`}>
+                               <p>Excluir</p>
+                            </Link>
+                            <Link to={`/contactPage/${id_book}`}>
+                              <p>info</p>
+                            </Link>
+                           
+                              
+                          </div>
                       </li>
                     </ul>
                   </div>
                   <div className="containerButton">
-                    <p>Excluir</p>
-                    <p>info</p>
+                    
+                    
                   </div>
                   {/* </Link> */}
                 </div>

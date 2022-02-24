@@ -11,19 +11,19 @@ import { Link } from 'react-router-dom'
 function UpdateEmail() {
   const formularioReferencia = useRef(null)
 
-  const submeterFormulario = async data => {
+  const formSubmit = async data => {
     //Valida dos campos do formulário
     try {
-      const esquema = Yup.object().shape({
-        novoEmail: Yup.string()
+      const scheme = Yup.object().shape({
+        newEmail: Yup.string()
           .email('Email inválido')
           .required('Você precisa digitar um email')
       })
-      await esquema.validate(data, { abortEarly: false })
+      await scheme.validate(data, { abortEarly: false })
 
       //Faz a requisição da api e grava no banco de dados
       const response = await api.put('/updateEmail', {
-        novoEmail: data.novoEmail
+        newEmail: data.newEmail
       })
       //Atuliza a pagina
       window.location.reload()
@@ -60,7 +60,7 @@ function UpdateEmail() {
       </Logo>
       <Container>
         <ContentForm>
-          <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
+          <Form ref={formularioReferencia} onSubmit={formSubmit}>
             <h1 className="title">Editar</h1>
             <h2>Email antigo</h2>
             <p className="email" href="">

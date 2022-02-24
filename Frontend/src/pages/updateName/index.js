@@ -5,25 +5,23 @@ import api from '../../services/api'
 import { Form } from '@unform/web'
 import * as Yup from 'yup'
 import Input from '../../components/input'
-import left from '../../assets/left.png'
 import { Link } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
+import left from '../../assets/left.png'
 
-function UpdateUrlImage() {
+function Update() {
   const formReference = useRef(null)
-  const { id } = useParams()
 
   const formSubmite = async data => {
     //Valida dos campos do formulário
     try {
       const scheme = Yup.object().shape({
-        image: Yup.string().required('Você precisa colar uma url')
+        newName: Yup.string().required('Você precisa digitar um nome')
       })
       await scheme.validate(data, { abortEarly: false })
 
       //Faz a requisição da api e grava no banco de dados
-      const response = await api.put(`/updateImage/${id}`, {
-        imageurl: data.image
+      const response = await api.put('/update', {
+        newName: data.newName
       })
       //Atuliza a pagina
       window.location.reload()
@@ -42,7 +40,7 @@ function UpdateUrlImage() {
   //pegando os dados do backend
   const [data, setData] = useState([])
   useEffect(async () => {
-    const response = await api.get(`/getABook/${id}`)
+    const response = await api.get('/searchID')
     setData(response.data)
   }, [])
 
@@ -50,7 +48,7 @@ function UpdateUrlImage() {
     <>
       <Logo>
         <div className="container">
-          <Link to={`/bookProfile/${id}`}>
+          <Link to="/perfil">
             {' '}
             <img className="exitButton" size="20px" src={left} alt="" />{' '}
           </Link>
@@ -61,19 +59,15 @@ function UpdateUrlImage() {
         <ContentForm>
           <Form ref={formReference} onSubmit={formSubmite}>
             <h1 className="title">Editar</h1>
-            <h2>Imagem antiga</h2>
-            <div className="containerItem">
-              <div className="item">
-                <div className="conteudoItem">
-                  <img src={data.imageurl} className="imageItem" />
-                </div>
-              </div>
-            </div>
-            <h2 className="tituloDaImagem">Nova Imagem</h2>
+            <h2>Nome antigo</h2>
+            <p className="nome" href="">
+              {data.name}
+            </p>
+            <h2>Novo nome</h2>
             <Input
-              name="image"
+              name="novoNome"
               type="text"
-              placeholder="Cole aqui a url da nova imagem"
+              placeholder="Digite seu novo nome"
             />
             <div className="contentButton">
               <button type="submit" className="botao" id="teste">
@@ -89,4 +83,4 @@ function UpdateUrlImage() {
   )
 }
 
-export default UpdateUrlImage
+export default Update

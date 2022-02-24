@@ -9,7 +9,7 @@ import left from '../../assets/left.png'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
-function UpdateUrlImage() {
+function UpdateSynopsis() {
   const formReference = useRef(null)
   const { id } = useParams()
 
@@ -17,16 +17,16 @@ function UpdateUrlImage() {
     //Valida dos campos do formulário
     try {
       const scheme = Yup.object().shape({
-        image: Yup.string().required('Você precisa colar uma url')
+        synopsis: Yup.string().required('Você precisa digitar um título')
       })
       await scheme.validate(data, { abortEarly: false })
 
       //Faz a requisição da api e grava no banco de dados
-      const response = await api.put(`/updateImage/${id}`, {
-        imageurl: data.image
+      const response = await api.put(`/updateSynopsis/${id}`, {
+        synopsis: data.synopsis
       })
       //Atuliza a pagina
-      window.location.reload()
+      window.location.reload() 
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         const erros = {}
@@ -42,7 +42,7 @@ function UpdateUrlImage() {
   //pegando os dados do backend
   const [data, setData] = useState([])
   useEffect(async () => {
-    const response = await api.get(`/getABook/${id}`)
+    const response = await api.get(`/getABooks/${id}`)
     setData(response.data)
   }, [])
 
@@ -61,19 +61,15 @@ function UpdateUrlImage() {
         <ContentForm>
           <Form ref={formReference} onSubmit={formSubmite}>
             <h1 className="title">Editar</h1>
-            <h2>Imagem antiga</h2>
-            <div className="containerItem">
-              <div className="item">
-                <div className="conteudoItem">
-                  <img src={data.imageurl} className="imageItem" />
-                </div>
-              </div>
-            </div>
-            <h2 className="tituloDaImagem">Nova Imagem</h2>
+            <h2>Sinopse antiga</h2>
+            <p className="sinopse" href="">
+              {data.synopsis}
+            </p>
+            <h2 className="tituloDaSinopse">Nova sinopse</h2>
             <Input
-              name="image"
+              name="sinopse"
               type="text"
-              placeholder="Cole aqui a url da nova imagem"
+              placeholder="Digite a nova sinopse"
             />
             <div className="contentButton">
               <button type="submit" className="botao" id="teste">
@@ -89,4 +85,4 @@ function UpdateUrlImage() {
   )
 }
 
-export default UpdateUrlImage
+export default UpdateSynopsis

@@ -14,15 +14,15 @@ function BookDeleted() {
   useEffect(async () => {
   
     // Pegando id do usuário
-    const response2 = await api.get('buscaID')
+    const response2 = await api.get('searchID')
     const id_user = response2.data['id']
 
     console.log("ID LIVROS => " + id)
 
     // Deletando o livro
-    const deleteLivroLista = await api.delete(`/deleteLivroLista/${id_user}/${id}`)
-    const deleteLivroCarrinho = await api.delete(`/deleteLivroCart/${id_user}/${id}`)
-    const deleteLivro = await api.delete(`/deleteLivro/${id}`)
+    const deleteBookList = await api.delete(`/deleteBookList/${id_user}/${id}`)
+    const deleteBookCart = await api.delete(`/deleteBookCart/${id_user}/${id}`)
+    const deleteBook = await api.delete(`/deleteBook/${id}`)
     
 
   }, [])

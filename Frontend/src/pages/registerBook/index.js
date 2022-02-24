@@ -9,17 +9,17 @@ import { Link, useHistory } from 'react-router-dom'
 import { useState } from 'react'
 
 function RegisterBook() {
-  const formularioReferencia = useRef(null)
+  const formReference = useRef(null)
   const history = useHistory()
 
-  const submeterFormulario = async data => {
-    const response = await api.post('createLivro', {
-      nome: data.nome,
-      autor: data.autor,
-      categoria: data.categoria,
-      genero: data.genero,
-      edicao: data.edicao,
-      sinopse: data.sinopse,
+  const formSubmite = async data => {
+    const response = await api.post('createBook', {
+      name: data.name,
+      author: data.author,
+      category: data.category,
+      genre: data.genre,
+      edition: data.edition,
+      synopsis: data.synopsis,
       imageurl: data.url
     })
 
@@ -28,21 +28,21 @@ function RegisterBook() {
     // }
 
     // Pegando id do livro
-    const livros = await api.get('getLivro')
+    const books = await api.get('getBool')
     // Pegando o ultimo livro adicionado
-    const lastBook = livros.data[livros.data.length - 1]
-    const id_livros = lastBook['id']
+    const lastBook = books.data[books.data.length - 1]
+    const id_books = lastBook['id']
 
     // Pegando id do usuário
-    const user = await api.get('buscaID')
+    const user = await api.get('serachId')
     const id_user = user.data['id']
 
-    const criarLista = await api.post('createLista', {
+    const createList = await api.post('createBook', {
       id_user: id_user,
-      id_livros: id_livros
+      id_livros: id_books
     })
 
-    console.log(criarLista.data)
+    console.log(createList.data)
     console.log(response.data)
     history.push('/Home')
   }
@@ -60,7 +60,7 @@ function RegisterBook() {
       <Container>
         <ContentForm>
           <h1 className="title">Cadastre um livro</h1>
-          <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
+          <Form ref={formReference} onSubmit={formSubmite}>
             {/* <h2>Seu livro é para...</h2>
             <Button name="oi" type="text" /> */}
             <h2>Título</h2>

@@ -4,21 +4,21 @@ import { Form } from '@unform/web'
 import logo from '../../assets/logo.svg'
 import Input from '../../components/input'
 import * as Yup from 'yup'
-import { useContextAutenticacao } from '../../context/autenticacao'
+import { useContextAutenticacao } from '../../context/authentication'
 import { Link, useHistory } from 'react-router-dom'
 
 function Register() {
   const [loginErro, setLoginErro] = useState(' ')
-  const formularioReferencia = useRef(null)
+  const formReference = useRef(null)
   const { login } = useContextAutenticacao()
   const history = useHistory()
 
-  const submeterFormulario = async data => {
+  const formSubmit = async data => {
     console.log(data)
 
     //Valida dos campos do formulário
     try {
-      const esquema = Yup.object().shape({
+      const scheme = Yup.object().shape({
         email: Yup.string()
           .email('Email inválido')
           .required('Você precisa digitar um email'),
@@ -26,7 +26,7 @@ function Register() {
           .min(6, 'A senha precisa ter no mínimo 6 caracteres')
           .required('Você precisa digitar uma senha')
       })
-      await esquema.validate(data, { abortEarly: false })
+      await scheme.validate(data, { abortEarly: false })
       await login(data)
       history.push('/Home')
 
@@ -44,7 +44,7 @@ function Register() {
           erros[e.path] = e.message
         })
         console.log(erros)
-        formularioReferencia.current?.setErrors(erros)
+        formReference.current?.setErrors(erros)
       }
       setLoginErro('Não foi possível realizar o login')
     }
@@ -56,7 +56,7 @@ function Register() {
       </Logo>
       <ContentForm>
         <h1 className="title">Bem vindo de volta!</h1>
-        <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
+        <Form ref={formReference} onSubmit={formSubmit}>
           <p>Preencha seus dados para realizar seu login</p>
 
           <h2>Email</h2>

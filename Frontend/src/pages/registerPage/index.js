@@ -10,34 +10,34 @@ import { Link, useHistory } from 'react-router-dom'
 // import { Link, useHistory } from "react-router-dom";
 
 function Register() {
-  const formularioReferencia = useRef(null)
+  const formReference = useRef(null)
   const history = useHistory()
   const submeterFormulario = async data => {
     console.log(data)
 
     //Valida dos campos do formulário
     try {
-      const esquema = Yup.object().shape({
-        nome: Yup.string().required('Você precisa digitar um nome'),
+      const scheme = Yup.object().shape({
+        name: Yup.string().required('Você precisa digitar um nome'),
         email: Yup.string()
           .email('Email inválido')
           .required('Você precisa digitar um email'),
-        telefone: Yup.string()
+        phone: Yup.string()
           .min(9, 'O número precisa ter 9 dígitos')
           .required('Você precisa digitar um número'),
 
-        senha: Yup.string()
+        password: Yup.string()
           .min(6, 'A senha precisa ter no mínimo 6 caracteres')
           .required('Você precisa digitar uma senha')
       })
-      await esquema.validate(data, { abortEarly: false })
+      await scheme.validate(data, { abortEarly: false })
 
       //Faz a requisição da api e grava no banco de dados
-      const reponse = await api.post('createUsuario', {
-        nome: data.nome,
+      const reponse = await api.post('createUser', {
+        name: data.name,
         email: data.email,
-        telefone: data.telefone,
-        senha: data.senha
+        phone: data.phone,
+        password: data.password
       })
       history.push('/Home')
       console.log(reponse.data)
@@ -47,7 +47,7 @@ function Register() {
         error.inner.forEach(e => {
           erros[e.path] = e.message
         })
-        formularioReferencia.current?.setErrors(erros)
+        formReference.current?.setErrors(erros)
       }
     }
   }
@@ -58,7 +58,7 @@ function Register() {
       </Logo>
       <ContentForm>
         <h1 className="title">Bem vindo!</h1>
-        <Form ref={formularioReferencia} onSubmit={submeterFormulario}>
+        <Form ref={formReference} onSubmit={submeterFormulario}>
           <p>Preencha seus dados para cadastrar</p>
           <h2>Nome</h2>
           <Input name="nome" type="text" placeholder="Nome" />

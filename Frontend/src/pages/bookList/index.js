@@ -9,24 +9,24 @@ import { Link } from 'react-router-dom'
 
 function BookList() {
   const [data, setData] = useState([])
-  const referencia = useRef(null)
+  const reference = useRef(null)
 
   useEffect(async () => {
     console.log('teste')
 
     // Pegando id do usuário
-    const response2 = await api.get('buscaID')
+    const response2 = await api.get('searchID')
     const id_user = response2.data['id']
 
-    const response = await api.get(`/searchLista/${id_user}`)
+    const response = await api.get(`/searchList/${id_user}`)
 
     console.log(response)
 
     // Primeira maneira -> aqui ele já retorna o objeto com formatado
     const result = response.data.map(book => {
       return {
-        id_livros: book.id_livros,
-        nome: book.livros.nome
+        id_books: book.id_books,
+        name: book.books.name
       }
     })
 
@@ -47,18 +47,18 @@ function BookList() {
         </div>
       </Logo>
       <Container>
-        <ContentForm ref={referencia}>
+        <ContentForm ref={reference}>
           <h1 className="title"> Meus livros</h1>
           {data.map(item => {
-            const { id_livros, nome } = item
+            const { id_books, name } = item
             return (
               <div className="containerName">
-                <Link className="nome" to={`/bookProfile/${id_livros}`}>
-                  <p>{nome}</p>
+                <Link className="nome" to={`/bookProfile/${id_books}`}>
+                  <p>{name}</p>
                 </Link>
                 <div className="icon">
                
-                 <Link to={`/bookDeleted/${id_livros}`}>
+                 <Link to={`/bookDeleted/${id_books}`}>
                     <img src={deleteIcon} alt="ícone de deletar." />
                  </Link>
                   <img src={deleteIcon} alt="ícone de deletar." />

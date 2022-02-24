@@ -1,6 +1,6 @@
 import React from 'react'
 import GlobalStyle from './styles/global'
-import { AutenticacaoProvider } from './context/autenticacao'
+import { AuthenticationProvider } from './context/authentication'
 import { BrowserRouter } from 'react-router-dom'
 import Routes from './routes/index'
 
@@ -9,9 +9,9 @@ function App() {
     <>
       <BrowserRouter>
         <GlobalStyle />
-        <AutenticacaoProvider>
+        <AuthenticationProvider>
           <Routes></Routes>
-        </AutenticacaoProvider>
+        </AuthenticationProvider>
         {/* <Home />
         <Register />
         <RegisterBook /> */}

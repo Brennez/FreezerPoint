@@ -9,7 +9,7 @@ import left from '../../assets/left.png'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
-function UpdateUrlImage() {
+function UpdateAuthor() {
   const formReference = useRef(null)
   const { id } = useParams()
 
@@ -17,13 +17,13 @@ function UpdateUrlImage() {
     //Valida dos campos do formulário
     try {
       const scheme = Yup.object().shape({
-        image: Yup.string().required('Você precisa colar uma url')
+        author: Yup.string().required('Você precisa digitar um autor')
       })
       await scheme.validate(data, { abortEarly: false })
 
       //Faz a requisição da api e grava no banco de dados
-      const response = await api.put(`/updateImage/${id}`, {
-        imageurl: data.image
+      const response = await api.put(`/updateAuthor/${id}`, {
+        author: data.author
       })
       //Atuliza a pagina
       window.location.reload()
@@ -61,19 +61,15 @@ function UpdateUrlImage() {
         <ContentForm>
           <Form ref={formReference} onSubmit={formSubmite}>
             <h1 className="title">Editar</h1>
-            <h2>Imagem antiga</h2>
-            <div className="containerItem">
-              <div className="item">
-                <div className="conteudoItem">
-                  <img src={data.imageurl} className="imageItem" />
-                </div>
-              </div>
-            </div>
-            <h2 className="tituloDaImagem">Nova Imagem</h2>
+            <h2>Autor antigo</h2>
+            <p className="autor" href="">
+              {data.author}
+            </p>
+            <h2 className="tituloAutor">Novo Autor</h2>
             <Input
-              name="image"
+              name="autor"
               type="text"
-              placeholder="Cole aqui a url da nova imagem"
+              placeholder="Digite o nome do autor"
             />
             <div className="contentButton">
               <button type="submit" className="botao" id="teste">
@@ -89,4 +85,4 @@ function UpdateUrlImage() {
   )
 }
 
-export default UpdateUrlImage
+export default UpdateAuthor

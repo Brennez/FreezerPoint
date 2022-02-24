@@ -9,21 +9,21 @@ import left from '../../assets/left.png'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
-function UpdateUrlImage() {
+function UpdateEdition() {
   const formReference = useRef(null)
   const { id } = useParams()
 
-  const formSubmite = async data => {
+  const submeterFormulario = async data => {
     //Valida dos campos do formulário
     try {
       const scheme = Yup.object().shape({
-        image: Yup.string().required('Você precisa colar uma url')
+        edition: Yup.string().required('Você precisa digitar uma edição')
       })
       await scheme.validate(data, { abortEarly: false })
 
       //Faz a requisição da api e grava no banco de dados
-      const response = await api.put(`/updateImage/${id}`, {
-        imageurl: data.image
+      const response = await api.put(`/updateEdition/${id}`, {
+        edition: data.edicao
       })
       //Atuliza a pagina
       window.location.reload()
@@ -59,21 +59,17 @@ function UpdateUrlImage() {
       </Logo>
       <Container>
         <ContentForm>
-          <Form ref={formReference} onSubmit={formSubmite}>
+          <Form ref={formReference} onSubmit={submeterFormulario}>
             <h1 className="title">Editar</h1>
-            <h2>Imagem antiga</h2>
-            <div className="containerItem">
-              <div className="item">
-                <div className="conteudoItem">
-                  <img src={data.imageurl} className="imageItem" />
-                </div>
-              </div>
-            </div>
-            <h2 className="tituloDaImagem">Nova Imagem</h2>
+            <h2>Edição antiga</h2>
+            <p className="edicao" href="">
+              {data.edition}
+            </p>
+            <h2 className="tituloDaEdicao">Novo Edição</h2>
             <Input
-              name="image"
-              type="text"
-              placeholder="Cole aqui a url da nova imagem"
+              name="edicao"
+              type="number"
+              placeholder="Digite uma nova edição"
             />
             <div className="contentButton">
               <button type="submit" className="botao" id="teste">
@@ -89,4 +85,4 @@ function UpdateUrlImage() {
   )
 }
 
-export default UpdateUrlImage
+export default UpdateEdition

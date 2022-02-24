@@ -1,3 +1,8 @@
+
+
+
+
+
 import React, { useEffect, useState, useRef } from 'react'
 
 import {
@@ -20,7 +25,7 @@ import right from '../../assets/right.png'
 import git from '../../assets/iconGithub.svg'
 import api from '../../services/api'
 import avatar from '../../assets/avatar.png'
-import { useContextAutenticacao } from '../../context/autenticacao'
+import { useContextAutenticacao } from '../../context/authentication'
 import iconSearch from '../../assets/searchIcon.png'
 
 // ------------------------------------------------------------
@@ -83,11 +88,9 @@ function Home() {
               <a>Publicações</a>
             </Link>
           </li>
-          <form action="/" className="containerSearch">
-            <Link to={'#'}>
+          <form action="/bookSearched" className="containerSearch" method="get">
               <img src={iconSearch} alt="" />
-            </Link>
-            <input type="text" placeholder="Buscar..." class="searchInput" />
+            <input type="text" placeholder="Buscar..." class="searchInput" name="mySearch" />
           </form>
           <li>
             <Link to="/cartProfile">
@@ -158,14 +161,14 @@ function Home() {
 
         <ContentBook ref={referencia}>
           {data.map(item => {
-            const { id, autor, nome, imageurl } = item
+            const { id, author, name, imageurl } = item
             return (
               <div className="item">
                 <div className="conteudoItem">
                   <img src={imageurl} className="imageItem" />
                   <div className="info">
-                    <p className="titulo"> {nome}</p>
-                    <p className="autor"> {autor}</p>
+                    <p className="titulo"> {name}</p>
+                    <p className="autor"> {author}</p>
                     <div className="botao">
                       <Link to={`/cartList/${id}`}>Adicionar</Link>
                       {/* <img clasname="icon" src={icon} alt="icone fav" /> */}

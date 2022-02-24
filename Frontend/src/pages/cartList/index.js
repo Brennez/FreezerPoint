@@ -12,23 +12,23 @@ import { Link , useHistory } from 'react-router-dom'
 
 function CartList() {
   const [data, setData] = useState([])
-  const referencia = useRef(null)
+  const reference = useRef(null)
   const { id } = useParams()
   const history = useHistory()
 
   useEffect(async () => {
     // Pegando id do usuário
-    const response2 = await api.get('buscaID')
+    const response2 = await api.get('searchID')
 
     const id_user = response2.data['id']
     
     
-    const criarCarrinho = await api.post('/createCart', {
+    const createCart = await api.post('/createCart', {
       id_user: id_user,
       id_livro: id, 
     })
   
-    if(criarCarrinho.status === 400) {
+    if(createCart.status === 400) {
       history.push('/Home')
     }
 
@@ -36,8 +36,8 @@ function CartList() {
 
     const result = response.data.map(book => {
       return {
-        id_livro: book.id_livro,
-        nome: book.livros.nome
+        id_book: book.id_book,
+        name: book.books.name
       }
     })
 
@@ -56,14 +56,14 @@ function CartList() {
         </div>
       </Logo>
       <Container>
-        <ContentForm ref={referencia}>
+        <ContentForm ref={reference}>
           <h1 className="title"> Meu carrinho</h1>
           {data.map(item => {
-            const { id_livro, nome } = item
+            const { id_livro,  name } = item
             return (
               <div className="containerName">
                 <Link to={`/contactPage/${id_livro}`}>
-                  <p>{nome}</p>
+                  <p>{name}</p>
                 </Link>
               </div>
             )

@@ -10,11 +10,11 @@ import { Link } from 'react-router-dom'
 
 function Profile() {
   const [data, setData] = useState([])
-  const referencia = useRef(null)
+  const reference = useRef(null)
 
   useEffect(async () => {
     console.log('teste')
-    const response = await api.get('/buscaID')
+    const response = await api.get('/searchID')
     setData(response.data)
   }, [])
 
@@ -30,13 +30,13 @@ function Profile() {
         </div>
       </Logo>
       <Container>
-        <ContentForm ref={referencia}>
+        <ContentForm ref={reference}>
           <div>
             <h1 className="title">Perfil</h1>
             <h2>Nome</h2>
             <div className="containerName">
               <p className="nome" href="">
-                {data.nome}
+                {data.name}
               </p>
               <div className="icon">
                 <Link to="/update">
@@ -65,7 +65,7 @@ function Profile() {
               </p>
               <div className="icon">
                 <a href="">
-                  <Link to="/updateSenha">
+                  <Link to="/updatePassword">
                     <img src={editor} alt="" />
                   </Link>
                 </a>
@@ -74,11 +74,11 @@ function Profile() {
             <h2 id="tituloTelefone">Telefone</h2>
             <div className="containerTelefone">
               <p className="telefone" href="">
-                {data.telefone}
+                {data.phone}
               </p>
               <div className="icon">
                 <a href="">
-                  <Link to="/updateTelefone">
+                  <Link to="/updatePhone">
                     <img src={editor} alt="" />
                   </Link>
                 </a>

@@ -9,21 +9,21 @@ import left from '../../assets/left.png'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
-function UpdateUrlImage() {
+function UpdateGenre() {
   const formReference = useRef(null)
   const { id } = useParams()
 
-  const formSubmite = async data => {
+  const formSubmit = async data => {
     //Valida dos campos do formulário
     try {
       const scheme = Yup.object().shape({
-        image: Yup.string().required('Você precisa colar uma url')
+        genre: Yup.string().required('Você precisa digitar um gênero')
       })
       await scheme.validate(data, { abortEarly: false })
 
       //Faz a requisição da api e grava no banco de dados
-      const response = await api.put(`/updateImage/${id}`, {
-        imageurl: data.image
+      const response = await api.put(`/updateGenero/${id}`, {
+        genre: data.genre
       })
       //Atuliza a pagina
       window.location.reload()
@@ -59,21 +59,17 @@ function UpdateUrlImage() {
       </Logo>
       <Container>
         <ContentForm>
-          <Form ref={formReference} onSubmit={formSubmite}>
+          <Form ref={formReference} onSubmit={formSubmit}>
             <h1 className="title">Editar</h1>
-            <h2>Imagem antiga</h2>
-            <div className="containerItem">
-              <div className="item">
-                <div className="conteudoItem">
-                  <img src={data.imageurl} className="imageItem" />
-                </div>
-              </div>
-            </div>
-            <h2 className="tituloDaImagem">Nova Imagem</h2>
+            <h2>Gênero antigo</h2>
+            <p className="genero" href="">
+              {data.genre}
+            </p>
+            <h2 className="tituloDoGenero">Novo Gênero</h2>
             <Input
-              name="image"
+              name="genero"
               type="text"
-              placeholder="Cole aqui a url da nova imagem"
+              placeholder="Digite a nova categoria"
             />
             <div className="contentButton">
               <button type="submit" className="botao" id="teste">
@@ -89,4 +85,4 @@ function UpdateUrlImage() {
   )
 }
 
-export default UpdateUrlImage
+export default UpdateGenre

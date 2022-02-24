@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 function BookProfile() {
   const [data, setData] = useState([])
-  const referencia = useRef(null)
+  const reference = useRef(null)
   // const history = useHistory()
   const { id } = useParams()
 
@@ -19,7 +19,7 @@ function BookProfile() {
   // console.log(id)
 
   useEffect(async () => {
-    const response = await api.get(`/getUmLivro/${id}`)
+    const response = await api.get(`/getABook/${id}`)
     setData(response.data)
   }, [])
 
@@ -37,27 +37,27 @@ function BookProfile() {
         </div>
       </Logo>
       <Container>
-        <ContentForm ref={referencia}>
+        <ContentForm ref={reference}>
           <div>
             <h1 className="title">Meu livro</h1>
             <h2>Nome</h2>
             <div className="containerName">
               <p className="nome" href="">
-                {data.nome}
+                {data.name}
               </p>
               <div className="icon">
-                <Link to={`/updateNomeLivro/${id}`}>
+                <Link to={`/updateBookName/${id}`}>
                   <img src={editor} alt="" />
                 </Link>
               </div>
             </div>
             <h2>Autor</h2>
-            <div className="containerAutor">
+            <div className="containerAuthor">
               <p className="autor" href="">
-                {data.autor}
+                {data.author}
               </p>
               <div className="icon">
-                <Link to={`/updateAutor/${id}`}>
+                <Link to={`/updateAuthor/${id}`}>
                   <img src={editor} alt="" />
                 </Link>
               </div>
@@ -68,7 +68,7 @@ function BookProfile() {
                 {data.sinopse}
               </p>
               <div className="icon">
-                <Link to={`/updateSinopse/${id}`}>
+                <Link to={`/updateSynopsis/${id}`}>
                   <img src={editor} alt="" />
                 </Link>
               </div>
@@ -78,10 +78,10 @@ function BookProfile() {
             <h2 id="tituloCategoria">Categoria</h2>
             <div className="containerCategoria">
               <p className="categoria" href="">
-                {data.categoria}
+                {data.category}
               </p>
               <div className="icon">
-                <Link to={`/updateCategoria/${id}`}>
+                <Link to={`/updateCategory/${id}`}>
                   <img src={editor} alt="" />
                 </Link>
               </div>
@@ -89,10 +89,10 @@ function BookProfile() {
             <h2 id="tituloGenero">Gênero</h2>
             <div className="containerGenero">
               <p className="genero" href="">
-                {data.genero}
+                {data.genre}
               </p>
               <div className="icon">
-                <Link to={`/updateGenero/${id}`}>
+                <Link to={`/updateGenre/${id}`}>
                   <img src={editor} alt="" />
                 </Link>
               </div>
@@ -100,10 +100,10 @@ function BookProfile() {
             <h2 id="tituloEdicao">Edição</h2>
             <div className="containerEdicao">
               <p className="edicao" href="">
-                {data.edicao}
+                {data.edition}
               </p>
               <div className="icon">
-                <Link to={`/updateEdicao/${id}`}>
+                <Link to={`/updateEdition/${id}`}>
                   <img src={editor} alt="" />
                 </Link>
               </div>

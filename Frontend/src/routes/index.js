@@ -12,16 +12,16 @@ import contactPage from '../pages/contactPage'
 import bookList from '../pages/bookList'
 
 import UE from '../pages/updateEmail'
-import US from '../pages/updateSenha'
-import UT from '../pages/updateTelefone'
-import UNL from '../pages/updateNomeLivro'
-import UA from '../pages/updateAutor'
-import USL from '../pages/updateSinopse'
-import UCL from '../pages/updateCategoria'
-import UGL from '../pages/updateGenero'
-import UEL from '../pages/updateEdicao'
+import US from '../pages/updatePassword'
+import UT from '../pages/updatePhone'
+import UNL from '../pages/updateBookName'
+import UA from '../pages/updateAuthor'
+import USL from '../pages/updateSynopsis'
+import UCL from '../pages/updateCategory'
+import UGL from '../pages/updateGenre'
+import UEL from '../pages/updateEdition'
 import UIL from '../pages/updateImageUrl'
-import Update from '../pages/updateNome'
+import Update from '../pages/updateName'
 import BookProfile from '../pages/bookProfile'
 import BookDeleted from '../pages/bookDeleted'
 import BookSearched from '../pages/bookSearched'
@@ -41,7 +41,7 @@ function Routes() {
         component={Home}
       ></ControleRotas>
       <ControleRotas
-        path="/createLivro"
+        path="/createBook"
         isPrivate={true}
         component={Book}
       ></ControleRotas>
@@ -105,49 +105,49 @@ function Routes() {
         component={UE}
       ></ControleRotas>
       <ControleRotas
-        path="/updateSenha"
+        path="/updatePassword"
         isPrivate={true}
         exact
         component={US}
       ></ControleRotas>
       <ControleRotas
-        path="/updateTelefone"
+        path="/updatePhone"
         isPrivate={true}
         exact
         component={UT}
       ></ControleRotas>
       <ControleRotas
-        path="/updateAutor/:id"
+        path="/updateAuthor/:id"
         isPrivate={true}
         exact
         component={UA}
       ></ControleRotas>
       <ControleRotas
-        path="/updateNomeLivro/:id"
+        path="/updateBookName/:id"
         isPrivate={true}
         exact
         component={UNL}
       ></ControleRotas>
       <ControleRotas
-        path="/updateSinopse/:id"
+        path="/updateSynopsis/:id"
         isPrivate={true}
         exact
         component={USL}
       ></ControleRotas>
       <ControleRotas
-        path="/updateCategoria/:id"
+        path="/updateCategory/:id"
         isPrivate={true}
         exact
         component={UCL}
       ></ControleRotas>
       <ControleRotas
-        path="/updateGenero/:id"
+        path="/updateGenre/:id"
         isPrivate={true}
         exact
         component={UGL}
       ></ControleRotas>
       <ControleRotas
-        path="/updateEdicao/:id"
+        path="/updateEdition/:id"
         isPrivate={true}
         exact
         component={UEL}
