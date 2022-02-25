@@ -10,7 +10,7 @@ const routes = new Router();
 // --------------------- ROTAS DE LIVRO -----------------------------//
 routes.post('/createBook', authentication, BC.store);
 routes.get('/getBook', BC.get);
-routes.get('/searchBook', BC.searchBook);
+routes.get('/searchBook/:name', BC.searchBook);
 routes.get('/getABook/:id', BC.getId);
 routes.put('/updateBookName/:id', authentication, BC.update);
 routes.put('/updateAuthor/:id', authentication, BC.updateAuthor);

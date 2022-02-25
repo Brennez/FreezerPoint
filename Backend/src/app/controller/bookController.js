@@ -92,7 +92,7 @@ class BookController {
   }
 
   async searchBook(req, res) {
-    const { name } = req.body;
+    const { name } = req.params;
 
     const myBooks = await Book.findAll({
       where: {
