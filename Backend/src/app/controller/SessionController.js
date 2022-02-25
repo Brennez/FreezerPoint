@@ -11,10 +11,6 @@ class SessionController {
       return res.status(404).send({ error: 'Usuário não encontrado' });
     }
 
-    if (!(await user.checkPassword(password))) {
-      return res.status(401).send({ error: 'Senha incorreta' });
-    }
-
     const { id, name } = user;
     return res.json({
       user: {
