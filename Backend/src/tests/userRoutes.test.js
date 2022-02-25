@@ -2,43 +2,21 @@ const request = require("supertest");
 const baseURL = "http://localhost:3001";
 
 describe("User Routes", () => {
-    /* 
-        Rotas testadas 
-        routes.post('/createUser', UC.store);
-         routes.post('/login', SC.store);
-    */
 
-    /*
-        @TODO 
-        routes.put('/update', authentication, UC.update);
-        routes.put('/updateEmail', authentication, UC.updateEmail);
-        routes.put('/updatePassword', authentication, UC.updatePassword);
-        routes.put('/updatePhone', authentication, UC.updatePhone);
-        routes.delete('/deleteUser', authentication, UC.delete);
-        routes.get('/getUsers', UC.get);
-        routes.get('/searchID', authentication, UC.getID);
+    // let token;
 
-    */
-
-          /*
-      declare the token variable in a scope accessible
-      by the entire test suite
-    */
-
-    let token;
-
-    beforeAll((done) => {
-      request(baseURL)
-        .post('/login')
-        .send({
-          "email": "felipe@gmail.com",
-          "password":"123456",
-        })
-        .end((err, response) => {
-          token = response.body.token; // save the token!
-          done();
-        });
-    });
+    // beforeAll((done) => {
+    //   request(baseURL)
+    //     .post('/login')
+    //     .send({
+    //       "email": "felipe@gmail.com",
+    //       "password":"123456",
+    //     })
+    //     .end((err, response) => {
+    //       token = response.body.token; // save the token!
+    //       done();
+    //     });
+    // });
 
 
     // Testando criação de usuário
@@ -72,11 +50,19 @@ describe("User Routes", () => {
     });
 
     it("Will be possible to update the username", async () => {
+        const user2 = await request(baseURL)
+        .post('/login')
+        .send({
+            "email":"arnaldinho@gmail.com",
+            "password":"123456"
+         });
+
+
         const user = await request(baseURL)
         .put('/update')
-        .set('Authorization', `Bearer ${token}`)
+        .set('Authorization', `Bearer ${user2.body.token}`)
         .send({
-            "name":"Fernandinho"
+            "newName":"Fernandinho"
         });
         expect(user.statusCode).toBe(200);
         expect(user).not.toBeNull();
@@ -84,11 +70,18 @@ describe("User Routes", () => {
     });
     
     it("Will be possible to update the email", async () => {
+        const user2 = await request(baseURL)
+        .post('/login')
+        .send({
+            "email":"arnaldinho@gmail.com",
+            "password":"123456"
+         });
+
         const user = await request(baseURL)
         .put('/updateEmail')
-        .set('Authorization', `Bearer ${token}`)
+        .set('Authorization', `Bearer ${user2.body.token}`)
         .send({
-            "email":"fernandinho@gmail.com"
+            "newEmail":"fernandinho@gmail.com"
         });
         expect(user.statusCode).toBe(200);
         expect(user).not.toBeNull();
@@ -97,11 +90,18 @@ describe("User Routes", () => {
 
 
     it("Will be possible to update the password", async () => {
+        const user2 = await request(baseURL)
+        .post('/login')
+        .send({
+            "email":"fernandinho@gmail.com",
+            "password":"123456"
+         });
+
         const user = await request(baseURL)
         .put('/updatePassword')
-        .set('Authorization', `Bearer ${token}`)
+        .set('Authorization', `Bearer ${user2.body.token}`)
         .send({
-            "password":"654321"
+            "newPassword":"654321"
         });
         expect(user.statusCode).toBe(200);
         expect(user).not.toBeNull();
@@ -111,11 +111,19 @@ describe("User Routes", () => {
     });
 
     it("Will be possible to update the phone", async () => {
+        const user2 = await request(baseURL)
+        .post('/login')
+        .send({
+            "email":"fernandinho@gmail.com",
+            "password":"654321"
+         });
+
+
         const user = await request(baseURL)
         .put('/updatePhone')
-        .set('Authorization', `Bearer ${token}`)
+        .set('Authorization', `Bearer ${user2.body.token}`)
         .send({
-            "phone":"123456789"
+            "newPhone":"123456789"
         });
         expect(user.statusCode).toBe(200);
         expect(user).not.toBeNull();
@@ -127,7 +135,7 @@ describe("User Routes", () => {
         .delete('/deleteUser')
         .set('Authorization', `Bearer ${token}`)
         .send({
-            "id":"4"
+            "id":"7"
         });
         expect(user.statusCode).toBe(200);
         expect(user).not.toBeNull();
@@ -146,12 +154,11 @@ describe("User Routes", () => {
         const user = await request(baseURL)
         .get('/searchID')
         .send({
-            "id":"8"
+            "id":"9"
         } );
 
         expect(user.statusCode).toBe(200);
         expect(user).not.toBeNull();
-        expect(user.body.name).toBe("felipe"); 
-
+        expect(user.body.name).toBe("Fernandinho"); 
     });
 });
