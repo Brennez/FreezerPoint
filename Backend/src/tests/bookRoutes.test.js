@@ -4,6 +4,7 @@ const baseURL = "http://localhost:3001";
 describe("My book Routes", () => {
 
     let token
+    let bookId
 
     beforeAll((done) => {
       request(baseURL)
@@ -31,7 +32,7 @@ describe("My book Routes", () => {
             "synopsis":"um breve teste",
             "imageurl":"www.teste.com"
         });
-
+        bookId = newBook.body.id;
         expect(newBook.statusCode).toBe(200);
         expect(newBook).not.toBeNull();
         expect(newBook.body.name).toBe("O sonhador");
@@ -49,7 +50,7 @@ describe("My book Routes", () => {
 
     it("Will be possible to get a book by id", async () => {
         const book = await request(baseURL)
-        .get('/getABook/4');
+        .get(`/getABook/${bookId}`);
 
         expect(book.statusCode).toBe(200);
         expect(book).not.toBeNull(); 
@@ -58,7 +59,7 @@ describe("My book Routes", () => {
 
     it("Will be possible to update a book", async () => {
         const book = await request(baseURL)
-        .put('/updateBookName/4')
+        .put(`/updateBookName/${bookId}`)
         .set('Authorization', `Bearer ${token}`)
         .send({
             "name":"A ilusão"
@@ -70,7 +71,7 @@ describe("My book Routes", () => {
     });
     it("Will be possible to update author book", async () => {
         const book = await request(baseURL)
-        .put('/updateAuthor/4')
+        .put(`/updateAuthor/${bookId}`)
         .set('Authorization', `Bearer ${token}`)
         .send({
             "author":"Carlão"
@@ -82,7 +83,7 @@ describe("My book Routes", () => {
     });
     it("Will be possible to update Category book", async () => {
         const book = await request(baseURL)
-        .put('/updateCategory/4')
+        .put(`/updateCategory/${bookId}`)
         .set('Authorization', `Bearer ${token}`)
         .send({
             "category":"mangá"
@@ -94,7 +95,7 @@ describe("My book Routes", () => {
     });
     it("Will be possible to update synopsis book", async () => {
         const book = await request(baseURL)
-        .put('/updateSynopsis/4')
+        .put(`/updateSynopsis/${bookId}`)
         .set('Authorization', `Bearer ${token}`)
         .send({
             "synopsis":"As desventuras dos testes"
@@ -106,7 +107,7 @@ describe("My book Routes", () => {
     });
     it("Will be possible to update edition book", async () => {
         const book = await request(baseURL)
-        .put('/updateEdition/4')
+        .put(`/updateEdition/${bookId}`)
         .set('Authorization', `Bearer ${token}`)
         .send({
             "edition":"2006"
@@ -118,7 +119,7 @@ describe("My book Routes", () => {
     });
     it("Will be possible to update genre book", async () => {
         const book = await request(baseURL)
-        .put('/updateGenre/4')
+        .put(`/updateGenre/${bookId}`)
         .set('Authorization', `Bearer ${token}`)
         .send({
             "genre":"história"
@@ -130,7 +131,7 @@ describe("My book Routes", () => {
     });
     it("Will be possible to update image book", async () => {
         const book = await request(baseURL)
-        .put('/updateImage/4')
+        .put(`/updateImage/${bookId}`)
         .set('Authorization', `Bearer ${token}`)
         .send({
             "imageurl":"www.dacerto.com"
@@ -143,12 +144,11 @@ describe("My book Routes", () => {
     });
     it("Will be possible to delete book", async () => {
         const book = await request(baseURL)
-        .delete('/deleteBook/4')
+        .delete(`/deleteBook/${bookId}`)
         .set('Authorization', `Bearer ${token}`);
 
         expect(book.statusCode).toBe(200);
         expect(book).not.toBeNull(); 
         expect(book.body).toBe("Livro excluido");
     });
-
 });

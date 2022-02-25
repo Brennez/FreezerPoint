@@ -3,20 +3,22 @@ const baseURL = "http://localhost:3001";
 
 describe("User Routes", () => {
 
-    // let token;
+    let token;
+    let userId;
 
-    // beforeAll((done) => {
-    //   request(baseURL)
-    //     .post('/login')
-    //     .send({
-    //       "email": "felipe@gmail.com",
-    //       "password":"123456",
-    //     })
-    //     .end((err, response) => {
-    //       token = response.body.token; // save the token!
-    //       done();
-    //     });
-    // });
+    beforeAll((done) => {
+      request(baseURL)
+        .post('/login')
+        .send({
+          "email": "felipe@gmail.com",
+          "password":"123456",
+        })
+        .end((err, response) => {
+          userId = response.body.id;
+          token = response.body.token; // save the token!
+          done();
+        });
+    });
 
 
     // Testando criação de usuário
@@ -50,17 +52,10 @@ describe("User Routes", () => {
     });
 
     it("Will be possible to update the username", async () => {
-        const user2 = await request(baseURL)
-        .post('/login')
-        .send({
-            "email":"arnaldinho@gmail.com",
-            "password":"123456"
-         });
-
-
+      
         const user = await request(baseURL)
         .put('/update')
-        .set('Authorization', `Bearer ${user2.body.token}`)
+        .set('Authorization', `Bearer ${token}`)
         .send({
             "newName":"Fernandinho"
         });
@@ -88,6 +83,48 @@ describe("User Routes", () => {
         expect(user.body).toBe("Email atualizado");
     });
 
+    it("Will be possible to return all users", async () => {
+        
+        const user = await request(baseURL)
+        .get('/getUsers');
+
+        expect(user.statusCode).toBe(200);
+        expect(user).not.toBeNull();
+    });
+
+    it("Will be possible to get user by the id", async () => {
+        const user2 = await request(baseURL)
+        .post('/login')
+        .send({
+            "email":"fernandinho@gmail.com",
+            "password":"123456"
+         });
+
+        const user = await request(baseURL)
+        .get('/searchID')
+        .set('Authorization', `Bearer ${token}`)
+        .send({
+            "id":`${user2.body.id}`
+        } );
+
+        expect(user.statusCode).toBe(200);
+        expect(user).not.toBeNull();
+        expect(user.body.name).toBe("Fernandinho"); 
+    });
+
+    it("Will be possible to update the phone", async () => {
+        
+        const user = await request(baseURL)
+        .put('/updatePhone')
+        .set('Authorization', `Bearer ${token}`)
+        .send({
+            "newPhone":"123456789"
+        });
+        expect(user.statusCode).toBe(200);
+        expect(user).not.toBeNull();
+        expect(user.body).toBe("telefone atualizado");
+    });
+
 
     it("Will be possible to update the password", async () => {
         const user2 = await request(baseURL)
@@ -101,64 +138,12 @@ describe("User Routes", () => {
         .put('/updatePassword')
         .set('Authorization', `Bearer ${user2.body.token}`)
         .send({
+            "oldPassword":"123456",
             "newPassword":"654321"
         });
         expect(user.statusCode).toBe(200);
         expect(user).not.toBeNull();
         expect(user.body).toBe("senha atualizada");
-
-        
     });
 
-    it("Will be possible to update the phone", async () => {
-        const user2 = await request(baseURL)
-        .post('/login')
-        .send({
-            "email":"fernandinho@gmail.com",
-            "password":"654321"
-         });
-
-
-        const user = await request(baseURL)
-        .put('/updatePhone')
-        .set('Authorization', `Bearer ${user2.body.token}`)
-        .send({
-            "newPhone":"123456789"
-        });
-        expect(user.statusCode).toBe(200);
-        expect(user).not.toBeNull();
-        expect(user.body).toBe("telefone atualizado");
-    });
-
-    it("Will be possible to delete a user", async () => {
-        const user = await request(baseURL)
-        .delete('/deleteUser')
-        .set('Authorization', `Bearer ${token}`)
-        .send({
-            "id":"7"
-        });
-        expect(user.statusCode).toBe(200);
-        expect(user).not.toBeNull();
-        expect(user.body).toBe("Usuario Excluido");
-    });
-
-    it("Will be possible to return all users", async () => {
-        const user = await request(baseURL)
-        .get('/getUsers');
-
-        expect(user.statusCode).toBe(200);
-        expect(user).not.toBeNull();
-    });
-
-    it("Will be possible to get user by the id", async () => {
-        const user = await request(baseURL)
-        .get('/searchID')
-        .send({
-            "id":"9"
-        } );
-
-        expect(user.statusCode).toBe(200);
-        expect(user).not.toBeNull();
-        expect(user.body.name).toBe("Fernandinho"); 
-    });
 });
