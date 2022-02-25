@@ -85,7 +85,7 @@ export const ContentForm = styled.div`
     margin-left: 0.5rem;
   }
 
-  .containerAutor {
+  .containerAuthor {
     display: flex;
   }
 

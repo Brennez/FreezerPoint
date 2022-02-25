@@ -13,7 +13,7 @@ function UpdateAuthor() {
   const formReference = useRef(null)
   const { id } = useParams()
 
-  const formSubmite = async data => {
+  const formSubmit = async data => {
     //Valida dos campos do formulário
     try {
       const scheme = Yup.object().shape({
@@ -59,7 +59,7 @@ function UpdateAuthor() {
       </Logo>
       <Container>
         <ContentForm>
-          <Form ref={formReference} onSubmit={formSubmite}>
+          <Form ref={formReference} onSubmit={formSubmit}>
             <h1 className="title">Editar</h1>
             <h2>Autor antigo</h2>
             <p className="autor" href="">
@@ -67,7 +67,7 @@ function UpdateAuthor() {
             </p>
             <h2 className="tituloAutor">Novo Autor</h2>
             <Input
-              name="autor"
+              name="author"
               type="text"
               placeholder="Digite o nome do autor"
             />

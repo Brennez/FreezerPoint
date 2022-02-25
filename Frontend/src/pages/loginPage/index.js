@@ -22,7 +22,7 @@ function Register() {
         email: Yup.string()
           .email('Email inválido')
           .required('Você precisa digitar um email'),
-        senha: Yup.string()
+        password: Yup.string()
           .min(6, 'A senha precisa ter no mínimo 6 caracteres')
           .required('Você precisa digitar uma senha')
       })
@@ -30,12 +30,12 @@ function Register() {
       await login(data)
       history.push('/Home')
 
-      //Faz a requisição da api e grava no banco de dados
-      //ATENÇÃO
-      // const reponse = await api.post("login", {
+      // Faz a requisição da api e grava no banco de dados
+      // ATENÇÃO
+      // const reponse = await api.post('login', {
       //   email: data.email,
-      //   senha: data.senha,
-      // });
+      //   senha: data.password
+      // })
       // console.log(reponse.data);
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
@@ -62,11 +62,11 @@ function Register() {
           <h2>Email</h2>
           <Input name="email" type="text" placeholder="exemplo@gmail.com" />
           <h2>Senha</h2>
-          <Input name="senha" type="password" placeholder="Senha" />
+          <Input name="password" type="password" placeholder="Senha" />
           <button type="submit"> Login </button>
           {!!loginErro && <h2 className="erro">{loginErro}</h2>}
 
-          <Link className="loginButton" to="/createUsuario">
+          <Link className="loginButton" to="/createUser">
             {' '}
             não possui uma conta? cadastre-se
           </Link>

@@ -13,7 +13,7 @@ function UpdateSynopsis() {
   const formReference = useRef(null)
   const { id } = useParams()
 
-  const formSubmite = async data => {
+  const formSubmit = async data => {
     //Valida dos campos do formulário
     try {
       const scheme = Yup.object().shape({
@@ -26,7 +26,7 @@ function UpdateSynopsis() {
         synopsis: data.synopsis
       })
       //Atuliza a pagina
-      window.location.reload() 
+      window.location.reload()
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         const erros = {}
@@ -42,7 +42,7 @@ function UpdateSynopsis() {
   //pegando os dados do backend
   const [data, setData] = useState([])
   useEffect(async () => {
-    const response = await api.get(`/getABooks/${id}`)
+    const response = await api.get(`/getABook/${id}`)
     setData(response.data)
   }, [])
 
@@ -59,7 +59,7 @@ function UpdateSynopsis() {
       </Logo>
       <Container>
         <ContentForm>
-          <Form ref={formReference} onSubmit={formSubmite}>
+          <Form ref={formReference} onSubmit={formSubmit}>
             <h1 className="title">Editar</h1>
             <h2>Sinopse antiga</h2>
             <p className="sinopse" href="">
@@ -67,7 +67,7 @@ function UpdateSynopsis() {
             </p>
             <h2 className="tituloDaSinopse">Nova sinopse</h2>
             <Input
-              name="sinopse"
+              name="synopsis"
               type="text"
               placeholder="Digite a nova sinopse"
             />

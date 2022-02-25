@@ -33,7 +33,7 @@ function Routes() {
     <Switch>
       <ControleRotas path="/" exact component={Login}></ControleRotas>
       <ControleRotas path="/login" exact component={Login}></ControleRotas>
-      <ControleRotas path="/createUsuario" component={Register}></ControleRotas>
+      <ControleRotas path="/createUser" component={Register}></ControleRotas>
       <ControleRotas
         path="/Home"
         isPrivate={true}
@@ -62,13 +62,13 @@ function Routes() {
         exact
         component={bookList}
       ></ControleRotas>
-       <ControleRotas
+      <ControleRotas
         path="/bookDeleted/:id"
         isPrivate={true}
         exact
         component={BookDeleted}
       ></ControleRotas>
-       <ControleRotas
+      <ControleRotas
         path="/bookSearched"
         isPrivate={true}
         exact
@@ -80,7 +80,7 @@ function Routes() {
         exact
         component={cartList}
       ></ControleRotas>
-       <ControleRotas
+      <ControleRotas
         path="/cartProfile"
         isPrivate={true}
         exact

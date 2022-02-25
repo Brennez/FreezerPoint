@@ -13,7 +13,7 @@ function UpdateEdition() {
   const formReference = useRef(null)
   const { id } = useParams()
 
-  const submeterFormulario = async data => {
+  const formSubmit = async data => {
     //Valida dos campos do formulário
     try {
       const scheme = Yup.object().shape({
@@ -23,7 +23,7 @@ function UpdateEdition() {
 
       //Faz a requisição da api e grava no banco de dados
       const response = await api.put(`/updateEdition/${id}`, {
-        edition: data.edicao
+        edition: data.edition
       })
       //Atuliza a pagina
       window.location.reload()
@@ -59,7 +59,7 @@ function UpdateEdition() {
       </Logo>
       <Container>
         <ContentForm>
-          <Form ref={formReference} onSubmit={submeterFormulario}>
+          <Form ref={formReference} onSubmit={formSubmit}>
             <h1 className="title">Editar</h1>
             <h2>Edição antiga</h2>
             <p className="edicao" href="">
@@ -67,7 +67,7 @@ function UpdateEdition() {
             </p>
             <h2 className="tituloDaEdicao">Novo Edição</h2>
             <Input
-              name="edicao"
+              name="edition"
               type="number"
               placeholder="Digite uma nova edição"
             />

@@ -9,7 +9,7 @@ import left from '../../assets/left.png'
 import { Link } from 'react-router-dom'
 
 function UpdateEmail() {
-  const formularioReferencia = useRef(null)
+  const formReference = useRef(null)
 
   const formSubmit = async data => {
     //Valida dos campos do formulário
@@ -34,7 +34,7 @@ function UpdateEmail() {
           erros[e.path] = e.message
         })
         console.log(erros)
-        formularioReferencia.current?.setErrors(erros)
+        formReference.current?.setErrors(erros)
       }
     }
   }
@@ -43,7 +43,7 @@ function UpdateEmail() {
   const [data, setData] = useState([])
   useEffect(async () => {
     console.log('teste')
-    const response = await api.get('/buscaID')
+    const response = await api.get('/searchID')
     setData(response.data)
   }, [])
 
@@ -60,7 +60,7 @@ function UpdateEmail() {
       </Logo>
       <Container>
         <ContentForm>
-          <Form ref={formularioReferencia} onSubmit={formSubmit}>
+          <Form ref={formReference} onSubmit={formSubmit}>
             <h1 className="title">Editar</h1>
             <h2>Email antigo</h2>
             <p className="email" href="">
@@ -68,7 +68,7 @@ function UpdateEmail() {
             </p>
             <h2 className="tituloEmail">Novo Email</h2>
             <Input
-              name="novoEmail"
+              name="newEmail"
               type="email"
               placeholder="Digite seu novo email"
             />

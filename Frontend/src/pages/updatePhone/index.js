@@ -15,7 +15,7 @@ function UpdatePhone() {
     window.location.reload()
   }
 
-  const formSubmite = async data => {
+  const formSubmit = async data => {
     //Valida dos campos do formulário
     try {
       const scheme = Yup.object().shape({
@@ -62,7 +62,7 @@ function UpdatePhone() {
       </Logo>
       <Container>
         <ContentForm>
-          <Form ref={formReference} onSubmit={formSubmite}>
+          <Form ref={formReference} onSubmit={formSubmit}>
             <h1 className="title">Editar</h1>
             <h2>Telefone antigo</h2>
             <p className="telefone" href="">
@@ -71,7 +71,7 @@ function UpdatePhone() {
             <div className="containerInput">
               <h2>Novo telefone</h2>
               <Input
-                name="novoTelefone"
+                name="newPhone"
                 type="number"
                 placeholder="Digite seu telefone"
               />

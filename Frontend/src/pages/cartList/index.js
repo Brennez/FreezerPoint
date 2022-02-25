@@ -5,10 +5,7 @@ import left from '../../assets/left.png'
 import api from '../../services/api'
 import { useParams } from 'react-router-dom'
 
-import { Link , useHistory } from 'react-router-dom'
-
-
-
+import { Link, useHistory } from 'react-router-dom'
 
 function CartList() {
   const [data, setData] = useState([])
@@ -18,17 +15,16 @@ function CartList() {
 
   useEffect(async () => {
     // Pegando id do usuário
-    const response2 = await api.get('searchID')
+    const response2 = await api.get('/searchID')
 
     const id_user = response2.data['id']
-    
-    
+
     const createCart = await api.post('/createCart', {
       id_user: id_user,
-      id_livro: id, 
+      id_book: id
     })
-  
-    if(createCart.status === 400) {
+
+    if (createCart.status === 400) {
       history.push('/Home')
     }
 
@@ -59,10 +55,10 @@ function CartList() {
         <ContentForm ref={reference}>
           <h1 className="title"> Meu carrinho</h1>
           {data.map(item => {
-            const { id_livro,  name } = item
+            const { id_book, name } = item
             return (
               <div className="containerName">
-                <Link to={`/contactPage/${id_livro}`}>
+                <Link to={`/contactPage/${id_book}`}>
                   <p>{name}</p>
                 </Link>
               </div>

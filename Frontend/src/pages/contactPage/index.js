@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 function ContactPage() {
   const [data, setData] = useState([])
-  const reference = useRef(null)
+  const formReference = useRef(null)
   const { id } = useParams()
 
   useEffect(async () => {
@@ -21,8 +21,8 @@ function ContactPage() {
 
     const result = response.data.map(user => {
       return {
-        name: user['usuarios'].name,
-        phone: user['usuarios'].phone
+        name: user['users'].name,
+        phone: user['users'].phone
       }
     })
 
@@ -45,7 +45,7 @@ function ContactPage() {
         </div>
       </Logo>
       <Container>
-        <ContentForm ref={reference}>
+        <ContentForm ref={formReference}>
           <div>
             <h1 className="title">Contato do doador</h1>
             <h2>Nome</h2>
