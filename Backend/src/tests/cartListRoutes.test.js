@@ -3,44 +3,93 @@ const baseURL = "http://localhost:3001";
 
 describe("My Cart List Routes", () => {
 
-    /* 
-        routes.post('/createCart', CL.store);
-        routes.get('/getCart/:id', CL.index);
-        routes.delete('/deleteBookCart/:id_user/:id_book', CL.deleteBook);
-    */
-
+   
     it("Will be possible to create a cart list", async () => {
+
+        const user = await request(baseURL)
+        .post('/login')
+        .send({
+          "email": "felipe@gmail.com",
+          "password":"123456",
+        });
+
+        const newBook = await request(baseURL)
+        .post('/createBook')
+        .set('Authorization', `Bearer ${user.body.token}`)
+        .send({
+            "name":"O sonhador",
+            "author":"Felipão",
+            "category": "livro",
+            "genre": "ficção",
+            "edition":"2008",
+            "synopsis":"um breve teste",
+            "imageurl":"www.teste.com"
+        });
+
+      
+
         const newCart = await request(baseURL)
         .post('/createCart')
         .send({
-          "id_user":"10",
-          "id_book":"5"
+          "id_user": user.body.user.id,
+          "id_book": newBook.body.id
         });
 
         expect(newCart.statusCode).toBe(200);
         expect(newCart).not.toBeNull();
-        expect(newCart.body.id_user).toBe(10);
-        expect(newCart.body.id_book).toBe(5);
+        expect(newCart.body.id_user).toBe( user.body.user.id);
+        expect(newCart.body.id_book).toBe( newBook.body.id);
     });
 
     it("Will be possible to return books from the cart", async () => {
+        const user = await request(baseURL)
+        .post('/login')
+        .send({
+          "email": "felipe@gmail.com",
+          "password":"123456",
+        });
+
         const cart = await request(baseURL)
-        .get('/getCart/10');
+        .get(`/getCart/${user.body.user.id}`);
 
         expect(cart.statusCode).toBe(200);
         expect(cart).not.toBeNull();
-        // expect(cart.body.id_user).toBe(10);
-        // expect(cart.body.id_book).toBe(5);
     });
 
    
     it("Will be possible to delete a book from cart", async () => {
+        const user = await request(baseURL)
+        .post('/login')
+        .send({
+          "email": "felipe@gmail.com",
+          "password":"123456",
+        });
+
+        const newBook = await request(baseURL)
+        .post('/createBook')
+        .set('Authorization', `Bearer ${user.body.token}`)
+        .send({
+            "name":"O sonhador parte 2",
+            "author":"Felipão",
+            "category": "livro",
+            "genre": "ficção",
+            "edition":"2008",
+            "synopsis":"um breve teste",
+            "imageurl":"www.teste2.com"
+        });
+
+        const newCart = await request(baseURL)
+        .post('/createCart')
+        .send({
+          "id_user": user.body.user.id,
+          "id_book": newBook.body.id
+        });
+
         const cart = await request(baseURL)
-        .delete('/deleteBookCart/10/5');
+        .delete(`/deleteBookCart/${user.body.user.id}/${newBook.body.id}`);
         
         expect(cart.statusCode).toBe(200);
         expect(cart).not.toBeNull();
         expect(cart.body).toBe("Livro excluido");        
-
     });
 });
