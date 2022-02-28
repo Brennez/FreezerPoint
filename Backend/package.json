@@ -1,34 +1,37 @@
 {
-    "name": "FeezerPoint",
-    "version": "1.0.0",
-    "description": "Projeto do curso",
-    "main": "index.js",
-    "author": "Alexandre, Manoel e Brenne",
-    "license": "MIT",
-    "scripts": {
-        "dev": "nodemon ./src/server.js"
-    },
-    "dependencies": {
-        "bcrypt": "^5.0.1",
-        "bcryptjs": "^2.4.3",
-        "cors": "^2.8.5",
-        "eslint-config-airbnb-base": "^14.2.1",
-        "eslint-plugin-import": "2.22.1",
-        "express": "^4.17.1",
-        "install": "^0.13.0",
-        "jsonwebtoken": "^8.5.1",
-        "pg": "^8.7.1",
-        "pg-hstore": "^2.3.4",
-        "sequelize": "^6.6.5",
-        "uuidv4": "^6.2.11"
-    },
-    "devDependencies": {
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-prettier": "^3.4.0",
-        "nodemon": "^2.0.12",
-        "prettier": "^2.3.2",
-        "sequelize-cli": "^6.2.0",
-        "sucrase": "^3.20.0"
-    },
-    "repository": "https://github.com/Alexandre16347/FreezerPoint.git"
+  "name": "FeezerPoint",
+  "version": "1.0.0",
+  "description": "Projeto do curso",
+  "main": "index.js",
+  "author": "Alexandre, Manoel e Brenne",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./src/server.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "2.22.1",
+    "express": "^4.17.1",
+    "install": "^0.13.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.6.5",
+    "uuidv4": "^6.2.11"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "sequelize-cli": "^6.2.0",
+    "sucrase": "^3.20.0",
+    "supertest": "^6.2.2"
+  },
+  "repository": "https://github.com/Alexandre16347/FreezerPoint.git"
 }
