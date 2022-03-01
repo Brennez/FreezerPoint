@@ -2,1091 +2,872 @@
 const { Builder, By, Key, until } = require('selenium-webdriver')
 const assert = require('assert')
 
-describe('testsFront', function () {
+describe('testsFront', function() {
   this.timeout(30000)
   let driver
   let vars
-  beforeEach(async function () {
+  beforeEach(async function() {
     driver = await new Builder().forBrowser('firefox').build()
     vars = {}
   })
-  afterEach(async function () {
-    await driver.quit()
+  afterEach(async function() {
+    await driver.quit();
   })
-  it('TC-01-validateFieldsRegisterPage', async function () {
-    await driver.get('http://localhost:3000/')
+  it('TC-01-validateFieldsRegisterPage', async function() {
+    await driver.get("http://localhost:3000/")
     await driver.manage().window().setRect({ width: 897, height: 691 })
-    await driver
-      .findElement(By.linkText('não possui uma conta? cadastre-se'))
-      .click()
+    await driver.findElement(By.linkText("não possui uma conta? cadastre-se")).click()
     await driver.sleep(3000)
     {
-      const elements = await driver.findElements(By.css('h2:nth-child(2)'))
+      const elements = await driver.findElements(By.css("h2:nth-child(2)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('h2:nth-child(4)'))
+      const elements = await driver.findElements(By.css("h2:nth-child(4)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('h2:nth-child(6)'))
+      const elements = await driver.findElements(By.css("h2:nth-child(6)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('h2:nth-child(8)'))
+      const elements = await driver.findElements(By.css("h2:nth-child(8)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('button'))
+      const elements = await driver.findElements(By.css("button"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(
-        By.linkText('Já possuo uma conta')
-      )
+      const elements = await driver.findElements(By.linkText("Já possuo uma conta"))
       assert(elements.length)
     }
   })
-  it('TC-03-validateEmptyFieldsRegisterPage', async function () {
-    await driver.get('http://localhost:3000/')
-    await driver.manage().window().setRect({ width: 897, height: 691 })
-    await driver
-      .findElement(By.linkText('não possui uma conta? cadastre-se'))
-      .click()
-    {
-      const elements = await driver.findElements(By.css('h2:nth-child(2)'))
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(By.css('h2:nth-child(4)'))
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(By.css('h2:nth-child(6)'))
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(By.css('button'))
-      assert(elements.length)
-    }
-    await driver.findElement(By.css('button')).click()
-    {
-      const elements = await driver.findElements(
-        By.css('.sc-jRQBWg:nth-child(4)')
-      )
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(
-        By.css('.sc-jRQBWg:nth-child(7)')
-      )
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(
-        By.css('.sc-jRQBWg:nth-child(10)')
-      )
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(
-        By.css('.sc-jRQBWg:nth-child(10)')
-      )
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(
-        By.css('.sc-jRQBWg:nth-child(13)')
-      )
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(By.css('h2:nth-child(8)'))
-      assert(elements.length)
-    }
-  })
-  it('TC-04-validateEmptyFieldsLoginPage', async function () {
-    await driver.get('http://localhost:3000/')
+  it('TC-02-validateFieldsLoginPage', async function() {
+    await driver.get("http://localhost:3000/")
     await driver.manage().window().setRect({ width: 897, height: 691 })
     {
-      const elements = await driver.findElements(By.css('h2:nth-child(2)'))
+      const elements = await driver.findElements(By.css("h2:nth-child(2)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('h2:nth-child(4)'))
+      const elements = await driver.findElements(By.css("h2:nth-child(4)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('button'))
-      assert(elements.length)
-    }
-    await driver.findElement(By.css('button')).click()
-    {
-      const elements = await driver.findElements(
-        By.css('.sc-jRQBWg:nth-child(7)')
-      )
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(By.css('.erro'))
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(
-        By.css('.sc-jRQBWg:nth-child(4)')
-      )
+      const elements = await driver.findElements(By.css("button"))
       assert(elements.length)
     }
   })
-  it('TC-05-validateUserLogin', async function () {
-    await driver.get('http://localhost:3000/')
-    await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+  it('TC-03-validateEmptyFieldsRegisterPage', async function() {
+    await driver.get("http://localhost:3000/")
+    await driver.manage().window().setRect({ width: 897, height: 691 })
+    await driver.findElement(By.linkText("não possui uma conta? cadastre-se")).click()
+    {
+      const elements = await driver.findElements(By.css("h2:nth-child(2)"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.css("h2:nth-child(4)"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.css("h2:nth-child(6)"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.css("button"))
+      assert(elements.length)
+    }
+    await driver.findElement(By.css("button")).click()
+    {
+      const elements = await driver.findElements(By.css(".sc-jRQBWg:nth-child(4)"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.css(".sc-jRQBWg:nth-child(7)"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.css(".sc-jRQBWg:nth-child(10)"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.css(".sc-jRQBWg:nth-child(10)"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.css(".sc-jRQBWg:nth-child(13)"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.css("h2:nth-child(8)"))
+      assert(elements.length)
+    }
   })
-  it('TC-06-validateLayoutElementsHomePage', async function () {
-    await driver.get('http://localhost:3000/')
-    await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
+  it('TC-04-validateEmptyFieldsLoginPage', async function() {
+    await driver.get("http://localhost:3000/")
+    await driver.manage().window().setRect({ width: 897, height: 691 })
     {
-      const elements = await driver.findElements(By.css('.logo > img'))
+      const elements = await driver.findElements(By.css("h2:nth-child(2)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(
-        By.css('li:nth-child(1) > a > a')
-      )
+      const elements = await driver.findElements(By.css("h2:nth-child(4)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.linkText('Sobre'))
+      const elements = await driver.findElements(By.css("button"))
+      assert(elements.length)
+    }
+    await driver.findElement(By.css("button")).click()
+    {
+      const elements = await driver.findElements(By.css(".sc-jRQBWg:nth-child(7)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.name('mySearch'))
+      const elements = await driver.findElements(By.css(".erro"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('li:nth-child(5) img'))
+      const elements = await driver.findElements(By.css(".sc-jRQBWg:nth-child(4)"))
       assert(elements.length)
     }
-    {
-      const elements = await driver.findElements(By.css('li:nth-child(6) img'))
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(By.css('a > a > img'))
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(By.linkText('Saiba mais'))
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(By.linkText('Ficcão'))
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(By.linkText('Romance'))
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(By.linkText('Drama'))
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(By.linkText('Terror'))
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(By.linkText('Fantasia'))
-      assert(elements.length)
-    }
-    {
-      const elements = await driver.findElements(By.css('.conteudo > h2'))
-      assert(elements.length)
-    }
-    await driver.findElement(By.css('li:nth-child(7) > a > a')).click()
+  })
+  it('TC-05-validateRegisterUser', async function() {
+    await driver.get("http://localhost:3000/")
+    await driver.manage().window().setRect({ width: 829, height: 604 })
+    await driver.findElement(By.linkText("não possui uma conta? cadastre-se")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(7) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(7) > input")).sendKeys("940028922")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(9) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(9) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisaco123")
+    await driver.findElement(By.css("button")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-07-ValidateFieldsRegisterBookPage', async function () {
-    await driver.get('http://localhost:3000/')
+  it('TC-06-validateLayoutElementsHomePage', async function() {
+    await driver.get("http://localhost:3000/")
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
     {
-      const element = await driver.findElement(By.css('button'))
+      const elements = await driver.findElements(By.css(".logo > img"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.css("li:nth-child(1) > a > a"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.linkText("Sobre"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.name("mySearch"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.css("li:nth-child(5) img"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.css("li:nth-child(6) img"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.css("a > a > img"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.linkText("Saiba mais"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.linkText("Ficcão"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.linkText("Romance"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.linkText("Drama"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.linkText("Terror"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.linkText("Fantasia"))
+      assert(elements.length)
+    }
+    {
+      const elements = await driver.findElements(By.css(".conteudo > h2"))
+      assert(elements.length)
+    }
+    await driver.findElement(By.css("li:nth-child(7) > a > a")).click()
+    await driver.close()
+  })
+  it('TC-07-ValidateFieldsRegisterBookPage', async function() {
+    await driver.get("http://localhost:3000/")
+    await driver.manage().window().setRect({ width: 897, height: 688 })
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
+    {
+      const element = await driver.findElement(By.css("button"))
       await driver.actions({ bridge: true }).moveToElement(element).perform()
     }
-    await driver.findElement(By.css('li:nth-child(1) > a > a')).click()
+    await driver.findElement(By.css("li:nth-child(1) > a > a")).click()
     {
-      const elements = await driver.findElements(By.css('h2:nth-child(1)'))
+      const elements = await driver.findElements(By.css("h2:nth-child(1)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(
-        By.css('.sc-eCImPb:nth-child(2) > input')
-      )
+      const elements = await driver.findElements(By.css(".sc-eCImPb:nth-child(2) > input"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('h2:nth-child(3)'))
+      const elements = await driver.findElements(By.css("h2:nth-child(3)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(
-        By.css('.sc-eCImPb:nth-child(4) > input')
-      )
+      const elements = await driver.findElements(By.css(".sc-eCImPb:nth-child(4) > input"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('h2:nth-child(5)'))
+      const elements = await driver.findElements(By.css("h2:nth-child(5)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(
-        By.css('.sc-eCImPb:nth-child(6) > input')
-      )
+      const elements = await driver.findElements(By.css(".sc-eCImPb:nth-child(6) > input"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('h2:nth-child(7)'))
+      const elements = await driver.findElements(By.css("h2:nth-child(7)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(
-        By.css('.sc-eCImPb:nth-child(8) > input')
-      )
+      const elements = await driver.findElements(By.css(".sc-eCImPb:nth-child(8) > input"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('h2:nth-child(9)'))
+      const elements = await driver.findElements(By.css("h2:nth-child(9)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(
-        By.css('.sc-eCImPb:nth-child(10) > input')
-      )
+      const elements = await driver.findElements(By.css(".sc-eCImPb:nth-child(10) > input"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('h2:nth-child(11)'))
+      const elements = await driver.findElements(By.css("h2:nth-child(11)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(
-        By.css('.sc-eCImPb:nth-child(12) > input')
-      )
+      const elements = await driver.findElements(By.css(".sc-eCImPb:nth-child(12) > input"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('h2:nth-child(13)'))
+      const elements = await driver.findElements(By.css("h2:nth-child(13)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(
-        By.css('.sc-eCImPb:nth-child(14) > input')
-      )
+      const elements = await driver.findElements(By.css(".sc-eCImPb:nth-child(14) > input"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('button'))
+      const elements = await driver.findElements(By.css("button"))
       assert(elements.length)
     }
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-08-validateRegisterNewBook', async function () {
-    await driver.get('http://localhost:3000/login')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
-    await driver.get('http://localhost:3000/home')
+  it('TC-08-validateRegisterNewBook', async function() {
+    await driver.get("http://localhost:3000/login")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
+    await driver.get("http://localhost:3000/home")
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('li:nth-child(1) > a > a')).click()
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(2) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(2) > input'))
-      .sendKeys('Harry Potter')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(4) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(4) > input'))
-      .sendKeys('J.K Rowling')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(6) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(6) > input'))
-      .sendKeys('Livro')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(8) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(8) > input'))
-      .sendKeys('Fantasia')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(10) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(10) > input'))
-      .sendKeys('2019')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(12) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(12) > input'))
-      .sendKeys('Um adolescente em uma escola para bruxos')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(14) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(14) > input'))
-      .sendKeys(
-        'https://images-na.ssl-images-amazon.com/images/I/81jbivNEVML.jpg'
-      )
-    await driver.findElement(By.css('button')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css("li:nth-child(1) > a > a")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(2) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(2) > input")).sendKeys("Harry Potter")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(4) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(4) > input")).sendKeys("J.K Rowling")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(6) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(6) > input")).sendKeys("Livro")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(8) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(8) > input")).sendKeys("Fantasia")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(10) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(10) > input")).sendKeys("2019")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(12) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(12) > input")).sendKeys("Um adolescente em uma escola para bruxos")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(14) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(14) > input")).sendKeys("https://images-na.ssl-images-amazon.com/images/I/81jbivNEVML.jpg")
+    await driver.findElement(By.css("button")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-09-validateGoToAboutUsPage', async function () {
-    await driver.get('http://localhost:3000/login')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
+  it('TC-09-validateGoToAboutUsPage', async function() {
+    await driver.get("http://localhost:3000/login")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.linkText('Sobre')).click()
+    await driver.findElement(By.linkText("Sobre")).click()
     {
-      const elements = await driver.findElements(By.css('.conteudo > h2'))
+      const elements = await driver.findElements(By.css(".conteudo > h2"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('#sobre p'))
+      const elements = await driver.findElements(By.css("#sobre p"))
       assert(elements.length)
     }
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-10-validateGoToMyPublications', async function () {
-    await driver.get('http://localhost:3000/login')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
+  it('TC-10-validateGoToMyPublications', async function() {
+    await driver.get("http://localhost:3000/login")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
     {
-      const element = await driver.findElement(By.css('button'))
+      const element = await driver.findElement(By.css("button"))
       await driver.actions({ bridge: true }).moveToElement(element).perform()
     }
     await driver.manage().window().setRect({ width: 1382, height: 784 })
-    await driver.findElement(By.css('li:nth-child(3) > a > a')).click()
+    await driver.findElement(By.css("li:nth-child(3) > a > a")).click()
     {
-      const elements = await driver.findElements(By.css('.title'))
+      const elements = await driver.findElements(By.css(".title"))
       assert(elements.length)
     }
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-11-validateDeleteABookFromMyPublications', async function () {
-    await driver.get('http://localhost:3000/login')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
+  it('TC-11-validateDeleteABookFromMyPublications', async function() {
+    await driver.get("http://localhost:3000/login")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
     {
-      const element = await driver.findElement(By.css('button'))
+      const element = await driver.findElement(By.css("button"))
       await driver.actions({ bridge: true }).moveToElement(element).perform()
     }
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('li:nth-child(1) > a > a')).click()
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(2) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(2) > input'))
-      .sendKeys('Peixonalta')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(4) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(4) > input'))
-      .sendKeys('Zico')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(6) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(6) > input'))
-      .sendKeys('Revista')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(8) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(8) > input'))
-      .sendKeys('Desenho')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(10) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(10) > input'))
-      .sendKeys('2019')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(12) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(12) > input'))
-      .sendKeys('Um peixe muito serelepe')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(14) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(14) > input'))
-      .sendKeys(
-        'https://http2.mlstatic.com/D_NQ_NP_988528-MLB28197643692_092018-O.jpg'
-      )
-    await driver.findElement(By.css('button')).click()
-    await driver.executeScript('window.scrollTo(0,187)')
-    await driver.findElement(By.css('li:nth-child(3) > a > a')).click()
-    await driver.findElement(By.css('.icon img')).click()
+    await driver.findElement(By.css("li:nth-child(1) > a > a")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(2) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(2) > input")).sendKeys("Peixonalta")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(4) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(4) > input")).sendKeys("Zico")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(6) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(6) > input")).sendKeys("Revista")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(8) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(8) > input")).sendKeys("Desenho")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(10) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(10) > input")).sendKeys("2019")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(12) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(12) > input")).sendKeys("Um peixe muito serelepe")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(14) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(14) > input")).sendKeys("https://http2.mlstatic.com/D_NQ_NP_988528-MLB28197643692_092018-O.jpg")
+    await driver.findElement(By.css("button")).click()
+    await driver.executeScript("window.scrollTo(0,187)")
+    await driver.findElement(By.css("li:nth-child(3) > a > a")).click()
+    await driver.findElement(By.css(".icon img")).click()
     {
-      const elements = await driver.findElements(By.css('.center'))
+      const elements = await driver.findElements(By.css(".center"))
       assert(elements.length)
     }
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-12-validateElementsMyProfilePage', async function () {
-    await driver.get('http://localhost:3000/login')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
+  it('TC-12-validateElementsMyProfilePage', async function() {
+    await driver.get("http://localhost:3000/login")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('li:nth-child(6) img')).click()
+    await driver.findElement(By.css("li:nth-child(6) img")).click()
     {
-      const elements = await driver.findElements(By.css('h2:nth-child(2)'))
+      const elements = await driver.findElements(By.css("h2:nth-child(2)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('.nome'))
+      const elements = await driver.findElements(By.css(".nome"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('h2:nth-child(4)'))
+      const elements = await driver.findElements(By.css("h2:nth-child(4)"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('.email'))
+      const elements = await driver.findElements(By.css(".email"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.id('tituloSenha'))
+      const elements = await driver.findElements(By.id("tituloSenha"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('.senha'))
+      const elements = await driver.findElements(By.css(".senha"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.id('tituloTelefone'))
+      const elements = await driver.findElements(By.id("tituloTelefone"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('.telefone'))
+      const elements = await driver.findElements(By.css(".telefone"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('.sc-dlVxhl'))
+      const elements = await driver.findElements(By.css(".sc-dlVxhl"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(By.css('.title'))
+      const elements = await driver.findElements(By.css(".title"))
       assert(elements.length)
     }
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('li:nth-child(7) > a > a')).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("li:nth-child(7) > a > a")).click()
     await driver.close()
   })
-  it('TC-13-validateUpdateNameUser', async function () {
-    await driver.get('http://localhost:3000/')
-    await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys(Key.ENTER)
-    await driver.findElement(By.css('li:nth-child(6) img')).click()
-    await driver.findElement(By.css('.icon > a > img')).click()
-    await driver.findElement(By.css('input')).click()
-    await driver.findElement(By.css('input')).sendKeys('Francisco da Silva')
-    await driver.findElement(By.id('teste')).click()
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
-    await driver.close()
-  })
-  it('TC-14-validateUpdatePassword', async function () {
-    await driver.get('http://localhost:3000/login')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
+  it('TC-14-validateUpdatePassword', async function() {
+    await driver.get("http://localhost:3000/login")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
     {
-      const element = await driver.findElement(By.css('button'))
+      const element = await driver.findElement(By.css("button"))
       await driver.actions({ bridge: true }).moveToElement(element).perform()
     }
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('li:nth-child(6) img')).click()
-    await driver.findElement(By.css('.containerSenha img')).click()
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco1234')
-    await driver.findElement(By.css('.texto')).click()
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.executeScript('window.scrollTo(0,43)')
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css("li:nth-child(6) img")).click()
+    await driver.findElement(By.css(".containerSenha img")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco1234")
+    await driver.findElement(By.css(".texto")).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.executeScript("window.scrollTo(0,43)")
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-15-vaidateUpdatePhone', async function () {
-    await driver.get('http://localhost:3000/login')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
-    await driver.findElement(By.css('li:nth-child(6) img')).click()
-    await driver.findElement(By.css('.containerTelefone img')).click()
-    await driver.findElement(By.css('input')).click()
-    await driver.findElement(By.css('input')).sendKeys('999999999')
-    await driver.findElement(By.id('button')).click()
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+  it('TC-13-validateUpdateNameUser', async function() {
+    await driver.get("http://localhost:3000/")
+    await driver.manage().window().setRect({ width: 897, height: 688 })
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys(Key.ENTER)
+    await driver.findElement(By.css("li:nth-child(6) img")).click()
+    await driver.findElement(By.css(".icon > a > img")).click()
+    await driver.findElement(By.css("input")).click()
+    await driver.findElement(By.css("input")).sendKeys("Francisco da Silva")
+    await driver.findElement(By.id("teste")).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-16-validateUpdateTitleBook', async function () {
-    await driver.get('http://localhost:3000/login')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
-    await driver.findElement(By.css('li:nth-child(1) > a > a')).click()
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(2) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(2) > input'))
-      .sendKeys('Um titulo')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(4) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(4) > input'))
-      .sendKeys('um autor')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(6) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(6) > input'))
-      .sendKeys('uma categoria')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(8) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(8) > input'))
-      .sendKeys('um genero')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(10) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(10) > input'))
-      .sendKeys('2009')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(12) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(12) > input'))
-      .sendKeys('uma sinopse')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(14) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(14) > input'))
-      .sendKeys(
-        'https://http2.mlstatic.com/D_NQ_NP_988528-MLB28197643692_092018-O.jpg'
-      )
-    await driver.findElement(By.css('button')).click()
-    await driver.executeScript('window.scrollTo(0,139)')
-    await driver.findElement(By.css('li:nth-child(3) > a > a')).click()
-    await driver.findElement(By.linkText('Um livro')).click()
-    await driver.findElement(By.css('.containerName img')).click()
-    await driver.findElement(By.css('input')).click()
-    await driver.findElement(By.css('input')).sendKeys('Apenas um livro')
-    await driver.findElement(By.id('teste')).click()
+  it('TC-15-vaidateUpdatePhone', async function() {
+    await driver.get("http://localhost:3000/login")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
+    await driver.findElement(By.css("li:nth-child(6) img")).click()
+    await driver.findElement(By.css(".containerTelefone img")).click()
+    await driver.findElement(By.css("input")).click()
+    await driver.findElement(By.css("input")).sendKeys("999999999")
+    await driver.findElement(By.id("button")).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
+    await driver.close()
+  })
+  it('TC-16-validateUpdateTitleBook', async function() {
+    await driver.get("http://localhost:3000/login")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
+    await driver.findElement(By.css("li:nth-child(1) > a > a")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(2) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(2) > input")).sendKeys("Um titulo")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(4) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(4) > input")).sendKeys("um autor")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(6) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(6) > input")).sendKeys("uma categoria")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(8) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(8) > input")).sendKeys("um genero")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(10) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(10) > input")).sendKeys("2009")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(12) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(12) > input")).sendKeys("uma sinopse")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(14) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(14) > input")).sendKeys("https://http2.mlstatic.com/D_NQ_NP_988528-MLB28197643692_092018-O.jpg")
+    await driver.findElement(By.css("button")).click()
+    await driver.executeScript("window.scrollTo(0,139)")
+    await driver.findElement(By.css("li:nth-child(3) > a > a")).click()
+    await driver.findElement(By.linkText("Um livro")).click()
+    await driver.findElement(By.css(".containerName img")).click()
+    await driver.findElement(By.css("input")).click()
+    await driver.findElement(By.css("input")).sendKeys("Apenas um livro")
+    await driver.findElement(By.id("teste")).click()
     {
-      const elements = await driver.findElements(By.css('.titulo'))
+      const elements = await driver.findElements(By.css(".titulo"))
       assert(elements.length)
     }
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-17-validateUpdatAuthorBook', async function () {
-    await driver.get('http://localhost:3000/')
+  it('TC-17-validateUpdatAuthorBook', async function() {
+    await driver.get("http://localhost:3000/")
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
     {
-      const element = await driver.findElement(By.css('button'))
+      const element = await driver.findElement(By.css("button"))
       await driver.actions({ bridge: true }).moveToElement(element).perform()
     }
-    await driver.findElement(By.css('li:nth-child(3) > a > a')).click()
-    await driver.findElement(By.css('.containerName:nth-child(2) p')).click()
-    await driver.findElement(By.css('.containerAuthor img')).click()
-    await driver.findElement(By.css('input')).click()
-    await driver.findElement(By.css('input')).sendKeys('Apenas um autor')
-    await driver.findElement(By.id('teste')).click()
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css("li:nth-child(3) > a > a")).click()
+    await driver.findElement(By.css(".containerName:nth-child(2) p")).click()
+    await driver.findElement(By.css(".containerAuthor img")).click()
+    await driver.findElement(By.css("input")).click()
+    await driver.findElement(By.css("input")).sendKeys("Apenas um autor")
+    await driver.findElement(By.id("teste")).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-18-validateUpdateSynopsisBook', async function () {
-    await driver.get('http://localhost:3000/login')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
+  it('TC-18-validateUpdateSynopsisBook', async function() {
+    await driver.get("http://localhost:3000/login")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
     {
-      const element = await driver.findElement(By.css('button'))
+      const element = await driver.findElement(By.css("button"))
       await driver.actions({ bridge: true }).moveToElement(element).perform()
     }
-    await driver.findElement(By.css('li:nth-child(3) > a > a')).click()
-    await driver.findElement(By.css('.containerName:nth-child(2) p')).click()
-    await driver.findElement(By.css('.containerSinopse img')).click()
-    await driver.findElement(By.css('input')).click()
-    await driver.findElement(By.css('input')).sendKeys('Apenas uma sinopse')
-    await driver.findElement(By.id('teste')).click()
-    await driver.findElement(By.css('.exitButton')).click()
+    await driver.findElement(By.css("li:nth-child(3) > a > a")).click()
+    await driver.findElement(By.css(".containerName:nth-child(2) p")).click()
+    await driver.findElement(By.css(".containerSinopse img")).click()
+    await driver.findElement(By.css("input")).click()
+    await driver.findElement(By.css("input")).sendKeys("Apenas uma sinopse")
+    await driver.findElement(By.id("teste")).click()
+    await driver.findElement(By.css(".exitButton")).click()
     {
-      const element = await driver.findElement(By.css('.exitButton'))
+      const element = await driver.findElement(By.css(".exitButton"))
       await driver.actions({ bridge: true }).moveToElement(element).perform()
     }
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-19-validateUpdateCategoryBook', async function () {
-    await driver.get('http://localhost:3000/')
+  it('TC-19-validateUpdateCategoryBook', async function() {
+    await driver.get("http://localhost:3000/")
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
     {
-      const element = await driver.findElement(By.css('button'))
+      const element = await driver.findElement(By.css("button"))
       await driver.actions({ bridge: true }).moveToElement(element).perform()
     }
-    await driver.findElement(By.css('li:nth-child(3) > a > a')).click()
-    await driver.findElement(By.linkText('Apenas um livro')).click()
-    await driver.findElement(By.css('.containerCategoria img')).click()
-    await driver.findElement(By.css('input')).click()
-    await driver.findElement(By.css('input')).sendKeys('Apenas uma categoria')
-    await driver.findElement(By.id('teste')).click()
+    await driver.findElement(By.css("li:nth-child(3) > a > a")).click()
+    await driver.findElement(By.linkText("Apenas um livro")).click()
+    await driver.findElement(By.css(".containerCategoria img")).click()
+    await driver.findElement(By.css("input")).click()
+    await driver.findElement(By.css("input")).sendKeys("Apenas uma categoria")
+    await driver.findElement(By.id("teste")).click()
     {
-      const elements = await driver.findElements(By.css('.categoria'))
+      const elements = await driver.findElements(By.css(".categoria"))
       assert(elements.length)
     }
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-20-validateUpdateGenreBook', async function () {
-    await driver.get('http://localhost:3000/')
+  it('TC-20-validateUpdateGenreBook', async function() {
+    await driver.get("http://localhost:3000/")
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
     {
-      const element = await driver.findElement(By.css('button'))
+      const element = await driver.findElement(By.css("button"))
       await driver.actions({ bridge: true }).moveToElement(element).perform()
     }
-    await driver.findElement(By.css('li:nth-child(3) > a > a')).click()
-    await driver.findElement(By.linkText('Um titulo')).click()
-    await driver.findElement(By.css('.containerGenero img')).click()
-    await driver.findElement(By.css('input')).click()
-    await driver.findElement(By.css('input')).sendKeys('apenas um genero')
-    await driver.findElement(By.id('teste')).click()
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.executeScript('window.scrollTo(0,0)')
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css("li:nth-child(3) > a > a")).click()
+    await driver.findElement(By.linkText("Um titulo")).click()
+    await driver.findElement(By.css(".containerGenero img")).click()
+    await driver.findElement(By.css("input")).click()
+    await driver.findElement(By.css("input")).sendKeys("apenas um genero")
+    await driver.findElement(By.id("teste")).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.executeScript("window.scrollTo(0,0)")
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-21-validateFieldImage', async function () {
-    await driver.get('http://localhost:3000/')
+  it('TC-21-validateFieldImage', async function() {
+    await driver.get("http://localhost:3000/")
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
     {
-      const element = await driver.findElement(By.css('button'))
+      const element = await driver.findElement(By.css("button"))
       await driver.actions({ bridge: true }).moveToElement(element).perform()
     }
-    await driver.findElement(By.css('li:nth-child(3) > a > a')).click()
-    await driver.findElement(By.linkText('Um titulo')).click()
+    await driver.findElement(By.css("li:nth-child(3) > a > a")).click()
+    await driver.findElement(By.linkText("Um titulo")).click()
     {
-      const elements = await driver.findElements(By.css('.imageItem'))
+      const elements = await driver.findElements(By.css(".imageItem"))
       assert(elements.length)
     }
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-22-validateUpdateImageBook', async function () {
-    await driver.get('http://localhost:3000/')
+  it('TC-22-validateUpdateImageBook', async function() {
+    await driver.get("http://localhost:3000/")
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('form')).click()
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
-    await driver.findElement(By.css('li:nth-child(3) > a > a')).click()
-    await driver.findElement(By.linkText('Um titulo')).click()
-    await driver.findElement(By.css('.imageItem')).click()
-    await driver.findElement(By.css('input')).click()
-    await driver
-      .findElement(By.css('input'))
-      .sendKeys(
-        'https://http2.mlstatic.com/D_NQ_NP_988528-MLB28197643692_092018-O.jpg'
-      )
-    await driver.findElement(By.id('teste')).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css("form")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
+    await driver.findElement(By.css("li:nth-child(3) > a > a")).click()
+    await driver.findElement(By.linkText("Um titulo")).click()
+    await driver.findElement(By.css(".imageItem")).click()
+    await driver.findElement(By.css("input")).click()
+    await driver.findElement(By.css("input")).sendKeys("https://http2.mlstatic.com/D_NQ_NP_988528-MLB28197643692_092018-O.jpg")
+    await driver.findElement(By.id("teste")).click()
     {
-      const elements = await driver.findElements(By.css('.imageItem'))
+      const elements = await driver.findElements(By.css(".imageItem"))
       assert(elements.length)
     }
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-23-validateAddMyCart', async function () {
-    await driver.get('http://localhost:3000/')
+  it('TC-23-validateAddMyCart', async function() {
+    await driver.get("http://localhost:3000/")
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
     {
-      const element = await driver.findElement(By.css('button'))
+      const element = await driver.findElement(By.css("button"))
       await driver.actions({ bridge: true }).moveToElement(element).perform()
     }
-    await driver.findElement(By.css('li:nth-child(1) > a > a')).click()
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(2) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(2) > input'))
-      .sendKeys('Um titulo')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(4) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(4) > input'))
-      .sendKeys('apenas um autor')
-    await driver.findElement(By.css('form')).click()
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(6) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(6) > input'))
-      .sendKeys('apenas uma categoria')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(8) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(8) > input'))
-      .sendKeys('apenas um genero')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(10) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(10) > input'))
-      .sendKeys('2018')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(12) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(12) > input'))
-      .sendKeys('apenas uma sinopse')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(14) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(14) > input'))
-      .sendKeys(
-        'https://http2.mlstatic.com/D_NQ_NP_988528-MLB28197643692_092018-O.jpg'
-      )
-    await driver.findElement(By.css('button')).click()
+    await driver.findElement(By.css("li:nth-child(1) > a > a")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(2) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(2) > input")).sendKeys("Um titulo")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(4) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(4) > input")).sendKeys("apenas um autor")
+    await driver.findElement(By.css("form")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(6) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(6) > input")).sendKeys("apenas uma categoria")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(8) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(8) > input")).sendKeys("apenas um genero")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(10) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(10) > input")).sendKeys("2018")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(12) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(12) > input")).sendKeys("apenas uma sinopse")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(14) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(14) > input")).sendKeys("https://http2.mlstatic.com/D_NQ_NP_988528-MLB28197643692_092018-O.jpg")
+    await driver.findElement(By.css("button")).click()
     {
-      const element = await driver.findElement(By.css('button'))
+      const element = await driver.findElement(By.css("button"))
       await driver.actions({ bridge: true }).moveToElement(element).perform()
     }
-    await driver.executeScript('window.scrollTo(0,139)')
-    await driver.findElement(By.css('.item:nth-child(24) a')).click()
-    await driver.executeScript('window.scrollTo(0,58)')
-    await driver.executeScript('window.scrollTo(0,652)')
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.executeScript("window.scrollTo(0,139)")
+    await driver.findElement(By.css(".item:nth-child(24) a")).click()
+    await driver.executeScript("window.scrollTo(0,58)")
+    await driver.executeScript("window.scrollTo(0,652)")
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-24-validateDeleteABookMyCart', async function () {
-    await driver.get('http://localhost:3000/')
+  it('TC-24-validateDeleteABookMyCart', async function() {
+    await driver.get("http://localhost:3000/")
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
     {
-      const element = await driver.findElement(By.css('button'))
+      const element = await driver.findElement(By.css("button"))
       await driver.actions({ bridge: true }).moveToElement(element).perform()
     }
-    await driver.findElement(By.css('li:nth-child(1) > a > a')).click()
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(2) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(2) > input'))
-      .sendKeys('Apenas um titulo')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(4) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(4) > input'))
-      .sendKeys('apenas um autor')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(6) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(6) > input'))
-      .sendKeys('apenas uma categoria')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(8) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(8) > input'))
-      .sendKeys('apenas um genero')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(10) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(10) > input'))
-      .sendKeys('2008')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(12) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(12) > input'))
-      .sendKeys('apenas uma sinopse')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(14) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(14) > input'))
-      .sendKeys(
-        'https://http2.mlstatic.com/D_NQ_NP_988528-MLB28197643692_092018-O.jpg'
-      )
-    await driver.findElement(By.css('button')).click()
-    await driver.executeScript('window.scrollTo(0,139)')
-    await driver.findElement(By.css('.item:nth-child(28) a')).click()
-    await driver.executeScript('window.scrollTo(0,695)')
-    await driver.findElement(By.css('li:nth-child(5) img')).click()
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css("li:nth-child(1) > a > a")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(2) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(2) > input")).sendKeys("Apenas um titulo")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(4) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(4) > input")).sendKeys("apenas um autor")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(6) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(6) > input")).sendKeys("apenas uma categoria")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(8) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(8) > input")).sendKeys("apenas um genero")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(10) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(10) > input")).sendKeys("2008")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(12) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(12) > input")).sendKeys("apenas uma sinopse")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(14) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(14) > input")).sendKeys("https://http2.mlstatic.com/D_NQ_NP_988528-MLB28197643692_092018-O.jpg")
+    await driver.findElement(By.css("button")).click()
+    await driver.executeScript("window.scrollTo(0,139)")
+    await driver.findElement(By.css(".item:nth-child(28) a")).click()
+    await driver.executeScript("window.scrollTo(0,695)")
+    await driver.findElement(By.css("li:nth-child(5) img")).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-25-validateSearchABook', async function () {
-    await driver.get('http://localhost:3000/')
+  it('TC-25-validateSearchABook', async function() {
+    await driver.get("http://localhost:3000/")
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys(Key.ENTER)
-    await driver.findElement(By.css('li:nth-child(1) > a > a')).click()
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(2) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(2) > input'))
-      .sendKeys('um livro')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(4) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(4) > input'))
-      .sendKeys('apenas um livro')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(6) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(6) > input'))
-      .sendKeys('apenas uma categoria')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(8) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(8) > input'))
-      .sendKeys('apenas um genero')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(10) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(10) > input'))
-      .sendKeys('2008')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(12) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(12) > input'))
-      .sendKeys('apenas uma sinopse')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(14) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(14) > input'))
-      .sendKeys(
-        'https://http2.mlstatic.com/D_NQ_NP_988528-MLB28197643692_092018-O.jpg'
-      )
-    await driver.findElement(By.css('button')).click()
-    await driver.executeScript('window.scrollTo(0,139)')
-    await driver.findElement(By.name('mySearch')).click()
-    await driver.findElement(By.name('mySearch')).sendKeys('um livro')
-    await driver.findElement(By.name('mySearch')).sendKeys(Key.ENTER)
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys(Key.ENTER)
+    await driver.findElement(By.css("li:nth-child(1) > a > a")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(2) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(2) > input")).sendKeys("um livro")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(4) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(4) > input")).sendKeys("apenas um livro")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(6) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(6) > input")).sendKeys("apenas uma categoria")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(8) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(8) > input")).sendKeys("apenas um genero")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(10) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(10) > input")).sendKeys("2008")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(12) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(12) > input")).sendKeys("apenas uma sinopse")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(14) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(14) > input")).sendKeys("https://http2.mlstatic.com/D_NQ_NP_988528-MLB28197643692_092018-O.jpg")
+    await driver.findElement(By.css("button")).click()
+    await driver.executeScript("window.scrollTo(0,139)")
+    await driver.findElement(By.name("mySearch")).click()
+    await driver.findElement(By.name("mySearch")).sendKeys("um livro")
+    await driver.findElement(By.name("mySearch")).sendKeys(Key.ENTER)
     {
-      const elements = await driver.findElements(By.css('.title'))
+      const elements = await driver.findElements(By.css(".title"))
       assert(elements.length)
     }
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-26-validateLogOut', async function () {
-    await driver.get('http://localhost:3000/')
+  it('TC-26-validateLogOut', async function() {
+    await driver.get("http://localhost:3000/")
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('francisco123')
-    await driver.findElement(By.css('button')).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("francisco123")
+    await driver.findElement(By.css("button")).click()
     {
-      const element = await driver.findElement(By.css('button'))
+      const element = await driver.findElement(By.css("button"))
       await driver.actions({ bridge: true }).moveToElement(element).perform()
     }
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
-  it('TC-27-validateContactPageFields', async function () {
-    await driver.get('http://localhost:3000/')
+  it('TC-27-validateContactPageFields', async function() {
+    await driver.get("http://localhost:3000/")
     await driver.manage().window().setRect({ width: 897, height: 688 })
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(3) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(3) > input'))
-      .sendKeys('francisco@gmail.com')
-    await driver.findElement(By.css('.sc-eCImPb:nth-child(5) > input')).click()
-    await driver
-      .findElement(By.css('.sc-eCImPb:nth-child(5) > input'))
-      .sendKeys('franciaco123')
-    await driver.findElement(By.css('button')).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(3) > input")).sendKeys("francisco@gmail.com")
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).click()
+    await driver.findElement(By.css(".sc-eCImPb:nth-child(5) > input")).sendKeys("franciaco123")
+    await driver.findElement(By.css("button")).click()
     {
-      const element = await driver.findElement(By.css('button'))
+      const element = await driver.findElement(By.css("button"))
       await driver.actions({ bridge: true }).moveToElement(element).perform()
     }
-    await driver.findElement(By.css('li:nth-child(5) img')).click()
+    await driver.findElement(By.css("li:nth-child(5) img")).click()
     {
-      const elements = await driver.findElements(
-        By.css('.containerName:nth-child(2) li:nth-child(1) > .containerInfo')
-      )
+      const elements = await driver.findElements(By.css(".containerName:nth-child(2) li:nth-child(1) > .containerInfo"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(
-        By.css('.containerName:nth-child(2) li:nth-child(2) > .containerInfo')
-      )
+      const elements = await driver.findElements(By.css(".containerName:nth-child(2) li:nth-child(2) > .containerInfo"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(
-        By.css('.containerName:nth-child(2) li:nth-child(3) > .containerInfo')
-      )
+      const elements = await driver.findElements(By.css(".containerName:nth-child(2) li:nth-child(3) > .containerInfo"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(
-        By.css('.containerName:nth-child(2) li:nth-child(4) > .containerInfo')
-      )
+      const elements = await driver.findElements(By.css(".containerName:nth-child(2) li:nth-child(4) > .containerInfo"))
       assert(elements.length)
     }
     {
-      const elements = await driver.findElements(
-        By.css('.containerName:nth-child(2) .imageItem')
-      )
+      const elements = await driver.findElements(By.css(".containerName:nth-child(2) .imageItem"))
       assert(elements.length)
     }
-    await driver.findElement(By.css('.exitButton')).click()
-    await driver.findElement(By.css('a > a > img')).click()
+    await driver.findElement(By.css(".exitButton")).click()
+    await driver.findElement(By.css("a > a > img")).click()
     await driver.close()
   })
 })
