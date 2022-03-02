@@ -1,33 +1,51 @@
 import { Router } from 'express';
-import UC from './app/controller/usuarioController';
-import LC from './app/controller/livroController';
+import UC from '../../Backend/src/app/controller/userController';
+import BC from './app/controller/bookController';
 import SC from './app/controller/SessionController';
-import autenticacao from './app/middleware/autenticacao';
+import authentication from '../src/app/middleware/authentication';
+import ML from '../src/app/controller/myListController';
+import CL from '../src/app/controller/cartListController';
 const routes = new Router();
 
-// routes.get('/', (req, res) => res.json({ mensage: 'Raiz funcionando' }));
-routes.get('/busca', UC.get);
-routes.get('/buscaID', autenticacao, UC.getID);
-routes.get('/getLivro', LC.get);
-routes.get('/getUmLivro', LC.getId);
+// --------------------- ROTAS DE LIVRO -----------------------------//
+routes.post('/createBook', authentication, BC.store);
+routes.get('/getBook', BC.get);
+routes.get('/searchBook/:name', BC.searchBook);
+routes.get('/getABook/:id', BC.getId);
+routes.put('/updateBookName/:id', authentication, BC.update);
+routes.put('/updateAuthor/:id', authentication, BC.updateAuthor);
+routes.put('/updateCategory/:id', authentication, BC.updateCategory);
+routes.put('/updateSynopsis/:id', authentication, BC.updateSynopsis);
+routes.put('/updateEdition/:id', authentication, BC.updateEdition);
+routes.put('/updateGenre/:id', authentication, BC.updateGenre);
+routes.put('/updateImage/:id', authentication, BC.updateImage);
+routes.delete('/deleteBook/:id', BC.deleteBook);
 
-// routes.get('/buscaNome', UC.getNome);
+// --------------------- ROTAS DE USUÁRIO ----------------------//
+
+routes.put('/update', authentication, UC.update);
+routes.put('/updateEmail', authentication, UC.updateEmail);
+routes.put('/updatePassword', authentication, UC.updatePassword);
+routes.put('/updatePhone', authentication, UC.updatePhone);
+routes.delete('/deleteUser', authentication, UC.delete);
+routes.get('/getUsers', UC.get);
+routes.get('/searchID', authentication, UC.getID);
+
+// ------------------- ROTAS DE ACESSO -------------------------//
+
+routes.post('/createUser', UC.store);
 routes.post('/login', SC.store);
-routes.post('/createUsuario', UC.store);
 routes.post('/createAdmin', UC.store);
-routes.post('/createLivro', autenticacao, LC.store);
-// routes.use(autenticacao);
 
-routes.put('/update', autenticacao, UC.update);
-routes.put('/updateEmail', autenticacao, UC.updateEmail);
-routes.put('/updateSenha', autenticacao, UC.updateSenha);
-routes.put('/updateNomeLivro', autenticacao, LC.update);
-routes.put('/updateAutor', autenticacao, LC.updateAutor);
-routes.put('/updateCategoria', autenticacao, LC.updateCategoria);
-routes.put('/updateSinopse', autenticacao, LC.updateSinopse);
-routes.put('/updateEdicao', autenticacao, LC.updateEdicao);
-routes.put('/updateGenero', autenticacao, LC.updateGenero);
+// ------------------   ROTAS DA MINHA LISTA -------------------------//
+routes.post('/createList', ML.store);
+routes.get('/searchList/:id', ML.index);
+routes.get('/getUserId/:id', ML.getUserId);
+routes.delete('/deleteBookList/:id_user/:id_book', ML.deleteBook);
 
-routes.delete('/deleteUsuario', autenticacao, UC.delete);
+// ------------------   ROTA DO CARRINHO  -------------------------//
+routes.post('/createCart', CL.store);
+routes.get('/getCart/:id', CL.index);
+routes.delete('/deleteBookCart/:id_user/:id_book', CL.deleteBook);
 
 export default routes;

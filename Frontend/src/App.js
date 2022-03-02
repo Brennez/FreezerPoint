@@ -1,23 +1,23 @@
-import React from "react";
-import GlobalStyle from "./Styles/global";
-import { AutenticacaoProvider } from "./context/autenticacao";
-import { BrowserRouter } from "react-router-dom";
-import Routes from "./Routes/index";
+import React from 'react'
+import GlobalStyle from './styles/global'
+import { AuthenticationProvider } from './context/authentication'
+import { BrowserRouter } from 'react-router-dom'
+import Routes from './routes/index'
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <GlobalStyle />
-        <AutenticacaoProvider>
+        <AuthenticationProvider>
           <Routes></Routes>
-        </AutenticacaoProvider>
+        </AuthenticationProvider>
         {/* <Home />
         <Register />
         <RegisterBook /> */}
       </BrowserRouter>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
